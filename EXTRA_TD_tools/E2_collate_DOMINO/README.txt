@@ -1,0 +1,1 @@
+Before running the script, please create a pixa.csv file in the DOMINO folder which contains all the information from the pixa.txt file. The structure of the csv file must followed the example given in the folder.

@@ -1,0 +1,2 @@
+cd "C:/Users/tober/OneDrive - Nexus365/Projects/Lina Forma/software_package/EXTRA_TD_tools/E3_loop_THERIAK/THERIAK_automation/"
+"C:/Users/tober/OneDrive - Nexus365/Projects/Lina Forma/software_package/EXTRA_TD_tools/E3_loop_THERIAK/THERIAK_automation/"theriak.exe <automate.txt

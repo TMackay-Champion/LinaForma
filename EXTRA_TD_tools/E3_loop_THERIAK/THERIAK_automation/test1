@@ -1,0 +1,26 @@
+08.11.2023 - 10:11:37  CPU time:    0h 00m 02.47s
+   1
+SI(68.41)AL(11.04)FE(3.09)MG(1.98)MN(0.05)CA(0.48)NA(1.08)K(2.57)TI(0.74)H(100)O(?)
+  22
+ED34 core
+theriak version: 15.r187x-g
+database: td-pelite.txt
+H2O: PS94H2O
+PL: site mixing+margules
+EPI: site mixing+margules
+GARNET: site mixing+margules
+WM: site mixing+margules
+BI: site mixing+margules
+OPX: site mixing+margules
+CORD: site mixing+margules
+ST: site mixing+margules
+CHL: site mixing+margules
+CTD: site mixing+margules
+SPL: site mixing+margules
+MThi: site mixing+margules
+ILM1: site mixing+margules
+drv-file: garnet_fractionation.txt
+REMOVE  GARNET  100
+TP  100  1000
+TP  500  8000  1
+*

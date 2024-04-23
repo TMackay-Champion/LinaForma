@@ -1,0 +1,531 @@
+25
+     O         AL        BA        C         CA        CL        CO
+     CU        F         FE        H         K         MN        MG
+     NA        NI        P         S         SI        SR        TI
+     ZN        ZR        B         E
+  15.99940  26.98154 137.32700  12.01100  40.07800  35.45270  58.93320
+  63.54600  18.99840  55.84700   1.00794  39.09830  54.93085  24.30500
+  22.98977  58.69000  30.97362  32.06600  28.08550  87.62000  47.88000
+  65.39000  91.22400  10.81000   1.00000
+   0.0       1.5       1.0       2.0       1.0       0.0       1.0
+   1.0       0.0       1.0       0.5       0.5       1.0       1.0
+   0.5       1.0       1.0       0.0       2.0       1.0       2.0
+   1.0       2.0       0.0       0.0
+**** MINERAL DATA *****    from Holland and Powell (1998+)
+!albite               SI(3)AL(1)NA(1)O(8)    ab            1nh
+! ST              0.0   -3934560.000       210.1000        10.0060
+! C3        452.00000     -0.0133640     -1275900.0      -3953.600           0.00
+! VHP     0.000045600          593.0       950.0000          16.00        0.12400
+! VH2         10.0000         4.0000   -0.000088950
+high-albite          SI(3)AL(1)NA(1)O(8)    abh           1nh
+ ST              0.0   -3924800.000       223.4000        10.1090
+ C3        452.00000     -0.0133640     -1275900.0      -3953.600           0.00
+ VHP     0.000045600          593.0         0.0000           0.00        0.00000
+ VH2         10.0000         4.0000   -0.000088950
+microcline           SI(3)AL(1)K(1)O(8)    mic           1nh
+ ST              0.0   -3975110.000       216.0000        10.8920
+ C3        448.80000     -0.0100750     -1007300.0      -3973.100           0.00
+ VHP     0.000033500          574.0         0.0000           0.00        0.00000
+ VH2         10.0000         4.0000   -0.000086100
+sanidine             SI(3)AL(1)K(1)O(8)    san           1nh
+ ST              0.0   -3964960.000       230.0000        10.9000
+ C3        448.80000     -0.0100750     -1007300.0      -3973.100           0.00
+ VHP     0.000033500          574.0         0.0000           0.00        0.00000
+ VH2         10.0000         4.0000   -0.000086100
+anorthite            SI(2)AL(2)CA(1)O(8)    an            1nh
+ ST              0.0   -4233480.000       200.0000        10.0790
+ C3        371.60000      0.0126150     -4110200.0      -2038.400           0.00
+ VHP     0.000023800          919.0      2300.0000          11.00        0.05000
+ VH2         10.0000         4.0000   -0.000137850
+pyrope               SI(3)AL(2)MG(3)O(12)    py            3nh
+ ST              0.0   -6284720.000       266.3000        11.3180
+ C3        633.50000      0.0000000     -5196100.0      -4315.200           0.00
+ VHP     0.000043600         1737.0         0.0000           0.00        0.00000
+ VH2         10.0000         4.0000   -0.000260550
+almandine            SI(3)AL(2)FE(3)O(12)    alm           3nh
+ ST              0.0   -5263520.000       340.0000        11.5110
+ C3        677.30000      0.0000000     -3772700.0      -5044.000           0.00
+ VHP     0.000040300         1690.0         0.0000           0.00        0.00000
+ VH2         10.0000         4.0000   -0.000253500
+spessartine          SI(3)AL(2)MN(3)O(12)    spss          3nh
+ ST              0.0   -5646400.000       367.0000        11.7920
+ C3        584.60000     -0.0015930     -7516700.0      -2750.100           0.00
+ VHP     0.000046200         1790.0         0.0000           0.00        0.00000
+ VH2         10.0000         4.0000   -0.000268500
+grossular            SI(3)AL(2)CA(3)O(12)    gr            3nh
+ ST              0.0   -6644150.000       255.0000        12.5350
+ C3        626.00000      0.0000000     -5779200.0      -4002.900           0.00
+ VHP     0.000039300         1680.0         0.0000           0.00        0.00000
+ VH2         10.0000         4.0000   -0.000252000
+andradite            SI(3)FE(2)CA(3)O(12)    andr          3nh
+ ST              0.0   -5768130.000       318.0000        13.2040
+ C3        638.60000      0.0000000     -4955100.0      -3989.200           0.00
+ VHP     0.000039300         1590.0         0.0000           0.00        0.00000
+ VH2         10.0000         4.0000   -0.000238500
+phlogopite           SI(3)AL(1)MG(3)K(1)O(12)H(2)    phl           2nh
+ ST              0.0   -6219160.000       328.0000        14.9640
+ C3        770.30000     -0.0369390     -2328900.0      -6531.600           0.00
+ VHP     0.000057900          513.0         0.0000           0.00        0.00000
+ VH2         10.0000         4.0000   -0.000076950
+annite               SI(3)AL(1)FE(3)K(1)O(12)H(2)    ann           3nh
+ ST              0.0   -5151670.000       418.0000        15.4320
+ C3        815.70000     -0.0348610        19800.0      -7466.700           0.00
+ VHP     0.000057900          513.0         0.0000           0.00        0.00000
+ VH2         10.0000         4.0000   -0.000076950
+Mn-biotite           SI(3)AL(1)MN(3)K(1)O(12)H(2)    mnbi          2nh
+ ST              0.0   -5462840.000       433.0000        15.2640
+ C3        809.90000     -0.0592130     -1514400.0      -6998.700           0.00
+ VHP     0.000057900          513.0         0.0000           0.00        0.00000
+ VH2         10.0000         4.0000   -0.000076950
+eastonite            SI(2)AL(3)MG(2)K(1)O(12)H(2)    east          2nh
+ ST              0.0   -6338170.000       318.0000        14.7380
+ C3        785.50000     -0.0380310     -2130300.0      -6893.700           0.00
+ VHP     0.000057900          513.0         0.0000           0.00        0.00000
+ VH2         10.0000         4.0000   -0.000076950
+Na-phlogopite        SI(3)AL(1)MG(3)NA(1)O(12)H(2)    naph          1nh
+ ST              0.0   -6172820.000       318.0000        14.4500
+ C3        773.50000     -0.0402290     -2597900.0      -6512.600           0.00
+ VHP     0.000057900          513.0         0.0000           0.00        0.00000
+ VH2         10.0000         4.0000   -0.000076950
+muscovite            SI(3)AL(3)K(1)O(12)H(2)    mu            2nh
+ ST              0.0   -5984180.000       292.0000        14.0830
+ C3        756.40000     -0.0198400     -2170000.0      -6979.200           0.00
+ VHP     0.000059600          490.0         0.0000           0.00        0.00000
+ VH2         10.0000         4.0000   -0.000073500
+celadonite           SI(4)AL(1)MG(1)K(1)O(12)H(2)    cel           1nh
+ ST              0.0   -5842420.000       290.0000        13.9570
+ C3        741.20000     -0.0187480     -2368800.0      -6616.900           0.00
+ VHP     0.000059600          700.0         0.0000           0.00        0.00000
+ VH2         10.0000         4.0000   -0.000105000
+Fe-celadonite        SI(4)AL(1)FE(1)K(1)O(12)H(2)    fcel          1nh
+ ST              0.0   -5477430.000       329.0000        14.0700
+ C3        756.30000     -0.0191470     -1586100.0      -6928.700           0.00
+ VHP     0.000059600          700.0         0.0000           0.00        0.00000
+ VH2         10.0000         4.0000   -0.000105000
+paragonite           SI(3)AL(3)NA(1)O(12)H(2)    pa            1nh
+ ST              0.0   -5946340.000       276.0000        13.2110
+ C3        803.00000     -0.0315800       217000.0      -8151.000           0.00
+ VHP     0.000077400          550.0         0.0000           0.00        0.00000
+ VH2         10.0000         4.0000   -0.000082500
+margarite            SI(2)AL(4)CA(1)O(12)H(2)    ma            1nh
+ ST              0.0   -6241230.000       267.0000        12.9640
+ C3        744.40000     -0.0168000     -2074400.0      -6783.200           0.00
+ VHP     0.000048700         1300.0         0.0000           0.00        0.00000
+ VH2         10.0000         4.0000   -0.000195000
+pyrophanite          TI(1)MN(1)O(3)    pnt           1nh
+ ST              0.0   -1359240.000       104.9000         3.2880
+ C3        141.90000      0.0033730     -1940700.0       -407.600           0.00
+ VHP     0.000049500         1770.0         0.0000           0.00        0.00000
+ VH2         10.0000         4.0000   -0.000265500
+geikielite           TI(1)MG(1)O(3)    geik          1nh
+ ST              0.0   -1567490.000        74.6000         3.0860
+ C3        151.00000      0.0000000     -1890400.0       -652.200           0.00
+ VHP     0.000049500         1770.0         0.0000           0.00        0.00000
+ VH2         10.0000         4.0000   -0.000265500
+ilmenite             TI(1)FE(1)O(3)    ilm           1nh
+ ST              0.0   -1231300.000       108.9000         3.1690
+ C3        138.90000      0.0050810     -1288800.0       -463.700           0.00
+ VHP     0.000049500         1770.0      1900.0000          11.00        0.02000
+ VH2         10.0000         4.0000   -0.000265500
+clinochlore          SI(3)AL(2)MG(5)O(18)H(8)    clin          2nh
+ ST              0.0   -8912410.000       430.5000        21.0900
+ C3       1161.80000      0.0101330     -7657300.0      -9690.900           0.00
+ VHP     0.000039800          870.0         0.0000           0.00        0.00000
+ VH2         10.0000         4.0000   -0.000130500
+amesite              SI(2)AL(4)MG(4)O(18)H(8)    ames          2nh
+ ST              0.0   -9034440.000       410.0000        20.5200
+ C3       1177.00000      0.0090410     -7458700.0     -10053.000           0.00
+ VHP     0.000039800          870.0         0.0000           0.00        0.00000
+ VH2         10.0000         4.0000   -0.000130500
+Al-free-chlorite     SI(4)MG(6)O(18)H(8)    afchl         2nh
+ ST              0.0   -8727380.000       428.0000        21.6600
+ C3       1146.60000      0.0112250     -7855900.0      -9328.800           0.00
+ VHP     0.000039800          870.0         0.0000           0.00        0.00000
+ VH2         10.0000         4.0000   -0.000130500
+daphnite             SI(3)AL(2)FE(5)O(18)H(8)    daph          3nh
+ ST              0.0   -7134850.000       565.0000        21.3400
+ C3       1237.40000      0.0135940     -3743000.0     -11250.000           0.00
+ VHP     0.000039800          870.0         0.0000           0.00        0.00000
+ VH2         10.0000         4.0000   -0.000130500
+Mn-chlorite          SI(3)AL(2)MN(5)O(18)H(8)    mnchl         2nh
+ ST              0.0   -7666530.000       595.0000        22.5900
+ C3       1227.80000     -0.0269900     -6299800.0     -10469.400           0.00
+ VHP     0.000039800          870.0         0.0000           0.00        0.00000
+ VH2         10.0000         4.0000   -0.000130500
+Mg-staurolite        SI(7.5)AL(18)MG(4)O(48)H(4)    mst           4nh
+ ST              0.0  -25101490.000       910.0000        44.2600
+ C3       2820.50000     -0.0593660    -13774000.0     -24126.000           0.00
+ VHP     0.000012000         1200.0         0.0000           0.00        0.00000
+ VH2         10.0000         4.0000   -0.000180000
+Fe-staurolite        SI(7.5)AL(18)FE(4)O(48)H(4)    fst           4nh
+ ST              0.0  -23753930.000      1010.0000        44.8800
+ C3       2880.00000     -0.0565950    -10642000.0     -25373.000           0.00
+ VHP     0.000012000         1200.0         0.0000           0.00        0.00000
+ VH2         10.0000         4.0000   -0.000180000
+Mn-staurolite        SI(7.5)AL(18)MN(4)O(48)H(4)    mnst          4nh
+ ST              0.0  -24203880.000      1024.0000        45.4600
+ C3       2873.30000     -0.0890640    -12688000.0     -24749.000           0.00
+ VHP     0.000012000         1200.0         0.0000           0.00        0.00000
+ VH2         10.0000         4.0000   -0.000180000
+andalusite           SI(1)AL(2)O(5)    and           1nh
+ ST              0.0   -2588800.000        92.7000         5.1530
+ C3        277.30000     -0.0065880     -1914100.0      -2265.600           0.00
+ VHP     0.000041100         1334.0         0.0000           0.00        0.00000
+ VH2         10.0000         4.0000   -0.000200100
+kyanite              SI(1)AL(2)O(5)    ky            1nh
+ ST              0.0   -2593110.000        83.5000         4.4140
+ C3        279.40000     -0.0071240     -2055600.0      -2289.400           0.00
+ VHP     0.000040400         1590.0         0.0000           0.00        0.00000
+ VH2         10.0000         4.0000   -0.000238500
+sillimanite          SI(1)AL(2)O(5)    sill          1nh
+ ST              0.0   -2585680.000        95.5000         4.9860
+ C3        280.20000     -0.0069000     -1375700.0      -2399.400           0.00
+ VHP     0.000022100         1320.0      2200.0000           4.00        0.03500
+ VH2         10.0000         4.0000   -0.000198000
+cordierite           SI(5)AL(4)MG(2)O(18)    crd           1nh
+ ST              0.0   -9163370.000       407.5000        23.3220
+ C3        821.30000      0.0433390     -8211200.0      -5000.000           0.00
+ VHP     0.000007600          810.0      1800.0000          20.00        0.20000
+ VH2         10.0000         4.0000   -0.000121500
+hydr.cordierite      SI(5)AL(4)MG(2)O(19)H(2)    hcrd          1nh
+ ST              0.0   -9446980.000       487.3000        23.3220
+ C3        869.70000      0.0519950     -7723700.0      -5251.200           0.00
+ VHP     0.000007600          810.0      1800.0000          20.00        0.20000
+ VH2         10.0000         4.0000   -0.000121500
+Fe-cordierite        SI(5)AL(4)FE(2)O(18)    fcrd          2nh
+ ST              0.0   -8436070.000       475.0000        23.7100
+ C3        851.50000      0.0447240     -6645000.0      -5623.400           0.00
+ VHP     0.000007600          810.0      1800.0000          20.00        0.20000
+ VH2         10.0000         4.0000   -0.000121500
+Mn-cordierite        SI(5)AL(4)MN(2)O(18)    mncrd         1nh
+ ST              0.0   -8681180.000       475.0000        24.0270
+ C3        847.70000      0.0284900     -7668200.0      -5311.400           0.00
+ VHP     0.000007600          810.0      1800.0000          20.00        0.20000
+ VH2         10.0000         4.0000   -0.000121500
+Mg-chloritoid        SI(1)AL(2)MG(1)O(7)H(2)    mctd          1nh
+ ST              0.0   -3551420.000       140.0000         6.8750
+ C3        464.40000     -0.0126540     -1147200.0      -4341.000           0.00
+ VHP     0.000054200         1465.0         0.0000           0.00        0.00000
+ VH2         10.0000         4.0000   -0.000219750
+Fe-chloritoid        SI(1)AL(2)FE(1)O(7)H(2)    fctd          1nh
+ ST              0.0   -3215380.000       155.0000         6.9800
+ C3        484.60000     -0.0138080      -198900.0      -4762.200           0.00
+ VHP     0.000054200         1465.0         0.0000           0.00        0.00000
+ VH2         10.0000         4.0000   -0.000219750
+Mn-chloritoid        SI(1)AL(2)MN(1)O(7)H(2)    mnctd         1nh
+ ST              0.0   -3329280.000       166.0000         7.1750
+ C3        464.40000     -0.0126540     -1147200.0      -4341.000           0.00
+ VHP     0.000054200         1465.0         0.0000           0.00        0.00000
+ VH2         10.0000         4.0000   -0.000219750
+!zoisite              SI(3)AL(3)CA(2)O(13)H(1)    zo            1nh
+! ST              0.0   -6898610.000       297.0000        13.5750
+! C3        595.70000      0.0622970     -5921300.0      -3394.700           0.00
+! VHP     0.000067000         1120.0         0.0000           0.00        0.00000
+! VH2         10.0000         4.0000   -0.000168000
+!clinozoisite         SI(3)AL(3)CA(2)O(13)H(1)    cz            1nh
+! ST              0.0   -6898150.000       301.0000        13.6300
+! C3        567.00000      0.0180630     -7034000.0      -2603.000           0.00
+! VHP     0.000046000         1120.0         0.0000           0.00        0.00000
+! VH2         10.0000         4.0000   -0.000168000
+!Fe-epidote           SI(3)AL(1)FE(2)CA(2)O(13)H(1)    fep           2nh
+! ST              0.0   -6002180.000       357.0000        14.1900
+! C3        520.10000      0.0314990    -15426000.0        218.800           0.00
+! VHP     0.000050500         1294.0         0.0000           0.00        0.00000
+! VH2         10.0000         4.0000   -0.000199280
+!epidote              SI(3)AL(2)FE(1)CA(2)O(13)H(1)    ep            2nh
+! ST              0.0   -6463210.000       328.0000        13.9100
+! C3        544.60000      0.0247810    -11230000.0      -1192.100           0.00
+! VHP     0.000050500         1233.0         0.0000           0.00        0.00000
+! VH2         10.0000         4.0000   -0.000184950
+quartz               SI(1)O(2)    q             1nh
+ ST              0.0    -910830.000        41.5000         2.2688
+ C3        110.70000     -0.0051890            0.0      -1128.300           0.00
+ VHP     0.000006500          750.0       847.0000           4.95        0.11880
+ VH2         10.0000         4.0000   -0.000112500
+rutile               TI(1)O(2)    ru            1nh
+ ST              0.0    -944180.000        50.6000         1.8820
+ C3         90.40000      0.0029000            0.0       -623.800           0.00
+ VHP     0.000044300         2225.0         0.0000           0.00        0.00000
+ VH2         10.0000         4.0000   -0.000333750
+sphene               SI(1)TI(1)CA(1)O(5)    sph           1nh
+ ST              0.0   -2595550.000       131.2000         5.5650
+ C3        233.70000      0.0040430     -2306500.0      -1207.600           0.00
+ VHP     0.000042000         1100.0         0.0000           0.00        0.00000
+ VH2         10.0000         4.0000   -0.000165000
+forsterite           SI(1)MG(2)O(4)    fo            2nh
+ ST              0.0   -2172200.000        95.1000         4.3660
+ C3        233.30000      0.0014940      -603800.0      -1869.700           0.00
+ VHP     0.000061300         1250.0         0.0000           0.00        0.00000
+ VH2         10.0000         4.0000   -0.000187500
+corundum             AL(2)O(3)    cor           2nh
+ ST              0.0   -1675250.000        50.9000         2.5580
+ C3        139.50000      0.0058900     -2460600.0       -589.200           0.00
+ VHP     0.000041900         2520.0         0.0000           0.00        0.00000
+ VH2         10.0000         4.0000   -0.000378000
+hematite             FE(2)O(3)    hem           2nh
+ ST              0.0    -825710.000        87.4000         3.0274
+ C3        163.90000      0.0000000     -2257200.0       -657.600           0.00
+ VHP     0.000059900         1996.0       955.0000          15.60        0.00000
+ VH2         10.0000         4.0000   -0.000299400
+!
+***** GAS DATA *****
+water.fluid          O(1)H(2)    H2O           1nh
+ SPC   HHP98
+ ST              0.0    -241810.000       188.8000         0.0000
+ C3         40.10000      0.0086560       487500.0       -251.200           0.00
+ VHP     0.000000000            0.0         0.0000           0.00        0.00000
+ VH2          0.0000         0.0000    0.000000000
+!
+!=================================================================================
+!=================================================================================
+! feldspar tc 325
+!---------
+! "ternary" feldspar from the supplementary material (file nckfmash) in:
+! Baldwin J.A. et al. (2005): Modelling of mineral equilibria in ultrahigh-
+! temperature metamorphic rocks from the Anapolis–Itaucu Complex, central Brazil
+! J. metamorphic Geol., 2005, 23, 511-531.
+!
+! Based on: Holland, TJB & Powell, R (2003) Activity-composition relations for 
+! phases in petrological calculations: an asymmetric multicomponent formulation.
+! Contributions to Mineralogy and Petrology, 145, 492-501.
+!
+****MINERAL DATA*****    Feldspar new definition in: baldwin et al. 2005
+anorthiteC1            CA(1)AL(2)SI(2)O(8)    anc1           nh
+ ST              0.0       7030.000         4.6600         0.0000
+ COM   anorthite[1]     0    anorthite
+!
+*****  SOLUTION DATA  *****
+FSP    (MARGULES,IDEAL)  M(1):Na,K,Ca
+   sanidine       K      1.0     0    0
+   high-albite    Na     0.643   0    0
+   anorthiteC1    Ca     1.0     0    0
+!
+*****  MARGULES PARAMETER  ***** as in tc 3.25
+high-albite - anorthiteC1
+12      3100.    0.00      0.00
+sanidine - high-albite
+12     25100.   10.80      0.338
+sanidine - anorthiteC1
+12     40000.    0.00      0.00
+!
+!=================================================================================
+!=================================================================================
+! garnet tc325 
+! ------
+!
+! White, R. W., Pomroy, N. E. & Powell, R., 2005. An in situ metatexite-diatexite 
+! transition in upper amphibolite facies rocks from Broken Hill, Australia. Journal
+! of Metamorphic Geology, 23, 579-602.
+!
+! Zeh, A. & Holness, M. B., 2003. The effect of reaction overstep on garnet 
+! microtextures in metapelitic rocks of the Ilesha Schist Belt, SW Nigeria. Journal 
+! of Petrology, 44, 967-994.
+!
+! White, R. W., Powell, R., Holland, T. J. B. & Worley, B. A., 2000. The effect of 
+! TiO2 and Fe2O3 on metapelitic assemblages at greenschist and amphibolite facies 
+! conditions: mineral equilibria calculations in the system K2O-FeO-MgO-Al2O3-SiO2-
+! H2O-TiO2-Fe2O3. Journal of Metamorphic Geology, 18, 497-511.
+!
+! Mahar, E. M., Baker, J. M., Powell, R., Holland, T. J. B. & Howell, N., 1997. The
+! effect of Mn on mineral stability in metapelites. Journal of Metamorphic Geology,
+! 15, 223-238.
+!
+! W_prp-alm and W_alm-sps are from ???.
+!
+*****  SOLUTION DATA  *****   garnet
+GARNET    (MARGULES,SITE)   M(3):Ca,Mg,Fe,Mn
+   grossular      Ca,Ca,Ca - Al,Al
+   pyrope         Mg,Mg,Mg - Al,Al
+   almandine      Fe,Fe,Fe - Al,Al
+   spessartine    Mn,Mn,Mn - Al,Al
+!
+*****  MARGULES PARAMETER  *****
+pyrope - grossular
+12     33000.    0.00    0.00
+pyrope - almandine
+12     2500.    0.00    0.00
+pyrope - spessartine
+12     4500.    0.00    0.00
+almandine - spessartine
+12      240.    0.00    0.00
+!
+!=================================================================================
+!=================================================================================
+! Biotite with Ti
+! ------
+! This is the tc32 model (Powell and Holland, 1999) with the addition
+! of Ti-biotite from White et al. (2000)
+! Note that the landau properties include quartz
+!
+****MINERAL DATA*****   tibi
+Ti-biotite        K(1)MG(1)TI(1)AL(1)SI(3)O(12)H(2)   tibi          2nh
+ ST              0.0       45000.000         0.0000         0.0000
+COM    phlogopite[1]rutile[1]quartz[1]forsterite[-1]
+****MINERAL DATA*****  biotite
+obiotite          K(1)MG(2)FE(1)AL(1)SI(3)O(12)H(2)   obi           2nh
+ ST              0.0     -10730.000         0.0000         0.0000
+COM    phlogopite[2/3]annite[1/3]
+!
+*****  SOLUTION DATA  ***** tbio
+TBi     (-SITE,MARGULES)    M2(2):Mg,Fe,Mn,vc - M1(1):Mg,Fe,Al,Mn,Ti - T1(2):Si,Al
+   phlogopite     Mg,Mg - Mg - Al,Si
+   annite         Fe,Fe - Fe - Al,Si
+   eastonite      Mg,Mg - Al - Al,Al
+   obiotite       Mg,Mg - Fe - Al,Si
+   Mn-biotite     Mn,Mn - Mn - Al,Si
+   Ti-biotite     Mg,vc - Ti - Al,Si
+!
+*****  MARGULES PARAMETER  *****
+phlogopite - annite
+12      9000.0   0.0   0.0
+phlogopite - eastonite
+12     10000.0   0.0   0.0
+phlogopite - obiotite
+12      3000.0   0.0   0.0
+annite - eastonite
+12     -1000.0   0.0   0.0
+annite - obiotite
+12      6000.0   0.0   0.0
+eastonite - obiotite
+12     10000.0   0.0   0.0
+Ti-biotite - annite
+12     12000.0   0.0   0.0
+Ti-biotite - phlogopite
+12    -10000.0   0.0   0.0 
+!
+!=================================================================================
+!=================================================================================
+! white mica tc325
+! ----------
+! R. COGGON AND T. J . B. HOLLAND(2002): Mixing properties of phengitic micas and 
+! revised garnet-phengite thermobarometers. J. metamorphic Geol., 2002, 20, 683–696
+!
+*****  SOLUTION DATA  *****
+PHNG    (-SITE,MARGULES)   A(1):K,Na - M2A(1):Al,Mg,Fe - T1(2):Al,Si
+   muscovite        K - Al - Al,Si      0.63   0.0   0.0
+   celadonite       K - Mg - Si,Si      0.63   0.0   0.0
+   Fe-celadonite    K - Fe - Si,Si      0.63   0.0   0.0
+   paragonite       Na - Al - Al,Si     0.37   0.0   0.0
+!
+*****  MARGULES PARAMETER  *****
+muscovite - paragonite
+12     10120.    -3.40    0.353
+muscovite - celadonite
+12         0.     0.00    0.200
+muscovite - Fe-celadonite
+12         0.     0.00    0.200
+paragonite - celadonite
+12     52000.     0.00    0.000
+paragonite - Fe-celadonite
+12     52000.     0.00    0.000
+!
+!=================================================================================
+!=================================================================================
+! ilmenite ideal
+! --------------
+!
+*****  SOLUTION DATA  *****
+ILM     (IDEAL)
+  ilmenite
+  geikielite
+  pyrophanite
+!
+!=================================================================================
+!=================================================================================
+! chlorite: MnFMASH
+! --------
+! Holland, TJB, Baker, JM & Powell, R (1998) Mixing properties and activity-
+! composition relationships of chlorites in the system MgO-FeO-Al2O3-SiO2-H2O.
+! European Journal of Mineralogy, 10, 395-406.
+!
+! simplification becuse of equipartitioning of Mg and Fe!!!
+! If coded in fsol: Gibbs-Duhem fail.
+!
+*****  SOLUTION DATA  *****   chlr, as in perplex
+CHLR     (-SITE,MARGULES)    M23(4):Mg,Fe,Mn - M1(1):Mg,Fe,Al,Mn - M4(1):Mg,Al,Fe,Mn - T1(2):Si,Al
+   Al-free-chlorite   Mg,Mg,Mg,Mg - Mg - Mg - Si,Si
+   clinochlore        Mg,Mg,Mg,Mg - Mg - Al - Al,Si
+   daphnite           Fe,Fe,Fe,Fe - Fe - Al - Al,Si
+   amesite            Mg,Mg,Mg,Mg - Al - Al - Al,Al
+   Mn-chlorite        Mn,Mn,Mn,Mn - Mn - Al - Al,Si
+!
+*****  MARGULES PARAMETER  *****
+Al-free-chlorite - clinochlore
+12     18000.0   0.0   0.0
+Al-free-chlorite - daphnite
+12     14500.0   0.0   0.0
+Al-free-chlorite - amesite
+12     20000.0   0.0   0.0
+clinochlore - daphnite
+12      2500.0   0.0   0.0
+clinochlore - amesite
+12     18000.0   0.0   0.0
+daphnite - amesite
+12     13500.0   0.0   0.0
+!
+!=================================================================================
+!=================================================================================
+! staurolite tc325?
+! ----------
+! Holland, T.J.B., & Powell, R., 1998. An internally consistent thermodynamic dataset
+! for phases of petrological interest. Journal of Metamorphic Geology, 16, 309-343.
+!
+! Mahar, E.M., Baker, J.M., Powell, R. Holland, T.J.B. & Howell, N., 1997. 
+! The effect of Mn on mineral stability in metapelites. 
+! Journal of Metamorphic Geology, 15, 223-238.
+!
+*****  SOLUTION DATA  *****
+STAU     (IDEAL,MARGULES)4     M(4):Fe,Mg,Mn
+   Mg-staurolite        Mg,Mg,Mg,Mg
+   Fe-staurolite        Fe,Fe,Fe,Fe
+   Mn-staurolite        Mn,Mn,Mn,Mn
+!
+*****  MARGULES PARAMETER  *****
+Mg-staurolite - Fe-staurolite
+12     -8000.0   0.0   0.0
+!
+!=================================================================================
+!=================================================================================
+! cordierite tc325
+! ----------
+! Holland, TJB & Powell, R (1998) An internally consistent thermodynamic dataset
+! for phases of petrological interest. Journal of Metamorphic Geology, 16, 309-343.
+!
+! Mahar, E.M., Baker, J.M., Powell, R. Holland, T.J.B. & Howell, N., 1997. 
+! The effect of Mn on mineral stability in metapelites. 
+! Journal of Metamorphic Geology, 15, 223-238.
+!
+*****  SOLUTION DATA  *****
+CORD     (-SITE)     M(2):Fe,Mg,Mn - B(1):n,h
+   cordierite           Mg,Mg - n
+   Fe-cordierite        Fe,Fe - n
+   Mn-cordierite        Mn,Mn - n
+   hydr.cordierite      Mg,Mg - h
+!
+!=================================================================================
+!=================================================================================
+! chloritoide: MnFMASHO
+! -----------
+! White, RW, Powell, R, Holland, TJB & Worley, BA (2000) The effect of TiO2 and
+! Fe2O3 on metapelitic assemblages at greenschist and amphibolite facies conditions:
+! mineral equilibria calculations in the system K2O-FeO-MgO-Al2O3-SiO2-H2O-TiO2-Fe2O3.
+! Journal of Metamorphic Geology, 18, 497-511.
+!
+! Mahar, E.M., Baker, J.M., Powell, R. Holland, T.J.B. & Howell, N., 1997. 
+! The effect of Mn on mineral stability in metapelites. 
+! Journal of Metamorphic Geology, 15, 223-238.
+!
+!****MINERAL DATA*****
+!F3-chloritoid               SI(1)FE(2)MG(1)O(7)H(2)    ctdo           nxh
+! ST              0.0      53000.000         0.0000         0.0000
+! COM   Mg-chloritoid[0.5]corundum[-1]hematite[1]
+!
+*****  SOLUTION DATA  *****   chtd
+CHTD      (IDEAL,MARGULES)     M(1):Mn,Mg,Fe - Y(2):Al,F3
+   Mg-chloritoid     Mg - Al,Al
+   Fe-chloritoid     Fe - Al,Al
+   Mn-chloritoid     Mn - Al,Al
+!   F3-chloritoid     Mg - F3,F3
+*****  MARGULES PARAMETER  *****
+Mg-chloritoid - Fe-chloritoid
+12     1000.    0.00   0.00

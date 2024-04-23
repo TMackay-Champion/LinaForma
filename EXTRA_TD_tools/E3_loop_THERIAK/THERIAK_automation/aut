@@ -1,0 +1,30 @@
+23.04.2024 - 16:54:23  CPU time:    0h 00m 00.16s
+   1
+SI(60.0495)TI(0.70572)AL(21.2542)FE(5.0268)MN(0.061798)MG(3.3368)CA(0.63177)NA(2.5393)K(4.8597)H(32.745)O(183.0326)
+  26
+Forshaw Pelite
+theriak version: 15.r187x-g
+database: td_pelite.txt
+H2O: PS94H2O
+STLP: site mixing+margules
+MIN: site mixing+margules
+PREH: site mixing+margules
+PMP: site mixing
+GRT: site mixing+margules
+LIQtc6: external+margules
+FSP4TR: site mixing+margules
+ABHGP: site mixing+margules
+EP11: site mixing+margules
+MRG: site mixing+margules
+WM: site mixing+margules
+BI14: site mixing+margules
+OPX14: site mixing+margules
+SAPP: site mixing+margules
+CD14: site mixing+margules
+ST14: site mixing+margules
+CHL14: site mixing+margules
+CTD14: site mixing+margules
+MTLOW: site mixing+margules
+ILM00: site mixing+margules
+drv-file: ptpoint.txt
+TP  1000  10000

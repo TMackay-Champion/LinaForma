@@ -1,0 +1,54 @@
+03.08.2023 - 14:09:02  CPU time:    0h 00m 00.06s
+   1
+SI(51.64)AL(21.76)CA(11)MG(10)FE(6.9)K(0.46)NA(6.91)TI(0.58)H(9.81)O(173.98)
+  50
+MC-1
+theriak version: 15.r187x-g
+database: td-mafic.txt
+H2O: PS94H2O
+OPXW14: site mixing+margules
+LIQMB16: external+margules
+CAMPG16: site mixing+margules
+AUGG16: site mixing+margules
+GRTW14: site mixing+margules
+OL11: site mixing+margules
+PLc03: site mixing+margules
+MTSP02: site mixing+margules
+ILM00: site mixing+margules
+EP11: site mixing+margules
+BI14: site mixing+margules
+MU14: site mixing+margules
+CHL14: site mixing+margules
+drv-file: paths.txt
+"no"
+550	1000
+556.122449	1000
+562.244898	1000
+568.3673469	1000
+574.4897959	1000
+580.6122449	1000
+586.7346939	1000
+592.8571429	1000
+598.9795918	1000
+605.1020408	1000
+611.2244898	1000
+617.3469388	1000
+623.4693878	1000
+629.5918367	1000
+635.7142857	1000
+641.8367347	1000
+647.9591837	1000
+654.0816327	1000
+660.2040816	1000
+666.3265306	1000
+672.4489796	1000
+678.5714286	1000
+684.6938776	1000
+690.8163265	1000
+696.9387755	1000
+703.0612245	1000
+709.1836735	1000
+715.3061224	1000
+721.4285714	1000
+727.5510204	1000
+733.6734694	1000
