@@ -9,7 +9,7 @@ P1_pca.m
 
 This code allows you to run the PCA and K-means clustering. There are four inputs for the code:
 
-1) observations = ???. This should be the csv file name of the observations such as end-member activities or equivalent (e.g., "observations.csv").
-2) k_plot = ???. This controls whether you run the K-means clustering or not. 1 = YES, 0 = NO
+1) observations = ???. This should be the csv file name of the data (e.g., "observations.csv").
+2) k_plot = ???. This controls whether or not the K-means clustering runs. 1 = YES, 0 = NO
 3) number_of_groups = ???. This is an initial guess for the number of populations, which can be changed once the K-means clustering has run. MAX = 5
 4) output = ???. This should be a .csv file name for outputting the K-means clustering results (e.g., "outputs.csv").
