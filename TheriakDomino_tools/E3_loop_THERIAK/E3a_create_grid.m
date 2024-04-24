@@ -5,10 +5,10 @@ clear;clc;
 % parameters
 lowT = 400;
 highT = 1000;
-steps_T = 4; % Number of steps
+steps_T = 5; % Number of steps
 lowP = 4000;
 highP = 10000;
-steps_P = 4; % Number of steps
+steps_P = 5; % Number of steps
 
 
 %%%%%%%%%%%%%%%%%%%%% CODE %%%%%%%%%%%%%%%%%%%%
