@@ -1,1 +1,0 @@
-In this folder please put all of the THERIAK programs, your THERIN file, and the database you want to use.
