@@ -1,3 +1,9 @@
+  <!-- License -->
+  <a href="https://www.gnu.org/licenses/gpl-3.0">
+    <img src="https://img.shields.io/badge/License-GPLv3-blue.svg" />
+  </a>
+</p>
+
 # LinaForma
 This code performs a grid-search to examine best P-T solutions...blah blah blah.
 To use these codes, please just download them as a ZIP file.
