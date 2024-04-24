@@ -25,10 +25,14 @@ best-fit pressure-temperature estimate for the system of interest and an uncerta
 
 The grid-search inversion works by calculating the difference/misfit between the observed data and the forward model data at each P-T point in the forward model CSV file. The best-fit solution is the P-T point with the lowest misfit value. 
  <p align="center">
-<img src="https://github.com/TMackay-Champion/LinaForma/blob/21be9b7e2e964cd5b8098782d4a1419307e4cc2d/images/L_overview1.png", width="65%">
+<img src="https://github.com/TMackay-Champion/LinaForma/blob/3aaf53b7526049c99e900da48fb3ca8a4db37272/images/L_gridsearch.png", width="90%">
 </p>
 
 The bootstrap re-sampling is used to examine the uncertainty of this result. 
+
+ <p align="center">
+<img src="https://github.com/TMackay-Champion/LinaForma/blob/3aaf53b7526049c99e900da48fb3ca8a4db37272/images/L_bootstrap.png", width="65%">
+</p>
 
 
 ### Code
@@ -49,6 +53,9 @@ This code allows the user to run THERIAK in a loop and save the results to a CSV
 ## L4_sensitivity.m
 This code
 
-### Code
+ <p align="center">
+<img src="https://github.com/TMackay-Champion/LinaForma/blob/3aaf53b7526049c99e900da48fb3ca8a4db37272/images/L_sensitivity.png", width="65%">
+</p>
+
 
 ### Outputs
