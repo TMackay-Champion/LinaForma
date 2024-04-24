@@ -7,11 +7,16 @@ All of the codes require the same two inputs (or three if you want to use synthe
 
 The codes compare the observational data (or synthetics) with the forward model data, and finds the pressure-temperature point at which there is the least misfit between the two datasets. This is known as the best-fit solution for the system of interest.
 
+ <p align="center">
+<img src="https://github.com/TMackay-Champion/LinaForma/blob/21be9b7e2e964cd5b8098782d4a1419307e4cc2d/images/L_overview1.png", width="65%">
+</p>
+
 
 ## L1_isopleths.m
-This code allows the user to plot intersecting isopleths between multiple different variables. 
+This code allows the user to plot intersecting isopleths between multiple different variables over the entire area of P-T space defined by the forward models.
 
 ### Code
+
 
 ### Outputs
 
