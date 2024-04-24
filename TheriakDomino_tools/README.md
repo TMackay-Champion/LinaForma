@@ -1,8 +1,14 @@
-# LinaForma
-This code performs a grid-search to examine best P-T solutions...blah blah blah.
-To use these codes, please just download them as a ZIP file.
+# Theriak Domino tools
+These packages provide useful tools for use with the software Theriak-Domino (TD). 
 
-There are three key packages:
-1) EXTRA_TD_tools: here we provide useful tools for creating bulk-composition THERIN files (E1 script), collating DOMINO output into a single csv. file (E2), automating THERIAK (E3), and plotting data in heatmaps, contour plots etc.(E4).
-2) LinaForma_inversion: here we perform a grid-search inversion to quantify which pressure-temperature conditions best fitn your rock.
-3) PCA_mineral_composition: here you can perform Principal Component Analysis and K-means clustering on mineral composition data to examine whether there are multiple populations.
+## E1 composition calculator
+This code allows the user to create a composition file for TD from original weight percent oxide bulk compositions.
+
+## E2 collate DOMINO
+This code allows the user to collate the outputs of DOMINO (a folder containing many text files) into a CSV file containing all the information in P-T order.
+
+## E3 loop THERIAK
+This code allows the user to run THERIAK in a loop and save the results to a CSV file.
+
+## E4 plotter
+This code allows the user to plot the outputs of DOMINO, THERIAK or any other forward modelling software. There are options for contour maps, heatmaps, field stability boundaries, variance, etc.
