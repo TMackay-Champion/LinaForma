@@ -16,7 +16,7 @@ This code runs THERIAK at the P-T points given in the PT_path.csv file.
 2) Please create a folder (perhaps called THERIAK_automation) which contains all of the THERIAK-DOMINO programs, a THERIN file, and the database of interest.
 
 ### Code (E3b_automate_THERIAK.m)
-1) directory = 'path/to/folder/THERIAK_automation/'. This must include the full path to the folder containing your THERIAK-DOMINO programs, THERIN, and database.
+1) directory = 'path/to/folder/THERIAK_automation/'. This must include the full path to the folder containing your THERIAK-DOMINO programs, THERIN, and database. Please use '/', not '\'.
 2) database = 'td_pelite.txt'. Please give the name of your database file.
 3) path = 'PT_path.csv'. This should be a csv file with the P-T path info. Grids can be created using script E3a.
 
