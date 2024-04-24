@@ -13,4 +13,4 @@ This code allows you to run the PCA and K-means clustering. There are four input
 4) output = ???. This should be a .csv file name for outputting the K-means clustering results (e.g., "outputs.csv").
 
 ## Outputs
-The code will output a number of plots, including a 2D PCA plot with accompanying variable vectors. 
+The code will output a number of plots, including a 2D PCA plot with accompanying variable vectors and a probability density estimate for each variable. If k_plot = 1, then a CSV file will be output grouping the data into clusters.

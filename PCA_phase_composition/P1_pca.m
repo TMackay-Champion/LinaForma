@@ -39,7 +39,7 @@ for i = 1:length(k_values)
 end
 
 if k_plot == 1
-figure(1)
+fig = figure(1);
 subplot(1,3,1)
 biplot(coeff(:,1:2),"Scores",score(:,1:2),"VarLabels",variables,'MarkerSize',15); hold on
 title('{\bf PCA plot with variable vectors}')
@@ -62,11 +62,13 @@ final = table(idx, 'VariableNames',{'K_mean_group'});
 observations.K_mean_group = final.K_mean_group;
 writetable(observations,output);
 else
-    figure(1)
+    fig2 = figure(1);
     biplot(coeff(:,1:2),"Scores",score(:,1:2),"VarLabels",variables,'ObsLabels',plabel,'MarkerSize',25); hold on
     title('{\bf PCA}')
 end
-figure(2)
+
+
+fig3 = figure(2);
 if k_plot == 1
 kde = observations(:,1:(end-1));
 else
@@ -86,4 +88,10 @@ t = append('μ = ',mu,', σ = ',sigma);
 title(t)
 end
 
+if k_plot == 1
+    saveas(fig,"FIGURES/K_means_plot.pdf");
+else
+    saveas(fig2,"FIGURES/PCA.pdf");
+end
+saveas(fig3,"FIGURES/pde_plot.pdf");
 disp('FINISHED')
