@@ -7,13 +7,6 @@ All of the codes require the same two inputs (or three if you want to use synthe
 1) forward_model.csv = this CSV file contains the forward models created in software like THERIAK-DOMINO. If you have used scripts E2 or E3, the CSV file will already be in the correct format. The codes use the same input format as Code E4.
 2) observations.csv = this CSV file contains all of the real measured values for each of the variables contained in the forward_model.csv file.
 
-The codes compare the observational data (or synthetics) with the forward model data, and finds the pressure-temperature point at which there is the least misfit between the two datasets. This is known as the best-fit solution for the system of interest.
-
- <p align="center">
-<img src="https://github.com/TMackay-Champion/LinaForma/blob/21be9b7e2e964cd5b8098782d4a1419307e4cc2d/images/L_overview1.png", width="65%">
-</p>
-
-
 ## L1_isopleths.m
 This code allows the user to plot intersecting isopleths between multiple different variables over the entire area of P-T space defined by the forward models.
 
@@ -27,7 +20,15 @@ The code outputs three plots:
 
 
 ## L2_inversion.m
-This code allows the user to collate the outputs of DOMINO (a folder containing many text files) into a CSV file containing all the information in P-T order.
+This code performs a bootstrap re-sampling of the observation data, and a grid-search inversion to find the best-fit solution for each bootstrap resample. These are combined to give the user a 
+best-fit pressure-temperature estimate for the system of interest and an uncertainty on that estimate.
+
+The grid-search inversion works by calculating the difference/misfit between the observed data and the forward model data at each P-T point in the forward model CSV file. The best-fit solution is the P-T point with the lowest misfit value. 
+ <p align="center">
+<img src="https://github.com/TMackay-Champion/LinaForma/blob/21be9b7e2e964cd5b8098782d4a1419307e4cc2d/images/L_overview1.png", width="65%">
+</p>
+
+The bootstrap re-sampling is used to examine the uncertainty of this result. 
 
 
 ### Code
