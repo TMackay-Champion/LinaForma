@@ -1,9 +1,11 @@
-# LinaForma inversion
+ <p align="left">
+<img src="https://github.com/TMackay-Champion/LinaForma/blob/d2577b0a12c168a8a8fe5a055eeb452f473757e5/images/logo_black.jpg", width="20%">
+</p>
+
 These four codes perform a grid-search inversion, accompanied by bootstrap re-sampling, to determine which pressure-temperature conditions best fit the rock of interest. The bootstrap re-sampling allows the user to determine the uncertainty in this result, as well as the sensitivity of the result to uncertainty in the input variables.
 All of the codes require the same two inputs (or three if you want to use synthetics):
 1) forward_model.csv = this CSV file contains the forward models created in software like THERIAK-DOMINO. If you have used scripts E2 or E3, the CSV file will already be in the correct format. The codes use the same input format as Code E4.
 2) observations.csv = this CSV file contains all of the real measured values for each of the variables contained in the forward_model.csv file.
-3) synthetics.csv = this CSV file is optional. It contains the mean and standard deviation of each variable in the forward_model.csv file.
 
 The codes compare the observational data (or synthetics) with the forward model data, and finds the pressure-temperature point at which there is the least misfit between the two datasets. This is known as the best-fit solution for the system of interest.
 
@@ -15,10 +17,14 @@ The codes compare the observational data (or synthetics) with the forward model 
 ## L1_isopleths.m
 This code allows the user to plot intersecting isopleths between multiple different variables over the entire area of P-T space defined by the forward models.
 
-### Code
-
-
 ### Outputs
+The code outputs three plots: 
+1) the percentage overlap plot. This plot shows the regions in P-T space which have the greatest number of overlapping variables. 
+2) the overlapping contours plot. This plot shows which regions in P-T space coincide with the observed values for each variable of interest.
+3) the contour plot. This 
+
+
+
 
 ## L2_inversion.m
 This code allows the user to collate the outputs of DOMINO (a folder containing many text files) into a CSV file containing all the information in P-T order.
