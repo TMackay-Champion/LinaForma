@@ -1,10 +1,11 @@
+# LinaForma
+
   <!-- License -->
   <a href="https://www.gnu.org/licenses/gpl-3.0">
     <img src="https://img.shields.io/badge/License-GPLv3-blue.svg" />
   </a>
 </p>
 
-# LinaForma
 LinaForma is a series of open-sourced MATLAB®-based scripts for performing a grid-search to determine best-fit P-T conditions and uncertainties for Gibbs Energy Minimisation forward models calculated in Theriak-Domino. LinaForma requires no prior computer programming knowledge and a step-by-step walkthrough is provided.
 
 To use these codes, please just download them as a ZIP file.
