@@ -8,7 +8,7 @@ This code allows the user to create a composition file (THERIN.txt) for TD from 
 <img src="https://github.com/TMackay-Champion/LinaForma/blob/66936a954cb7b7d4c4d1d81afe6fd91cb4c2fc73/images/E1_input.png", width="80%">
 </p>
 
-## Code
+## Code (E1_comp.m)
 1) composition = '???'. This should be the name of the input file containing the bulk composition information (e.g., "input_comp.csv").
 
 2) sample_name = '???'. Give your sample a name!
