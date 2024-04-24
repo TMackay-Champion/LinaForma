@@ -4,7 +4,7 @@ These two codes provide tools for plotting data from any CSV file, including tho
 ## Inputs
 Both of the codes require input data in the form of a CSV file. An example can be seen below:
  <p align="center">
-<img src="https://github.com/TMackay-Champion/LinaForma/blob/4c2bf59ab205d271865709823cdb1ec956eea486/images/E4_input.png", width="80%">
+<img src="https://github.com/TMackay-Champion/LinaForma/blob/4c2bf59ab205d271865709823cdb1ec956eea486/images/E4_input.png", width="30%">
 </p>
 
 ## E1 composition calculator
