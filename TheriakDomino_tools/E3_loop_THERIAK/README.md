@@ -1,6 +1,8 @@
 # E3_loop_THERIAK
 This code allows the user to run THERIAK in a loop and save the results to a CSV file. The pressure-temperature path can be changed in the PT_path.csv file.
 
+### NOTE: YOU WILL NEED BASH INSTALLED ON YOUR COMPUTER TO RUN THIS CODE
+
 The package is split into two parts:
 
 ## 1) E3a_create_grid.m
