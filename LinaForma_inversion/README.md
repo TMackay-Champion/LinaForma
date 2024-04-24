@@ -31,7 +31,7 @@ The grid-search inversion works by calculating the difference/misfit between the
 The bootstrap re-sampling is used to examine the uncertainty of this result. 
 
  <p align="center">
-<img src="https://github.com/TMackay-Champion/LinaForma/blob/3aaf53b7526049c99e900da48fb3ca8a4db37272/images/L_bootstrap.png", width="65%">
+<img src="https://github.com/TMackay-Champion/LinaForma/blob/3aaf53b7526049c99e900da48fb3ca8a4db37272/images/L_bootstrap.png", width="90%">
 </p>
 
 
@@ -54,7 +54,7 @@ This code allows the user to run THERIAK in a loop and save the results to a CSV
 This code
 
  <p align="center">
-<img src="https://github.com/TMackay-Champion/LinaForma/blob/3aaf53b7526049c99e900da48fb3ca8a4db37272/images/L_sensitivity.png", width="65%">
+<img src="https://github.com/TMackay-Champion/LinaForma/blob/3aaf53b7526049c99e900da48fb3ca8a4db37272/images/L_sensitivity.png", width="90%">
 </p>
 
 
