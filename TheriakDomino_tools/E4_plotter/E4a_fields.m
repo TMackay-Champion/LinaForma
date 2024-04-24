@@ -7,11 +7,11 @@ input_file = 'forward_models.csv';
 
 % Plot stability field of particular phase?
 phase = 1; % 1 = YES; 0 = NO
-mineral = 'GRT';
+mineral = 'GRT'; % This corresponds to the name given to the mineral in the database
 
 % Plot stability field of particular assemblage?
 field = 1; % 1 = YES; 0 = NO
-f_no = 25;
+f_no = 25; % This corresponds to the field number provided by DOMINO in pixa.txt.
 
 % Plot variance?
 assemblage = 1; % 1 = YES; 0 = NO

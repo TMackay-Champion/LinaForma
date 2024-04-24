@@ -4,6 +4,12 @@ clear;clc;
 %%% INPUTS. PLEASE ALTER %%%
 input_file = 'forward_models.csv';
 
+
+% HEATMAP INPUT
+do_you_want_to_include4 = 1;
+column4 = 5;
+var = 'Variance'; % This is the label for the heatmap
+
 % CONTOUR 1 INPUT
 do_you_want_to_include1 = 1; % 1 = Yes, 0 = No
 column1 = 3; % this is the column of your Excel sheet which you want to plot
@@ -16,10 +22,9 @@ if auto1 == 0
 end
 
 % CONTOUR 2 INPUT
-do_you_want_to_include2 = 0;
+do_you_want_to_include2 = 1;
 column2 = 4;
 auto2 = 1;
-
 if auto2 == 0
     max_contour_line2 = 2500;
     min_contour_line2 = 2100;
@@ -37,10 +42,8 @@ if auto3 == 0
     contour_step3 = 10;
 end
 
-% HEATMAP INPUT
-do_you_want_to_include4 = 0;
-column4 = 5;
-
+% LEGEND
+leg  = {'HEATMAP','Column1','Column2','Column3'}; % This creates a legend for your plot. The order must be 
 
 
 %%%%%%%%% CODE %%%%%%%%%
@@ -68,6 +71,7 @@ if do_you_want_to_include4 == 1
     contourf(X,Y,data4,25,'edgecolor','none');shading flat; hold on
     caxis([min(min(data4)) max(max(data4))]);
     c = colorbar;
+    c.Label.String = 'var';
 end
 
 
@@ -125,6 +129,7 @@ if do_you_want_to_include3 == 1
 end
 xlabel('Temperature (°C)')
 ylabel('Pressure (bars)')
+legend(leg)
 
 % Save figure
 saveas(fig,"FIGURES/contour_plot.pdf");
