@@ -1,10 +1,11 @@
 # E4_plotter
-These two codes provide tools for plotting data from any CSV file, including those created for THERIAK-DOMINO in scripts E2 and E3. The X axis values must be given in the first column in ascending order. The Y axis values must be given in the second column. If you have used the scripts E2 or E3, the CSV files will already be in the correct format.
+These two codes provide tools for plotting data from any CSV file, including those created for THERIAK-DOMINO in scripts E2 and E3. The X axis values must be given in the first column, the Y axis values must be given in the second column. If you have used the scripts E2 or E3, the CSV files will already be in the correct format.
 
+## Inputs
+Both of the codes require input data in the form of a CSV file. An example can be seen below:
  <p align="center">
 <img src="https://github.com/TMackay-Champion/LinaForma/blob/4c2bf59ab205d271865709823cdb1ec956eea486/images/E4_input.png", width="80%">
 </p>
-
 
 ## E1 composition calculator
 This code allows the user to create a composition file (THERIN.txt) for TD from original weight percent oxide bulk compositions.
