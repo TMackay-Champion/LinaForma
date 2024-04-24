@@ -15,5 +15,5 @@ This code allows the user to create a composition file (THERIN.txt) for TD from 
 The code will output a therin.txt file which looks like this:
 
  <p align="center">
-<img src="https://github.com/QuakeMigrate/QuakeMigrate/raw/master/docs/img/QMlogoBig.png", width="80%">
+<img src="https://github.com/TMackay-Champion/LinaForma/blob/c64307e97976823d14187178cc33da93ef058ddf/GitHub_images/E1_output.png", width="80%">
 </p>
