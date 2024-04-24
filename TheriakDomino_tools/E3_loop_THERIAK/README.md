@@ -22,5 +22,5 @@ This code runs THERIAK at the P-T points given in the PT_path.csv file.
 The code will output a CSV file containing all of the THERIAK data. It will look like this:
 
  <p align="center">
-<img src="https://github.com/TMackay-Champion/LinaForma/blob/6c1cacc5b0e87a0f0c54d06fd7c62bfe3e18b36f/images/E2_output.png", width="80%">
+<img src="https://github.com/TMackay-Champion/LinaForma/blob/b17f80121984bd8460ea58220c26b06a878bd627/images/E3_output.png", width="80%">
 </p>
