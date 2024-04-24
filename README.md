@@ -18,9 +18,9 @@ Key Features
 To use these codes, please just download them as a ZIP file.
 
 There are three key packages:
-1) EXTRA_TD_tools: here we provide useful tools for creating bulk-composition THERIN files (E1 script), collating DOMINO output into a single csv. file (E2), automating THERIAK (E3), and plotting data in heatmaps, contour plots etc.(E4).
+1) TheriakDomino_tools: here we provide useful tools for creating bulk-composition THERIN files (E1 script), collating DOMINO output into a single csv. file (E2), automating THERIAK (E3), and plotting data in heatmaps, contour plots etc.(E4).
 2) LinaForma_inversion: here we perform a grid-search inversion to quantify which pressure-temperature conditions best fitn your rock.
-3) PCA_mineral_composition: here you can perform Principal Component Analysis and K-means clustering on mineral composition data to examine whether there are multiple populations.
+3) PCA_phase_composition: here you can perform Principal Component Analysis and K-means clustering on mineral composition data to examine whether there are multiple populations.
 
 
 Citation
@@ -30,7 +30,6 @@ If you use this package in your work, please cite the following conference prese
 ```console
 Mackay-Champion, T., and Cawood, I.P., 2024. Using a grid-search nonlinear inversion, bootstrapping, and the Sobol’ method to quantify uncertainty in pseudosection P-T estimates. In Metamorphic Studies Group RiP Meeting 2024.
 ```
-
 as well as the relevant version of the source code on [Zenodo](https://doi.org/10.5281/zenodo.4....).
 
 We hope to have a publication coming out soon.
