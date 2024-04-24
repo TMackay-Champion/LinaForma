@@ -1,14 +1,13 @@
-# Theriak Domino tools
-These packages provide useful tools for modelling and plotting petrological data. Scripts E2 and E3 are specific to the program THERIAK-DOMINO. E1 and E4 can be used for any forward modelling program as the required code inputs are CSV files.
+# E1_comp
+This code allows the user to create a composition file (THERIN.txt) for TD from the original oxide weight percent compositions. The output is element proportions, and can be readily used in Perple_X sofware.
 
-## E1 composition calculator
-This code allows the user to create a composition file (THERIN.txt) for TD from original weight percent oxide bulk compositions.
+## Inputs
+1) input_comp.csv
+This file should contain the bulk composition of the sample in oxide weight percent. Please do not change the order of the oxides.
 
-## E2 collate DOMINO
-This code allows the user to collate the outputs of DOMINO (a folder containing many text files) into a CSV file containing all the information in P-T order.
+## Code
+1) composition = '???'. This should be the name of the input file containing the bulk composition information (e.g., "input_comp.csv").
 
-## E3 loop THERIAK
-This code allows the user to run THERIAK in a loop and save the results to a CSV file.
+2) sample_name = '???'. Give your sample a name!
 
-## E4 plotter
-This code allows the user to plot the outputs of DOMINO, THERIAK or any other forward modelling software. There are options for contour maps, heatmaps, field stability boundaries, variance, etc.
+3) TD_output = '?'. This controls the output of THERIAK-DOMINO (see the program documentation for more detail). 
