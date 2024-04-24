@@ -1,6 +1,11 @@
 # E4_plotter
 These two codes provide tools for plotting data from any CSV file, including those created for THERIAK-DOMINO in scripts E2 and E3. The X axis values must be given in the first column, the Y axis values must be given in the second column. If you have used the scripts E2 or E3, the CSV files will already be in the correct format.
 
+ <p align="center">
+<img src="https://github.com/TMackay-Champion/LinaForma/blob/2ef1d08e30a91355a64d9770fca83716c708e314/images/E4_input.png", width="30%">
+</p>
+
+
 ## Inputs
 Both of the codes require input data in the form of a CSV file. An example can be seen below:
 
