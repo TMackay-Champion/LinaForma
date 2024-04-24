@@ -15,6 +15,11 @@ This code runs THERIAK at the P-T points given in the PT_path.csv file.
 1) The P-T path of interest must be specified in the PT_path.csv file.
 2) Please create a folder (perhaps called THERIAK_automation) which contains all of the THERIAK-DOMINO programs, a THERIN file, and the database of interest.
 
+### Once you have added the THERIAK-DOMINO programs, please make sure the theriak.ini settings look like this:
+ <p align="center">
+<img src="https://github.com/TMackay-Champion/LinaForma/blob/08dfa78d9dfcccdae68b7bf9e0d73bd3189681c3/images/E3_settings.png", width="80%">
+</p>
+
 ### Code (E3b_automate_THERIAK.m)
 1) directory = 'path/to/folder/THERIAK_automation/'. This must include the full path to the folder containing your THERIAK-DOMINO programs, THERIN, and database. Please use a forward slash, '/'.
 2) database = 'td_pelite.txt'. Please give the name of your database file.
