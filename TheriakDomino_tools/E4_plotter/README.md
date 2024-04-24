@@ -25,27 +25,9 @@ confirm whether you want to plot that data (do_you_want_to_include = ?). Then yo
 automated contours, or plot your own (auto = ?). If you select 0, then you need to fill out the max_contour_line, min_contour_line, and contour_step variables with appropriate values. Finally, you will want to added an appropriate legend to your plot.
 
 e.g.,
-
-% HEATMAP INPUT
-do_you_want_to_include4 = 1;
-column4 = 5;
-var = 'Variance'; % This is the label for the heatmap
-
-% CONTOUR 1 INPUT
-do_you_want_to_include1 = 1; % 1 = Yes, 0 = No
-column1 = 3; % this is the column of your Excel sheet which you want to plot
-auto1 = 0; % 1 = MATLAB chooses the contours, 0 = you need to choose using the options below
-
-if auto1 == 0
-    max_contour_line1 = 1.5; % Change these values if you have selected 0 above
-    min_contour_line1 = 1.3; % Change these values if you have selected 0 above
-    contour_step1 = 0.01; % Change these values if you have selected 0 above
-end
-
-etc.
-
-% LEGEND
-leg  = {'HEATMAP','Column1','Column2','Column3'}; 
+ <p align="center">
+<img src="https://github.com/TMackay-Champion/LinaForma/blob/c4dbdbf2da83e7abcd6a58525acd3cde3b27b87e/images/E4b_code_input.png", width="80%">
+</p>
 
 
 ### Output
