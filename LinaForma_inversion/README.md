@@ -1,5 +1,5 @@
  <p align="left">
-<img src="https://github.com/TMackay-Champion/LinaForma/blob/d2577b0a12c168a8a8fe5a055eeb452f473757e5/images/logo_black.jpg", width="20%">
+<img src="https://github.com/TMackay-Champion/LinaForma/blob/d2577b0a12c168a8a8fe5a055eeb452f473757e5/images/logo_black.jpg", width="30%">
 </p>
 
 These four codes perform a grid-search inversion, accompanied by bootstrap re-sampling, to determine which pressure-temperature conditions best fit the rock of interest. The bootstrap re-sampling allows the user to determine the uncertainty in this result, as well as the sensitivity of the result to uncertainty in the input variables.
