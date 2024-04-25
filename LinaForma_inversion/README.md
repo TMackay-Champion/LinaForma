@@ -18,11 +18,11 @@ The code outputs three plots:
 
 
 ## L1_error.m
-This code allows the user to perform two tasks. Firstly, the user can examine the pressure and temperature best-fit solution for each variable, and the associated uncertainty. 
+This code allows the user to perform two tasks. Firstly (Part 1), the user can examine the pressure and temperature best-fit solution for each variable, and the associated uncertainty. 
 This is performed for each value in the observations.csv file. Alternatively, the user can select to perform the analysis on the synthetic data in synthetic.csv.
 This allows the user to examine the error associated with the observations, perhaps due to analytical or geological uncertainty.
 
-Secondly, the code allows to user to quantify the variation in the forward modelled value of each variable for a given temperature uncertainty at a selected pressure.
+Secondly (Part 2), the code allows to user to quantify the variation in the forward modelled value of each variable for a given temperature uncertainty at a selected pressure.
 This allows the user to examine the amount of variation expected for a variable if there is model error of a known quantity.
 
 ### Outputs
@@ -66,30 +66,32 @@ However, phases which are common to one mineral should only be used together if 
 
 
 ### What bootstrapping method should I use?
-The method of bootstrapping depends on your assumptions surrounding the sources of error in the system. Non-parametric bootstrapping 
-
+The method of bootstrapping depends on your assumptions surrounding the sources of error in the system.
 Non-parametric bootstrapping assumes that the underlying model generating the data is unknown or too complex to be accurately represented by a parametric distribution. 
-Instead of making explicit assumptions about the model, non-parametric bootstrapping focuses solely on the observed data and its properties. 
+Instead of making explicit assumptions about the model, non-parametric bootstrapping focuses solely on the observed data and its properties. This error can be examinied for each variable using the L1_error.m script (Part 1).
 As such, we deem this bootstrap method to be most appropriate if we assume that the primary source of error is analytical and/or related to disequilbrium, geological uncertainty etc. 
 In this case, the error associated with the observations is greater than associated model error. 
 
-However, in some cases the primary source of error may be model error. re
-
-In 
-
-
-
-
-In this case, the synthetic bootstrap option may be most suitable as it allows the user to select an appropriate mean and standard deviation. 
-
-
-
+However, in some cases the primary source of error may be model error. In this case, the synthetic bootstrap option may be most suitable as it allows the user to select an appropriate mean and standard deviation. 
+A standard deviation should be chosen which allows for a suitable degree of temperature and pressure uncertainty for the particular variable of interest. This can be chosen with the help of the L1_error.m script (Part 2).
+We have generally found that a standard deviation equivalent to 20% of the mean value is more than enough.
 
 
 ### Code
+1) model = '???'. This is the path to the forward model CSV file.
+2) observations =  '???'. This is the path to the observations CSV file.
+3) synthetic_data = '???'. This is the path to the synthetic data. It will only be used if bootstrap_type = -1.
+4) bootstrap_type = ?. This controls the type of bootstrapping you perform. Parametric = 1, non-parametric = 0, synthetic Gaussian = -1
+5) it = ?. This is the number of bootstrap re-samples used. The more the merrier!
+6) confidence_level = ?. This is the confidence level represented by the ellipse on the final plot.
+7) boxplots = ?. This controls whether you plot boxplots or histograms of temperature and pressure variability. 1 = boxplot, 0 = histogram
+8) Nbins = ?. This is the number of histogram bins used for the plot. Only applicable if boxplots = 0.
 
 ### Outputs
-
+The code outputs three plots:
+1) a grid showing the extent and resolution of the forward models.
+2) the grid-search solution with uncertainty analysis.
+3) a plot showing all of the best-fit solutions overlain on the overlapping contour plot of L0_isopleths.m script.
 
 
 ## L3_residuals.m
