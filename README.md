@@ -18,9 +18,9 @@ Key Features
 To use these codes, please just download them as a ZIP file.
 
 There are three key packages:
-1) TheriakDomino_tools: here we provide useful tools for creating bulk-composition THERIN files (E1 script), collating DOMINO output into a single csv. file (E2), automating THERIAK (E3), plotting data in heatmaps, contour plots etc.(E4), and calculating the correlation coefficients between the different variables, temperature and pressure (E5).
-2) LinaForma_inversion: here we perform a grid-search inversion to quantify which pressure-temperature conditions best fit your rock. We use bootstrapping to assess the uncertainty of the estimates, as well as the sensitivity of the estimates to uncertainty in the input parameters.
-3) PCA_phase_composition: here you can perform Principal Component Analysis and K-means clustering on mineral composition data to examine whether there are multiple populations.
+1) LinaForma_inversion: here we perform a grid-search inversion to quantify which pressure-temperature conditions best fit your rock. We use bootstrapping to assess the uncertainty of the estimates, as well as the sensitivity of the estimates to uncertainty in the input parameters.
+2) PCA_phase_composition: here you can perform Principal Component Analysis and K-means clustering on mineral composition data to examine whether there are multiple populations.
+3) TheriakDomino_tools: here we provide useful tools for creating bulk-composition THERIN files (E1 script), collating DOMINO output into a single csv. file (E2), automating THERIAK (E3), plotting data in heatmaps, contour plots etc. (E4), and calculating the correlation coefficients between the different variables, temperature and pressure (E5).
 
 
 Citation
@@ -33,3 +33,21 @@ Mackay-Champion, T., and Cawood, I.P., 2024. Using a grid-search nonlinear inver
 as well as the relevant version of the source code on [Zenodo](https://doi.org/10.5281/zenodo.4....).
 
 We hope to have a publication coming out soon in the Journal of Metamorphic Petrology.
+
+
+Contributing to LinaForma
+----------------------------
+Contributions to LinaForma are welcomed. Whether you have identified a bug or would like to request a new feature or enhancement, please reach out either directly or via the GitHub Issues panel to discuss the proposed changes.
+
+Links to projects that have made use of LinaForma are also most welcome.
+
+
+Contact
+-------
+Any comments/questions can be directed to:
+* **Tobermory Mackay-Champion** - tmackaychampion@gmail.com
+* **Ian Cawood** - ian.cawood@worc.ox.ac.uk
+
+License
+-------
+This package is written and maintained by the Tobermory Mackay-Champion and Ian Cawood. It is distributed under the GPLv3 License. Please see the [LICENSE](LICENSE) file for a complete description of the rights and freedoms that this provides the user.
