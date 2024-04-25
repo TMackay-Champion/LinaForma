@@ -50,4 +50,4 @@ Any comments/questions can be directed to:
 
 License
 -------
-This package is written and maintained by the Tobermory Mackay-Champion and Ian Cawood. It is distributed under the GPLv3 License. Please see the [LICENSE](LICENSE) file for a complete description of the rights and freedoms that this provides the user.
+This package is written and maintained by Tobermory Mackay-Champion and Ian Cawood. It is distributed under the GPLv3 License. Please see the [LICENSE](LICENSE) file for a complete description of the rights and freedoms that this provides the user.
