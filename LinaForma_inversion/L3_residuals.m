@@ -9,8 +9,8 @@ synthetic_data = 'inputs/synthetic.csv';
 
 % parameters
 synth = 0; % Do you want to use a synthetic distribution? 1 = YES, 0 = NO
-T_best = 570; % Select the best-fit T point to which results will be compared.
-P_best = 9300;      % Select the best-fit P point to which results will be compared. Units = bars.
+T_best = 570; % Select the T point to which results will be compared.
+P_best = 9300;      % Select the P point to which results will be compared. Units = bars.
 
 
 

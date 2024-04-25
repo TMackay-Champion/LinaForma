@@ -96,22 +96,20 @@ The code outputs three plots:
 
 ## L3_residuals.m
 This code allows the user to examine the difference between the forward model predicitions and the observed or synthetic data at chosen P-T points.
-This can be used to check how well different variables match the best-fit solution. When accompanied by textural evidence or large enough bodies of data, this process 
+This can be used to check how well different variables match the best-fit solution. When accompanied by textural evidence or large enough datasets, this process 
 could be used to examine disequilibrium and/or model error.
 
-
-
-### Code
-
 ### Outputs
-
+This code outputs boxplots for each variable showing the distribution of observations and the forward model predicted value.
 
 ## L4_sensitivity.m
-This code
+This code examines how sensitive the best-fit solutions are to uncertainty in the observations. To do this, the code bootstrap re-samples one variable at a time while keeping
+all the other variables constant. The resulting variation in the best-fit solutions can then be directly attritubted to the uncertainty on that particular variable. 
 
  <p align="center">
 <img src="https://github.com/TMackay-Champion/LinaForma/blob/3aaf53b7526049c99e900da48fb3ca8a4db37272/images/L_sensitivity.png", width="90%">
 </p>
 
-
 ### Outputs
+This code outputs two "tornado" plots, one for temperature and one for pressure.
+These plots display how the variation in a particular variable influences the best-fit solutions relative to a given best-fit solution (ideally the output of the L2_inversion.m script).
