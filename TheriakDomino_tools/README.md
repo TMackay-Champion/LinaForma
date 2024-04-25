@@ -1,5 +1,5 @@
 # Theriak Domino tools
-These packages provide useful tools for modelling and plotting petrological data. Scripts E2 and E3 are specific to the program THERIAK-DOMINO. E1 and E4 can be used for any forward modelling program as the required code inputs are CSV files.
+These packages provide useful tools for modelling and plotting petrological data. Scripts E2 and E3 are specific to the program THERIAK-DOMINO. E1, E4 and E5 can be used for any forward modelling program as the required code inputs are CSV files.
 
 ## E1 composition calculator
 This code allows the user to create a composition file (THERIN.txt) for TD from original weight percent oxide bulk compositions.
@@ -12,3 +12,6 @@ This code allows the user to run THERIAK in a loop and save the results to a CSV
 
 ## E4 plotter
 This code allows the user to plot the outputs of DOMINO, THERIAK or any other forward modelling software. There are options for contour maps, heatmaps, field stability boundaries, variance, etc.
+
+## E5 correlation
+This code allows the user to calculate the correlation coefficient between each variable and temperature and pressure.
