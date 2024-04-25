@@ -9,8 +9,8 @@ model = 'inputs/forward_model.csv';
 observations = 'inputs/observations.csv';
 
 % parameters
-threshold = 50; % This is the lowest temperature uncertainty accepted for each variable
-pressure_of_interest = 8000; % This is the pressure of interest (bar). Code will choose closest fitting pressure.
+threshold = 50; % This is the temperature uncertainty for each variable.
+pressure_of_interest = 9000; % This is the pressure of interest (bar).
 
 
 
@@ -34,7 +34,6 @@ for i = 1:size(mod,2)
         T_best = T(fit == min(fit)); P_best = P(fit == min(fit));
         T_variation(ii,i) = T_best;
         P_variation(ii,i) = P_best;
-
 
     end
 
@@ -69,52 +68,59 @@ title(t)
 end
 
 
-%%
 %%%%%%%%% Part 2: Find a suitable synthetic error for a known temperature
 %%%%%%%%% variability
-threshold = 40;  % Change in Y value
+
+% Closest pressure
+absolute_diff = abs(P - pressure_of_interest);
+[~, index_closest] = min(absolute_diff);
+p = P(index_closest);
+
+for i = 1:size(mod,2)
+    forward = mod(:,i);
+    data = forward(p == P);
+
+    % Find temp. jump
+    tmp = unique(T); step = tmp(2) - tmp(1);
+    number_of_steps = round(threshold/step);
+
+    % Find mean
+    t1 = unique(T); t1 = [1:length(t1)]';
+    mn = data(t1);
+
+    % Find with temperature added
+    tmp = 1:number_of_steps;
+    
+    loop = 0;
+    model_value = [];
+    new_index = [];
+    data_set = [];
+    for ii = 1:length(t1)
+        new_index = t1(ii) + tmp;
+        loop = loop + 1;
+        if max(new_index) > max(t1)
+            break
+        end
+        model_value(ii) = mn(ii);
+        data_set(ii,:) = data(new_index);
+    end
+
+    model_value = model_value';
+    diff = abs(data_set - model_value)./model_value*100;
+    av = mean(diff,2);
+    
+    % Create plot
+    figure(3)
+    row = ceil(length(variables)/3);
+    subplot(row,3,i)
+    boxplot(av,'Orientation','horizontal')
+    xlabel('% difference')
+    title(variables(i));
+
+end
 
 
-% Find 
-absolute_diff = abs(P - pressure_of_interest); [~, index] = min(absolute_diff);
-p = P(index);
-uT = unique(T);
-t1 = unique(T); 
-t2 = t1 + threshold;
-t3 = t1 - threshold;
-
-true = t1;
-bigger = t2;
-smaller = t3;
-
-% Big
-result = NaN(size(true));
-indices = ismember(bigger, true);
-result(indices) = bigger(indices);
-
-% Small
-result1 = NaN(size(true));
-indices = ismember(smaller, true);
-result1(indices) = smaller(indices);
 
 
-t = [t1,t2,t3]; t(t < min(t1)) = NaN; t(t > max(t1)) = NaN;
-
-
-
-
-t = find(ismember(t, t1));
-t1 = find(P == p);
-
-
-array1 = [-2, -3, 1, 2, 3, 4, 5, 6, 7, 8, 10];  % Larger array
-array2 = [2, 5, 8, 10];  % Smaller array
-
-% Find the index positions of elements in array1 that match elements in array2
-index_positions = find(ismember(array1, array2));
-
-% Display the index positions
-disp('Index positions of [2,5,8,10] in [-2,-3,1,2,3,4,5,6,7,8,10]:');
-disp(index_positions);
 
 
