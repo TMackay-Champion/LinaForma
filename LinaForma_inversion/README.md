@@ -7,7 +7,7 @@ All of the codes require the same two inputs (or three if you want to use synthe
 1) forward_model.csv = this CSV file contains the forward models created in software like THERIAK-DOMINO. If you have used scripts E2 or E3, the CSV file will already be in the correct format. The codes use the same input format as Code E4.
 2) observations.csv = this CSV file contains all of the real measured values for each of the variables contained in the forward_model.csv file.
 
-## L1_isopleths.m
+## L0_isopleths.m
 This code allows the user to plot intersecting isopleths between multiple different variables over the entire area of P-T space defined by the forward models.
 
 ### Outputs
@@ -15,6 +15,21 @@ The code outputs three plots:
 1) the percentage overlap plot. This plot shows the regions in P-T space which have the greatest number of overlapping variables. 
 2) the overlapping contours plot. This plot shows which regions in P-T space coincide with the observed values for each variable of interest.
 3) the contour plot. This 
+
+
+## L1_error.m
+This code allows the user to perform two tasks. Firstly, the user can examine the pressure and temperature best-fit solution for each variable, and the associated uncertainty. 
+This is performed for each value in the observations.csv file. Alternatively, the user can select to perform the analysis on the synthetic data in synthetic.csv.
+This allows the user to examine the error associated with the observations, perhaps due to analytical or geological uncertainty.
+
+Secondly, the code allows to user to quantify the variation in the forward modelled value of each variable for a given temperature uncertainty at a selected pressure.
+This allows the user to examine the amount of variation expected for a variable if there is model error of a known quantity.
+
+### Outputs
+The code outputs three plots: 
+1) a boxplot for each variable showing how the temperature estimates vary between observations.
+2) a boxplot for each variable showing how the pressure estimates vary between observations.
+3) a boxplot for each variable showing how temperature uncertainty in the forward model may propagate to uncertainty in the predicted value.
 
 
 ## L2_inversion.m
