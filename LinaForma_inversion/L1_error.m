@@ -11,7 +11,7 @@ synthetics = 'inputs/synthetic.csv';
 
 % parameters for Part 1 (Temperature and pressure error from the
 % observations of each variable)
-synth = 1; % Do you want to use synthetics or the real observations? 1 = synth, 0 = observations. 
+synth = 0; % Do you want to use synthetics or the real observations? 1 = synth, 0 = observations. 
 n = 1000; % Number of random samples. Only applicable if synth = 1.
 
 % parameters for Part 2 (The percentage uncertainty expected for a variable for
@@ -47,7 +47,7 @@ for i = 1:size(mod,2)
 
         for iii = 1:size(forward); fit(iii) = +Functions_NO_EDIT.misfit(forward(iii),ob);end
 
-        T_best = T(fit == min(fit)); P_best = P(fit == min(fit));
+        T_best = mean(T(fit == min(fit))); P_best = mean(P(fit == min(fit)));
         T_variation(ii,i) = T_best;
         P_variation(ii,i) = P_best;
 
