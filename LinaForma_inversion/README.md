@@ -55,7 +55,8 @@ The method of bootstrapping depends on your assumptions surrounding the sources 
 
 Non-parametric bootstrapping assumes that the underlying model generating the data is unknown or too complex to be accurately represented by a parametric distribution. 
 Instead of making explicit assumptions about the model, non-parametric bootstrapping focuses solely on the observed data and its properties. 
-As such, we deem this bootstrap method to be most appropriate if we assume that the primary source of error is analytical and/or related to disequilbrium, geological uncertainty etc. In this case, the error associated with the observations is greater than associated model error. 
+As such, we deem this bootstrap method to be most appropriate if we assume that the primary source of error is analytical and/or related to disequilbrium, geological uncertainty etc. 
+In this case, the error associated with the observations is greater than associated model error. 
 
 However, in some cases the primary source of error may be model error. re
 

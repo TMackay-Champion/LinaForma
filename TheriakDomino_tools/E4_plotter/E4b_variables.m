@@ -2,16 +2,16 @@
 clear;clc;
 
 %%% INPUTS. PLEASE ALTER %%%
-input_file = 'forward_models.csv';
+input_file = 'forward_model.csv';
 
 
 % HEATMAP INPUT
 do_you_want_to_include4 = 1;
-column4 = 5;
+column4 = 10;
 var = 'Variance'; % This is the label for the heatmap
 
 % CONTOUR 1 INPUT
-do_you_want_to_include1 = 1; % 1 = Yes, 0 = No
+do_you_want_to_include1 = 0; % 1 = Yes, 0 = No
 column1 = 3; % this is the column of your Excel sheet which you want to plot
 auto1 = 1; % 1 = MATLAB chooses the contours, 0 = you need to choose using the options below
 
@@ -22,7 +22,7 @@ if auto1 == 0
 end
 
 % CONTOUR 2 INPUT
-do_you_want_to_include2 = 1;
+do_you_want_to_include2 = 0;
 column2 = 4;
 auto2 = 1;
 if auto2 == 0
@@ -32,7 +32,7 @@ if auto2 == 0
 end
 
 % CONTOUR 3 INPUT
-do_you_want_to_include3 = 1;
+do_you_want_to_include3 = 0;
 column3 = 5;
 auto3 = 1;
 
