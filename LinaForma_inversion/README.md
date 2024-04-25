@@ -38,8 +38,35 @@ Bootstrap samples are chosen by randomly drawing observations from the assumed d
 <img src="https://github.com/TMackay-Champion/LinaForma/blob/3aaf53b7526049c99e900da48fb3ca8a4db37272/images/L_bootstrap.png", width="90%">
 </p>
 
-### When should I use each bootstrapping method?
-You can do anything you want!
+
+### How many input variables should I use?
+A grid-search is a non-linear inversion. The problem is overdetermined because the number of observations is in excess of of the number of model parameters. 
+Each data point provides a constraint on the possible solution. By incorporating multiple constraints, overdetermined problems can identify and compensate for errors in the different variables.
+This often results in a higher precision estimate than could be achieved by the individual variables alone. 
+
+This is important when considering correlated variables. In an error-free system, it would be reasonable to remove all correlated variables. However, each variable in a petrological system is associated with a different level of error and the primary cause of this error will vary between different variables. 
+One can readily imagine a situation in which two highly correlated variables result in different P-T estimates due to petrological or model error. Considering the two variables together allows the user to determine the most appropriate solution.
+As such, we deem it acceptable to use variables which are predicted to be highly correlated in the forward model. 
+However, phases which are common to one mineral should only be used together if a degree of freedom remains. For example, e.g., the composition of plagioclase can be described by Xan and Xab. You should only use 1 of these variables, to maintain a degree of freedom. 
+
+
+### What bootstrapping method should I use?
+The method of bootstrapping depends on your assumptions surrounding the sources of error in the system. Non-parametric bootstrapping 
+
+Non-parametric bootstrapping assumes that the underlying model generating the data is unknown or too complex to be accurately represented by a parametric distribution. 
+Instead of making explicit assumptions about the model, non-parametric bootstrapping focuses solely on the observed data and its properties. 
+As such, we deem this bootstrap method to be most appropriate if we assume that the primary source of error is analytical and/or related to disequilbrium, geological uncertainty etc. In this case, the error associated with the observations is greater than associated model error. 
+
+However, in some cases the primary source of error may be model error. re
+
+In 
+
+
+
+
+In this case, the synthetic bootstrap option may be most suitable as it allows the user to select an appropriate mean and standard deviation. 
+
+
 
 
 
