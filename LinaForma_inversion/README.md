@@ -95,7 +95,10 @@ The code outputs three plots:
 
 
 ## L3_residuals.m
-This code allows the user to run THERIAK in a loop and save the results to a CSV file.
+This code allows the user to examine the difference between the forward model predicitions and the observed or synthetic data at chosen P-T points.
+This can be used to check how well different variables match the best-fit solution. When accompanied by textural evidence or large enough bodies of data, this process 
+could be used to examine disequilibrium and/or model error.
+
 
 
 ### Code
