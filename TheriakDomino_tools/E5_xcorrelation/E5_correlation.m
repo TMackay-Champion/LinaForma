@@ -4,12 +4,15 @@ clear;clc;
 
 %%%%%%%%% INPUTS %%%%%%%%%
 % data
+models = 'forward_model.csv'; % The filename of the input data
 
 
-% Code
-data = readmatrix(data1);
-names = readtable(data1); names = names.Properties.VariableNames;
+%%%%%%%%%%%%%%%%%%%%% CODE %%%%%%%%%%%%%%%%%%%%
+%%%% BEST NOT TO ALTER UNLESS YOU ARE SURE %%%
+data = readmatrix(models);
+names = readtable(models); names = names.Properties.VariableNames;
 data = data./max(data);
-
 d = corrcoef(data);
 table = array2table(d, 'VariableNames', names,'RowNames',names);
+
+writetable(table,'correlation_coefficients.csv','WriteRowNames',true);
