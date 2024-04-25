@@ -1,5 +1,5 @@
 # E5_correlation.m
-This code allows the user to calculate the correlation coefficient between each variable and temperature and pressure.
+This code allows the user to calculate the correlation coefficient between each variable, temperature and pressure.
 The correlation coefficient is calculated using the corrcoef function of MATLAB.
 
 ## Inputs

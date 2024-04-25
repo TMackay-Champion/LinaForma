@@ -14,4 +14,4 @@ This code allows the user to run THERIAK in a loop and save the results to a CSV
 This code allows the user to plot the outputs of DOMINO, THERIAK or any other forward modelling software. There are options for contour maps, heatmaps, field stability boundaries, variance, etc.
 
 ## E5 correlation
-This code allows the user to calculate the correlation coefficient between each variable and temperature and pressure.
+This code allows the user to calculate the correlation coefficient between each variable, temperature and pressure.
