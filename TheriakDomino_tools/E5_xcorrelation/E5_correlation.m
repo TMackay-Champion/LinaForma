@@ -1,8 +1,9 @@
-% This script assesses the degree of cross-correlation
+% This script assesses the degree of correlation between the variables
 clear;clc;
-% INPUTS
+
+
+%%%%%%%%% INPUTS %%%%%%%%%
 % data
-data1 = 'inputs/forward_model.csv';
 
 
 % Code
