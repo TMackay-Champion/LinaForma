@@ -12,7 +12,7 @@ Both of the codes require input data in the form of a CSV file. The X axis value
 This code allows the user to plot phase stability fields, assemblage stability fields, the variance, and an interactive pseudosection. The output plots will be saved as pdf files to the FIGURES folder. Currently this code only works for users who have used script E2 to collate the files from DOMINO into a standardised CSV file because the columns 'Field', 'Assemblage' and 'Phases' are required.
 
  <p align="center">
-<img src="https://github.com/TMackay-Champion/LinaForma/blob/8f640e267e617b008a97176b4d2882e7dd0b87d7/images/E4a_output.png", width="40%">
+<img src="https://github.com/TMackay-Champion/LinaForma/blob/8f640e267e617b008a97176b4d2882e7dd0b87d7/images/E4a_output.png", width="60%">
 </p>
 
 ## E4b_variables.m
