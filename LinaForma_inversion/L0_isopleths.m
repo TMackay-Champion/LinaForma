@@ -8,12 +8,12 @@ observations = 'inputs/observations.csv';
 
 % parameters
 % PLOT 1 = percentage overlap plot
-all1 = 1; % Do you want to plot all of the variables? 1 = YES, 0 = NO.
-columns1 = [1,2,3,4]; % List the columns you want to plot. Only relevant if all = 0.
+all1 = 0; % Do you want to plot all of the variables? 1 = YES, 0 = NO.
+columns1 = [1,2,3,4]; % List the columns you want to plot, beginning from first variable. Only relevant if all = 0.
 
 % PLOT 2 = individual isopleths
 all2 = 0; % Do you want to plot all of the variables? 1 = YES, 0 = NO.
-columns2 = [3,4,5,6]; % List the columns you want to plot. Only relevant if all = 0.
+columns2 = [1,2,3,4]; % List the columns you want to plot, beginning from first variable. Only relevant if all = 0.
 
 % PLOT 3 will use the contours from Plot2 and the max. percentage from Plot
 % 1
@@ -184,6 +184,7 @@ title('Contour plot with overlap')
 
 % Save table and figures
 save("output_variables/percentage_overlap.mat",'X','Y','p_field');
+
 saveas(fig1,"FIGURES/percentage_overlap.pdf");
 saveas(fig2,'FIGURES/overlapping_fields.pdf');
 saveas(fig3,'FIGURES/contours_overlap.pdf');
