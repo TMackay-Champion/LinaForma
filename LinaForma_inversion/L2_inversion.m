@@ -83,9 +83,12 @@ end
 %%%% PART5: Plot misfit surface and perform statistics %%%%
 % Plot grid
 fig1 = figure(1);
+set(fig1,'Units','centimeters')
+set(fig1,'Position',[0 0 0.9*21 0.9*21])
 plot(X,Y,'ko');
 xlabel('Temperature (°C)')
 ylabel('Pressure (bar)')
+
 minY = min(Y,[],'all'); maxY = max(Y,[],'all');
 minX = min(X,[],'all'); maxX = max(X,[],'all');
 ylim([(minY-0.05*maxY) (maxY+0.05*maxY)])
@@ -95,12 +98,14 @@ title('Model grid')
 
 % Plot the misfit surface
 fig2 = figure(2);
-fig2.Position = [380,138,681,813];
+set(fig2,'Units','centimeters')
+set(fig2,'Position',[0 0 0.9*21 0.9*21])
 subplot(3,2,[1 2 3 4])
 res = reshape(log(model_misfit),[ix iy])';
 contourf(X,Y,res); hold on
 c = colorbar;
 c.Label.String = 'Misfit';
+axis square
 ylabel('Pressure (bars)')
 xlabel('Temperature (°C)')
 ylim([min(P) max(P)])
@@ -193,10 +198,13 @@ end
 
 % Plot results on the contour plot
 fig3 = figure(3);
+set(fig3,'Units','centimeters')
+set(fig3,'Position',[0 0 0.9*21 0.9*21])
 load('output_variables\percentage_overlap.mat');
 pcolor(X,Y,p_field); shading flat; c = colorbar; hold on
 c.Label.String = 'Percentage of observations which overlap';
 plot(t_best(:,1),p_best(:,1),'k.','MarkerSize',10);
+axis square
 xlabel('Temperature (°C)')
 ylabel('Pressure (bars)'); hold off
 title('Best-fit solutions and overlapping contours')

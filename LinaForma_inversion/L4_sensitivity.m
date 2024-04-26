@@ -14,7 +14,6 @@ T_best = 570;      % Select the best-fit T point to which results will be compar
 P_best = 9300;      % Select the best-fit P point to which results will be compared.
 
 
-
 %%%%%%%%%%%%%%%%%%%%% CODE %%%%%%%%%%%%%%%%%%%%
 %%%% BEST NOT TO ALTER UNLESS YOU ARE SURE %%%%
 
@@ -86,9 +85,10 @@ end
 variables = readtable(forward_model); variables = variables.Properties.VariableNames;
 variables = variables(:,3:end);
 
-
 % Plot T variability
 fig1 = figure(1);
+set(fig1,'Units','centimeters')
+set(fig1,'Position',[0 0 0.9*21 0.3*29.7])
 subplot(1,2,1)
 impact = [-T_min;T_max]'; % Impact on the outcome (positive or negative)
 
@@ -103,20 +103,14 @@ total_impact = sqrt((impact(:,1) - impact(:,2)).^2);
 sortedVariables = variables(sortOrder);
 sorted_impact = impact(flipud(sortOrder),:);
 
-
-% Define base case outcome and calculate outcomes for each variable
-baseOutcome = 0; % Base case outcome
-outcomes = baseOutcome + sorted_impact(:,2);
-
 % Create tornado plot
-barh(outcomes,'FaceColor',[0.3, 0.7, 0.9]); % Blue bars for positive impact
+barh(sorted_impact,'stacked'); % Blue bars for positive impact
 hold on;
-barh(find(sorted_impact < 0), sorted_impact(sorted_impact < 0), 'FaceColor', [0.9, 0.3, 0.3]); % Red bars for negative impact
-plot(baseOutcome * [1, 1], [0.5, length(variables) + 0.5], 'k--'); % Base case outcome line
 set(gca, 'YTick', 1:length(variables), 'YTickLabel', sortedVariables,'Fontsize',12); % Set y-axis labels
-xlabel('Temperature variation relative to input (°C)'); % Label x-axis
-t = append('@ ',string(T_best),' °C and ',string(P_best),' kbar');
+xlabel('Temperature (°C)'); % Label x-axis
+t = append('Variation relative to ',string(T_best),' °C');
 title(t); % Title
+xlim([min(min(sorted_impact))-10 max(max(sorted_impact))+10])
 
 
 subplot(1,2,2)
@@ -133,19 +127,14 @@ total_impact = sqrt((impact(:,1) - impact(:,2)).^2);
 sortedVariables = variables(sortOrder);
 sorted_impact = impact(flipud(sortOrder),:);
 
-
-% Define base case outcome and calculate outcomes for each variable
-baseOutcome = 0; % Base case outcome
-outcomes = baseOutcome + sorted_impact(:,2);
-
 % Create tornado plot
-barh(outcomes,'FaceColor',[0.3, 0.7, 0.9]); % Blue bars for positive impact
-hold on;
-barh(find(sorted_impact < 0), sorted_impact(sorted_impact < 0), 'FaceColor', [0.9, 0.3, 0.3]); % Red bars for negative impact
-plot(baseOutcome * [1, 1], [0.5, length(variables) + 0.5], 'k--'); % Base case outcome line
+barh(sorted_impact,'stacked');
 set(gca, 'YTick', 1:length(variables), 'YTickLabel', sortedVariables,'Fontsize',12); % Set y-axis labels
-xlabel('Pressure variation relative to input (bar)'); % Label x-axis
-legend('Positive Impact', 'Negative Impact', 'Base Case', 'Location', 'best');
+xlabel('Pressure (bar)'); % Label x-axis
+t = append('Variation relative to ',string(P_best),' bar');
+title(t)
+legend('-','+','Location','southeast')
+xlim([min(min(sorted_impact))-100 max(max(sorted_impact))+100])
 
 % Save figure
 saveas(fig1,"FIGURES/sensitivity_plots.pdf");
