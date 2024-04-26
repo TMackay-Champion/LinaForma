@@ -2,9 +2,10 @@
 clear;clc;
 
 %%% INPUTS. PLEASE ALTER %%%
-input_file = 'forward_model.csv';
+% data
+input_file = 'forward_models.csv';
 
-
+% parameters
 % HEATMAP INPUT
 do_you_want_to_include4 = 1;
 column4 = 10;
