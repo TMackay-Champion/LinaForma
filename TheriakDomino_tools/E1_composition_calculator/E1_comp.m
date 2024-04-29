@@ -1,7 +1,7 @@
 % This script creates a THERIN file for a given bulk composition in wt%
 % oxides. Make sure the input_comp.csv file always has the same order of
 % oxides!
-clear;clc;
+clear;
 
 %%%%%%%%% INPUTS %%%%%%%%%
 % data

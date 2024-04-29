@@ -5,8 +5,10 @@ function st = comp_calc_DO_NOT_EDIT(input,csv,monazite_fraction,h2o)
 if csv == 1
     input = readtable(input,'VariableNamingRule','preserve');
 end
+input = addvars(input,0, 'Before', 5, 'NewVariableName','Fe2O3');
 oxide_wt = input(1,1:12);
 
+%
 % Oxide RFM
 oxide_RFM = [60.09, 79.9, 101.94, 71.85, 159.7, 70.94, 40.32, 56.08, 61.982, 94.2, 141.94, 18];
 oxide_RFM = array2table(oxide_RFM,'VariableNames',oxide_wt.Properties.VariableNames);
@@ -85,5 +87,3 @@ for i = 1:width(cation_moles)
     st{i} = append(variables{i},'(',string(round(cation_moles{1,i}, 2)),')');
 end
 st = append(st{:},'O','(',string(total_oxygen),')');
-
-end
