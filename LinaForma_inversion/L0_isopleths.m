@@ -2,12 +2,12 @@
 clear;clc;
 
 %%%%%%%%% INPUTS %%%%%%%%%
-% data. Remember, paths can be left empty (e.g., all_measurements = [];),
+% ====== Data ======
+% Remember, paths can be left empty (e.g., all_measurements = [];),
 % but please do not delete them.
 model = 'inputs/forward_model.csv'; % These are the forward models.
 all_measurements = []; % This will be used if all = 1.
 measurement_distribution = 'inputs/measurement_distributions.csv'; % This will be used if all = 0.
-
 
 % parameters
 % ====== Data type ======
