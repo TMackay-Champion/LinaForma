@@ -3,16 +3,20 @@
 % oxides!
 clear;clc;
 
-% INPUTS
+%%%%%%%%% INPUTS %%%%%%%%%
+% data
 composition = 'input_comp.csv'; % Composition in wt%
+
+% parameters
+mole_H2O = 5 ; % Give your mole percent of water in final composition
 sample_name = 'TMC'; % Sample name
 TD_output = '0'; % The output code for Theriak-Domino. Can be -1, 0, 1
+monazite_fraction = 0.95; % The molar ratio of monazite to apatite in the rock. This controls the phosphate correction.
 
 
-
-% Code
-comp = readmatrix(composition);
-comp_string = comp_calc_DO_NOT_EDIT(comp,0);
+%%%%%%%%%%%%%%%%%%%%% CODE %%%%%%%%%%%%%%%%%%%%
+%%%% BEST NOT TO ALTER UNLESS YOU ARE SURE %%%
+comp_string = comp_calc_DO_NOT_EDIT(composition,1,monazite_fraction,mole_H2O);
 sample_name = append('  *  ',sample_name);
 first_line = '    400     2000';
 title = 'therin.txt';
@@ -20,4 +24,5 @@ final = append(first_line,'\n',TD_output,'  ',comp_string,sample_name);
 autoID1 = fopen(title,'w');
 fprintf(autoID1,final);
 fclose(autoID1);
+disp(comp_string)
 disp('FINISHED')
