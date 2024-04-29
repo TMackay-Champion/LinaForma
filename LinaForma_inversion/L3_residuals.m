@@ -74,7 +74,7 @@ for i = 1:length(variables)
         lg = legend({'Observations','Model result'});
         lg.Position = [0.3, 0.15, 0.4, 0.05];
     elseif i ==1 && synth ~= 1
-        lg = legend({'Observations','Model result','Maximum observation','Minimum observation'});
+        lg = legend({'Observations','Model result','Minimum observation','Maximum observation'});
         lg.Position = [0.3, 0.15, 0.4, 0.05];
     end
 end

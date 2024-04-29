@@ -15,8 +15,8 @@ columns1 = [1,2,3,4]; % List the columns you want to plot, beginning from first 
 all2 = 0; % Do you want to plot all of the variables? 1 = YES, 0 = NO.
 columns2 = [1,2,3,4]; % List the columns you want to plot, beginning from first variable. Only relevant if all = 0.
 
-% PLOT 3 will use the contours from Plot2 and the max. percentage from Plot
-% 1
+% PLOT 3 will use the contours from Plot2 and the max. percentage from 
+% Plot1
 
 
 %%%%%%%%%%%%%%%%%%%%% CODE %%%%%%%%%%%%%%%%%%%%
