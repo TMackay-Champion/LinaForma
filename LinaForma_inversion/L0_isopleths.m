@@ -172,8 +172,8 @@ for iii = 1:size(contour_fields,2)
     tmp = reshape(contour_fields(:,iii),[ix iy]);
     tmp = tmp';
     [R,e] = contour(X,Y,tmp,'Color',map(iii,:));
-    clabel(R,e,'Color',map(iii,:));  
-    hold on
+    clabel(R,e,'Color',map(ii:));  
+    hold oni,
 end
 leg = [{'Overlap area'},variables(:)'];
 legend(leg)

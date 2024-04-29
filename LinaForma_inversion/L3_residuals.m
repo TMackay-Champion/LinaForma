@@ -8,7 +8,7 @@ observations =  'inputs/observations.csv';
 synthetic_data = 'inputs/synthetic.csv';
 
 % parameters
-synth = 1; % Do you want to use a synthetic distribution? 1 = YES, 0 = NO
+synth = 0; % Do you want to use a synthetic distribution? 1 = YES, 0 = NO
 T_best = 570; % Select the T point to which results will be compared.
 P_best = 9300;      % Select the P point to which results will be compared. Units = bars.
 
@@ -72,10 +72,10 @@ for i = 1:length(variables)
     xlabel(string(variables(i)))
     if i == 1 && synth == 1
         lg = legend({'Observations','Model result'});
-        lg.Position = [0.5, 0.05, 0.1, 0.1];
+        lg.Position = [0.3, 0.15, 0.4, 0.05];
     elseif i ==1 && synth ~= 1
         lg = legend({'Observations','Model result','Maximum observation','Minimum observation'});
-        lg.Position = [0.3, 0.25, 0.4, 0.05];
+        lg.Position = [0.3, 0.15, 0.4, 0.05];
     end
 end
 print(fig1,"FIGURES/residuals.pdf",'-dpdf','-bestfit')

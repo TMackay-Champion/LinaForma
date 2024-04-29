@@ -14,6 +14,9 @@ confidence_level = 0.58;  % Confidence level for 2D ellipse
 boxplots = 0;   % Do you want boxplots or histograms? 1 = boxplot, 0 = histogram
 Nbins = 5;  % Number of histogram bins. Only used if boxplots = 0
 
+% Contours or heatmap
+plot_type = 0; % What type of plot do you want? 1 = contour plot, 0 = heatmap;
+
 
 %%%%%%%%%%%%%%%%%%%%% CODE %%%%%%%%%%%%%%%%%%%%
 %%%% BEST NOT TO ALTER UNLESS YOU ARE SURE %%%%
@@ -98,13 +101,19 @@ title('Model grid')
 
 % Plot the misfit surface
 fig2 = figure(2);
+map = +Functions_NO_EDIT.viridis;
 set(fig2,'Units','centimeters')
 set(fig2,'Position',[0 0 0.9*21 0.9*21])
 subplot(3,2,[1 2 3 4])
 res = reshape(log(model_misfit),[ix iy])';
-contourf(X,Y,res); hold on
+if plot_type == 1
+    contourf(X,Y,res);
+else
+    pcolor(X,Y,res); shading flat
+end
+colormap(flipud(map)); hold on
 c = colorbar;
-c.Label.String = 'Misfit';
+c.Label.String = 'Log misfit';
 axis square
 ylabel('Pressure (bars)')
 xlabel('Temperature (°C)')
@@ -136,6 +145,13 @@ plot(mu_T,mu_P,'k*','LineWidth',4)
 ellipse_name = append(string(confidence_level),' uncertainty ellipse');
 legend('Misfit map','Monte Carlo points of minimum misfit',ellipse_name,'Mean P-T point')
 title('Grid-search results')
+
+
+% Round mean and standard deviations
+mu_T = ceil(mu_T/5)*5;
+mu_P = ceil(mu_P/5)*5;
+std_T = ceil(std_T/5)*5; 
+std_P = ceil(std_P/5)*5;
 
 
 % Plot boxplots
@@ -208,6 +224,7 @@ axis square
 xlabel('Temperature (°C)')
 ylabel('Pressure (bars)'); hold off
 title('Best-fit solutions and overlapping contours')
+
 
 % Save plots and PT solutions
 saveas(fig1,"FIGURES/model_grid.pdf");

@@ -133,7 +133,7 @@ set(gca, 'YTick', 1:length(variables), 'YTickLabel', sortedVariables,'Fontsize',
 xlabel('Pressure (bar)'); % Label x-axis
 t = append('Variation relative to ',string(P_best),' bar');
 title(t)
-legend('-','+','Location','southeast')
+lg = legend('-','+','Location','southeast');
 xlim([min(min(sorted_impact))-100 max(max(sorted_impact))+100])
 
 % Save figure
