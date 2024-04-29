@@ -100,7 +100,8 @@ fig1 = figure(1);
 set(fig1,'Units','centimeters')
 set(fig1,'Position',[0 0 0.9*21 0.9*21])
 p_field = reshape(percentage_field,[ix iy])';
-pcolor(X,Y,p_field); shading flat; c = colorbar; c.Label.String = 'Percentage'; hold on
+map = +Functions_NO_EDIT.viridis;
+pcolor(X,Y,p_field); shading flat; colormap(map); c = colorbar; c.Label.String = 'Percentage'; hold on
 xlabel('Temperature (°C)')
 ylabel('Pressure (bars)')
 n = size(fields,2);
