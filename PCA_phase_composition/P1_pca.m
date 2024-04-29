@@ -67,24 +67,27 @@ else
     title('{\bf PCA}')
 end
 
-
-fig3 = figure(2);
 if k_plot == 1
 kde = observations(:,1:(end-1));
 else
     kde = observations;
 end
+fig3 = figure(2);
+set(fig3,'Units','centimeters')
+width = 0.9*21;
+row = ceil(size(kde,2)/3);
+height = 0.35*21*row;
+set(fig3,'Position',[0 0 0.9*21 height])
 var = kde.Properties.VariableNames;
 for i = 1:size(kde,2)
     obs = kde(:,i); obs = table2array(obs);
     sigma = string(std(obs)); mu = string(mean(obs));
 [f, xi] = ksdensity(obs);
-row = ceil(size(kde,2)/3);
 subplot(row,3,i)
 plot(xi,f)
 ylabel('Probability density estimate')
 xlabel(var{i})
-t = append('μ = ',mu,', σ = ',sigma);
+t = append(mu,' ± ',sigma,' (1σ)');
 title(t)
 end
 
