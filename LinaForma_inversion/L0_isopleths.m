@@ -2,16 +2,18 @@
 clear;clc;
 
 %%%%%%%%% INPUTS %%%%%%%%%
-% data
+% data. Remember, paths can be left empty (e.g., all_measurements = [];),
+% but please do not delete them.
 model = 'inputs/forward_model.csv'; % These are the forward models.
-all_measurements = 'inputs/all_measurements.csv'; % This will be used if all = 1.
+all_measurements = []; % This will be used if all = 1.
 measurement_distribution = 'inputs/measurement_distributions.csv'; % This will be used if all = 0.
+
 
 % parameters
 % ====== Data type ======
-raw = 1; % What measurement data do you want to use? 1 = all_measurements.csv; 0 = measured_distribution.csv
+raw = 0; % What measurement data do you want to use? 1 = all_measurements.csv; 0 = measured_distribution.csv
 
-% ====== If raw = 0 ======
+% ====== If raw = 0 (will be ignored otherwise) ======
 sd = 1; % How many standard deviations from the mean do you want to include?
 
 % ====== PLOTS ======
