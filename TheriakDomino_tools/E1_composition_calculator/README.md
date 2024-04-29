@@ -10,10 +10,11 @@ This code allows the user to create a composition file (THERIN.txt) for TD from 
 
 ## Code (E1_comp.m)
 1) composition = '???'. This should be the name of the input file containing the bulk composition information (e.g., "input_comp.csv").
+2) mole_H2O = ?. This is the mole percent of water you wish to add to your final composition.
+3) sample_name = '???'. This is the sample name.
+4) TD_output = '?'. This controls the output of THERIAK-DOMINO (see the program documentation for more detail).
+5) monazite_fraction = ?. This is the ratio of monazite to apatite in the rock, and allows for an appropriate Ca correction in the bulk composition. Apatite contains Ca whereas monazite does not.
 
-2) sample_name = '???'. Give your sample a name!
-
-3) TD_output = '?'. This controls the output of THERIAK-DOMINO (see the program documentation for more detail).
 
 ## Outputs
 The code will output a therin.txt file which looks like this:
