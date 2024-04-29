@@ -52,7 +52,7 @@ leg  = {'HEATMAP','Column1','Column2','Column3'}; % This creates a legend for yo
 
 % Read in data and construct P-T grid
 input = readmatrix(input_file);
-
+input = sortrows(input,2);
 
 % Construct P-T grid
 temperature = input(:,1);

@@ -23,7 +23,9 @@ components = 10; % Give the number of components of the system
 %%%%%%%%%%%%%%%%%%% CODE %%%%%%%%%%%%%%%%%%%
 % Read in data and construct P-T grid
 input = readmatrix(input_file);
+input = sortrows(input,2);
 input1 = readtable(input_file,'VariableNamingRule','preserve');
+input1 = sortrows(input1,2);
 
 % Construct P-T grid
 temperature = input(:,1);
