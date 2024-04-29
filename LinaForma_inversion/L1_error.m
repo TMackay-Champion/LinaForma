@@ -36,18 +36,13 @@ end
 % Input model
 mod = readmatrix(model); mod = sortrows(mod,2); T = mod(:,1); P = mod(:,2); mod = mod(:,3:end); 
 
+% For each observation, calculate the best-fit solution
 for i = 1:size(mod,2)
-
     forward = mod(:,i);
-
-    if raw == 0
-        m = mu(:,i); sig = sigma(:,i);
-    end
-
+    if raw == 0; m = mu(:,i); sig = sigma(:,i); end
     if raw == 1; tmp2 = size(obs,1); else tmp2 = n; end
-    
-    for ii = 1:tmp2
 
+    for ii = 1:tmp2
         if raw == 1
             ob = obs(ii,i);
         elseif raw == 0
@@ -55,15 +50,13 @@ for i = 1:size(mod,2)
         end
 
         for iii = 1:size(forward); fit(iii) = +Functions_NO_EDIT.misfit(forward(iii),ob);end
-
         T_best = mean(T(fit == min(fit))); P_best = mean(P(fit == min(fit)));
         T_variation(ii,i) = T_best;
         P_variation(ii,i) = P_best;
-
     end
-
 end
 
+% Plots
 fig1 = figure(1);
 for i = 1:size(mod,2)
 row = ceil(length(variables)/3);
