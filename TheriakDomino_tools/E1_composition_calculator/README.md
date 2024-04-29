@@ -5,7 +5,7 @@ This code allows the user to create a composition file (THERIN.txt) for TD from 
 1) input_comp.csv. This file should contain the bulk composition of the sample in oxide weight percent. Please do not change the order of the oxides, and please put all Fe as FeO. The file should look like this:
 
  <p align="center">
-<img src="https://github.com/TMackay-Champion/LinaForma/blob/2d17625e716d2e9533be3f1712db24f23c8d560b/images/E1_input.png", width="80%">
+<img src="https://github.com/TMackay-Champion/LinaForma/blob/9922ca42fce1f920aaf6f3300c77bbe0d4bfcac0/images/E1_input.png", width="80%">
 </p>
 
 
