@@ -8,7 +8,7 @@ clear;clc;
 composition = 'input_comp.csv'; % Composition in wt%
 
 % parameters
-mole_H2O = 5 ; % Give your mole percent of water in final composition
+mole_H2O = 5 ; % The mole percent of water in final composition
 sample_name = 'TMC'; % Sample name
 TD_output = '0'; % The output code for Theriak-Domino. Can be -1, 0, 1
 monazite_fraction = 0.95; % The molar ratio of monazite to apatite in the rock. This controls the phosphate correction.
