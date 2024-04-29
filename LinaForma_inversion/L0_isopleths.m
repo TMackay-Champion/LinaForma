@@ -3,10 +3,18 @@ clear;clc;
 
 %%%%%%%%% INPUTS %%%%%%%%%
 % data
-model = 'inputs/forward_model.csv';
-observations = 'inputs/observations.csv';
+model = 'inputs/forward_model.csv'; % These are the forward models.
+all_measurements = 'inputs/all_measurements.csv'; % This will be used if all = 1.
+measurement_distribution = 'inputs/measurement_distributions.csv'; % This will be used if all = 0.
 
 % parameters
+% ====== Data type ======
+raw = 1; % What measurement data do you want to use? 1 = all_measurements.csv; 0 = measured_distribution.csv
+
+% ====== If raw = 0 ======
+sd = 1; % How many standard deviations from the mean do you want to include?
+
+% ====== PLOTS ======
 % PLOT 1 = percentage overlap plot
 all1 = 0; % Do you want to plot all of the variables? 1 = YES, 0 = NO.
 columns1 = [1,2,3,4]; % List the columns you want to plot, beginning from first variable. Only relevant if all = 0.
@@ -27,7 +35,17 @@ input = readtable(model,'VariableNamingRule','preserve');
 input = sortrows(input,2);
 forward_model = readmatrix(model);
 forward_model = sortrows(forward_model,2);
-observations = readmatrix(observations);
+
+if raw == 1
+    all_measurements = readmatrix(all_measurements);
+else
+    all_measurements = readtable(measurement_distribution,'ReadRowNames',true);
+    all_mean = all_measurements('MEAN',:);
+    all_std = all_measurements('STD',:);
+    max_samples = all_mean{"MEAN",:} + sd * all_std{"STD",:};
+    min_samples = all_mean{"MEAN",:} - sd * all_std{"STD",:};
+    all_measurements = [max_samples;min_samples];
+end
 
 % Create P-T grid
 temperature = forward_model(:,1);
@@ -46,7 +64,7 @@ variables_all = input.Properties.VariableNames;
 % Find which model areas fit the observations
 for i = 1:size(forward_model,2)
     model = forward_model(:,i);
-    observed = observations(:,i);
+    observed = all_measurements(:,i);
     model_fit = zeros([length(temperature) 1]);
 
     if sum(isnan(observed)) > 0
