@@ -16,9 +16,9 @@ P_best = 9300;      % Select the P point to which results will be compared. Unit
 
 %%%%%%%%%%%%%%%%%%%%% CODE %%%%%%%%%%%%%%%%%%%%
 %%%% BEST NOT TO ALTER UNLESS YOU ARE SURE %%%%
-model = readmatrix(forward_model);
+model = readmatrix(forward_model); model = sortrows(model,2);
 observations = readmatrix(observations);
-variables = readtable(forward_model);variables = variables.Properties.VariableNames;
+variables = readtable(forward_model); variables = sortrows(variables,2); variables = variables.Properties.VariableNames;
 variables = variables(:,3:end);
 
 

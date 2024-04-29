@@ -27,7 +27,7 @@ pressure_of_interest = 9000; % This is the pressure of interest (bar).
 %%%%%%%%% Part 1: Find the temperature error associated with the
 %%%%%%%%% observations
 obs = readtable(observations); variables = obs.Properties.VariableNames; obs = table2array(obs);
-mod = readmatrix(model); T = mod(:,1); P = mod(:,2); mod = mod(:,3:end);
+mod = readmatrix(model); mod = sortrows(mod,2); T = mod(:,1); P = mod(:,2); mod = mod(:,3:end);
 synthetic = readmatrix(synthetics); synthetic = synthetic(:,2:end); mu = synthetic(1,:); sigma = synthetic(2,:);
 
 for i = 1:size(mod,2)

@@ -24,7 +24,9 @@ columns2 = [1,2,3,4]; % List the columns you want to plot, beginning from first 
 
 % Read in data
 input = readtable(model,'VariableNamingRule','preserve');
+input = sortrows(input,2);
 forward_model = readmatrix(model);
+forward_model = sortrows(forward_model,2);
 observations = readmatrix(observations);
 
 % Create P-T grid
@@ -172,8 +174,8 @@ for iii = 1:size(contour_fields,2)
     tmp = reshape(contour_fields(:,iii),[ix iy]);
     tmp = tmp';
     [R,e] = contour(X,Y,tmp,'Color',map(iii,:));
-    clabel(R,e,'Color',map(ii:));  
-    hold oni,
+    clabel(R,e,'Color',map(iii,:));  
+    hold on;
 end
 leg = [{'Overlap area'},variables(:)'];
 legend(leg)
@@ -184,7 +186,6 @@ title('Contour plot with overlap')
 
 % Save table and figures
 save("output_variables/percentage_overlap.mat",'X','Y','p_field');
-
 saveas(fig1,"FIGURES/percentage_overlap.pdf");
 saveas(fig2,'FIGURES/overlapping_fields.pdf');
 saveas(fig3,'FIGURES/contours_overlap.pdf');

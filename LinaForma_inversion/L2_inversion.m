@@ -23,7 +23,7 @@ plot_type = 0; % What type of plot do you want? 1 = contour plot, 0 = heatmap;
 
 %%%% PART 1: Input the data and create the Pressure-temperature grid %%%%
 % Read in data
-model = readtable(model);
+model = readtable(model); model = sortrows(model,2);
 observations = readtable(observations);
 
 % Create Pressure-Temperature grid

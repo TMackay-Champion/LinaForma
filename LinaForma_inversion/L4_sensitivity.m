@@ -19,7 +19,7 @@ P_best = 9300;      % Select the best-fit P point to which results will be compa
 
 %%%% PART 1: Input the data and create the Pressure-temperature grid %%%%
 % Read in data
-model = readtable(forward_model);
+model = readtable(forward_model); model = sortrows(model,2);
 observations = readtable(observations);
 
 % Create Pressure-Temperature grid
@@ -82,7 +82,7 @@ P_min(n_variable) = P_best - min(p_best);
 end
 
 %%%% PART 4: Plots %%%%
-variables = readtable(forward_model); variables = variables.Properties.VariableNames;
+variables = readtable(forward_model); variables = sortrows(variables,2); variables = variables.Properties.VariableNames;
 variables = variables(:,3:end);
 
 % Plot T variability
