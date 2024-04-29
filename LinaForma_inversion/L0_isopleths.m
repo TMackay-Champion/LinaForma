@@ -3,18 +3,14 @@ clear;clc;
 
 %%%%%%%%% INPUTS %%%%%%%%%
 % ====== Data ======
-% Remember, paths can be left empty (e.g., all_measurements = [];),
-% but please do not delete them.
-model = 'inputs/forward_model.csv'; % These are the forward models.
-all_measurements = []; % This will be used if all = 1.
-measurement_distribution = 'inputs/measurement_distributions.csv'; % This will be used if all = 0.
+model = 'inputs/forward_model.csv'; % Forward models.
+measurements = 'inputs/measurement_distributions.csv'; % Measurements
 
-% parameters
 % ====== Data type ======
-raw = 0; % What measurement data do you want to use? 1 = all_measurements.csv; 0 = measured_distribution.csv
+raw = 1; % What type of data do you have? 1 = all measurements. 0 = mean and std. of variables.
 
-% ====== If raw = 0 (will be ignored otherwise) ======
-sd = 1; % How many standard deviations from the mean do you want to include?
+% ====== Range of values (only applicable if raw = 0) ======
+sd = 0.5; % Range of values given as standard deviation from the mean
 
 % ====== PLOTS ======
 % PLOT 1 = percentage overlap plot
@@ -39,14 +35,21 @@ forward_model = readmatrix(model);
 forward_model = sortrows(forward_model,2);
 
 if raw == 1
-    all_measurements = readmatrix(all_measurements);
+    measurements = readmatrix(measurements); 
+    if isnan(measurements(1,1))
+        error('This data only contains MEAN or STD information, not real measurements.')
+    end
 else
-    all_measurements = readtable(measurement_distribution,'ReadRowNames',true);
-    all_mean = all_measurements('MEAN',:);
-    all_std = all_measurements('STD',:);
+    measurements = readtable(measurements,'ReadRowNames',true);
+    variables = measurements.Properties.RowNames;
+    if ~any(strcmp(variables, 'MEAN'))
+        error('This data does not contain MEAN or STD information.')
+    end
+    all_mean = measurements('MEAN',:);
+    all_std = measurements('STD',:);
     max_samples = all_mean{"MEAN",:} + sd * all_std{"STD",:};
     min_samples = all_mean{"MEAN",:} - sd * all_std{"STD",:};
-    all_measurements = [max_samples;min_samples];
+    measurements = [max_samples;min_samples];
 end
 
 % Create P-T grid
@@ -66,7 +69,7 @@ variables_all = input.Properties.VariableNames;
 % Find which model areas fit the observations
 for i = 1:size(forward_model,2)
     model = forward_model(:,i);
-    observed = all_measurements(:,i);
+    observed = measurements(:,i);
     model_fit = zeros([length(temperature) 1]);
 
     if sum(isnan(observed)) > 0

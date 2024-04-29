@@ -3,35 +3,54 @@
 clear;clc;
 
 %%%%%%%%% INPUTS %%%%%%%%%
-% data
-model = 'inputs/forward_model.csv';
-observations = 'inputs/observations.csv';
-synthetics = 'inputs/synthetic.csv';
+% ====== Data ======
+model = 'inputs/forward_model.csv'; % Forward models.
+measurements = 'inputs/measurement_distributions.csv'; % Measurements
 
-% parameters
-synth = 0; % Do you want to use synthetics or the real observations? 1 = synth, 0 = observations. 
-n = 1000; % Number of random samples. Only applicable if synth = 1.
+% ====== Data type ======
+raw = 0; % What type of data do you have? 1 = all measurements. 0 = mean and std. of variables.
+
+% ====== Sampling parameters (only applicable if raw = 0) ======
+n = 20; % Number of random samples
 
 
 %%%%%%%%%%%%%%%%%%%%% CODE %%%%%%%%%%%%%%%%%%%%
 %%%% BEST NOT TO ALTER UNLESS YOU ARE SURE %%%
 
-obs = readtable(observations); variables = obs.Properties.VariableNames; obs = table2array(obs);
-mod = readmatrix(model); mod = sortrows(mod,2); T = mod(:,1); P = mod(:,2); mod = mod(:,3:end);
-synthetic = readmatrix(synthetics); synthetic = synthetic(:,2:end); mu = synthetic(1,:); sigma = synthetic(2,:);
+% Input data. Give error message if wrong sheet is used.
+if raw == 1
+    obs = readtable(measurements); variables = obs.Properties.VariableNames;
+    if any(strcmp(variables, 'Statistic'))
+        error('This data only contains MEAN or STD information, not real measurements.')
+    end
+    obs = table2array(obs);
+elseif raw == 0
+    rtmp = readtable(measurements); variables = rtmp.Properties.VariableNames; 
+    if ~any(strcmp(variables, 'Statistic'))
+        error('This data does not contain MEAN or STD information.')
+    end
+    variables = variables(2:end);
+    measurements = readmatrix(measurements); measurements = measurements(:,2:end); mu = measurements(1,:); sigma = measurements(2,:);
+end
+
+% Input model
+mod = readmatrix(model); mod = sortrows(mod,2); T = mod(:,1); P = mod(:,2); mod = mod(:,3:end); 
 
 for i = 1:size(mod,2)
 
     forward = mod(:,i);
-    m = mu(:,i); sig = sigma(:,i);
 
-    if synth == 0; tmp2 = size(obs,1); else tmp2 = n; end
+    if raw == 0
+        m = mu(:,i); sig = sigma(:,i);
+    end
+
+    if raw == 1; tmp2 = size(obs,1); else tmp2 = n; end
     
     for ii = 1:tmp2
 
-        if synth == 0
+        if raw == 1
             ob = obs(ii,i);
-        elseif synth == 1
+        elseif raw == 0
             ob = normrnd(m,sig,1);
         end
 
@@ -46,14 +65,12 @@ for i = 1:size(mod,2)
 end
 
 fig1 = figure(1);
-for i = 1:size(obs,2)
+for i = 1:size(mod,2)
 row = ceil(length(variables)/3);
 subplot(row,3,i)
 data = T_variation(:,i);
 mu = mean(data); sigma = std(data);
 mu = ceil(mu/5)*5; sigma = ceil(sigma/5)*5;
-[f,ix] = ksdensity(T_variation(:,i));
-%plot(ix,f);
 boxplot(data,'Orientation','horizontal')
 xlabel(variables(i));
 t = append(string(mu),' ± ',string(sigma),' °C');
@@ -61,14 +78,12 @@ title(t)
 end
 
 fig2 = figure(2);
-for i = 1:size(obs,2)
+for i = 1:size(mod,2)
 row = ceil(length(variables)/3);
 subplot(row,3,i)
 data = P_variation(:,i);
 mu = mean(data); sigma = std(data);
 mu = ceil(mu/5)*5/1000; sigma = ceil(sigma/5)*5/1000;
-[f,ix] = ksdensity(P_variation(:,i));
-%plot(ix/1000,f);
 boxplot(data/1000,'Orientation','horizontal')
 xlabel(variables(i));
 t = append(string(mu),' ± ',string(sigma),' kbar');
