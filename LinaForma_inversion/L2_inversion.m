@@ -246,11 +246,22 @@ xlabel('Temperature (°C)')
 ylabel('Pressure (bars)'); hold off
 title('Best-fit solutions and overlapping contours')
 
+% Plot grid of results
+fig4 = figure(4);
+histogram2(t_best(:,1),p_best(:,1),'DisplayStyle','tile','ShowEmptyBins','on'); 
+colormap(map)
+c = colorbar;
+c.Label.String = 'Number of solutions';
+xlabel('Temperature (°C)')
+ylabel('Pressure (bar)')
+title('Best-fit solution 2D histogram')
+
 
 % Save plots and PT solutions
 saveas(fig1,"FIGURES/model_grid.pdf");
 saveas(fig2,"FIGURES/grid_solution.pdf");
 saveas(fig3,"FIGURES/contour_solution.pdf");
+saveas(fig4,"FIGURES/solution_2Dhistogram.pdf");
 T = table(t_best, p_best, 'VariableNames', {'Temperature (°C)', 'Pressure (bar)'});
 writetable(T,'output_variables/PT_solutions.csv');
 disp('FINISHED')
