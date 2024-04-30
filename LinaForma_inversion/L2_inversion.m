@@ -11,13 +11,15 @@ raw = 0; % What type of data do you have? 1 = all measurements. 0 = mean and std
 
 % ====== Bootstrapping parameters ======
 bootstrap_type = 1;      % Parametric = 1, non-parametric = 0. Only parametric is available if raw = 0.
-it = 50;        % How many random iterations do you want to calculate?
+it = 500;        % How many random iterations do you want to calculate?
 
 % ====== PLOTS ======
 confidence_level = 0.68;  % Confidence level for 2D ellipse
 boxplots = 0;   % Do you want boxplots or histograms? 1 = boxplot, 0 = histogram
 Nbins = 5;  % Number of histogram bins. Only used if boxplots = 0
 plot_type = 0; % What type of plot do you want? 1 = contour plot, 0 = heatmap;
+resT = 10; % Width of temperature (°C) bins in 2D histogram (Figure 4)
+resP = 100; % Width of pressure (bar) bins in 2D histogram (Figure 4)
 
 
 %%%%%%%%%%%%%%%%%%%%% CODE %%%%%%%%%%%%%%%%%%%%
@@ -111,7 +113,6 @@ set(fig1,'Position',[0 0 0.9*21 0.9*21])
 plot(X,Y,'ko');
 xlabel('Temperature (°C)')
 ylabel('Pressure (bar)')
-
 minY = min(Y,[],'all'); maxY = max(Y,[],'all');
 minX = min(X,[],'all'); maxX = max(X,[],'all');
 ylim([(minY-0.05*maxY) (maxY+0.05*maxY)])
@@ -149,6 +150,11 @@ mu_T = mean(t_best); mu_P = mean(p_best);
 covariance = cov(t_best,p_best);
 std_T = std(t_best); std_P = std(p_best);
 
+% Mode calculation
+mode(1,1) = median(t_best);
+mode(1,2) = median(p_best);
+
+
 % Plot error ellipse
 [eigen_vectors, eigen_values] = eig(covariance);
 major_axis_length = sqrt(eigen_values(1, 1) * chi2inv(confidence_level, 2));
@@ -162,9 +168,10 @@ y_rotated = x_ellipse * sin(rotation_angle) + y_ellipse * cos(rotation_angle);
 x_rotated = x_rotated + mu_T;
 y_rotated = y_rotated + mu_P;
 plot(x_rotated, y_rotated, 'r-', 'LineWidth', 3);
-plot(mu_T,mu_P,'k*','LineWidth',4)
+plot(mu_T,mu_P,"pentagram",'MarkerFaceColor','yellow','MarkerEdgeColor','k','MarkerSize',20)
+plot(mode(1,1),mode(1,2),"pentagram",'MarkerFaceColor','blue','MarkerEdgeColor','k','MarkerSize',20)
 ellipse_name = append(string(confidence_level),' uncertainty ellipse');
-legend('Misfit map','Monte Carlo points of minimum misfit',ellipse_name,'Mean P-T point')
+legend('Misfit map','Monte Carlo points of minimum misfit',ellipse_name,'Mean P-T point','Median P-T point')
 title('Grid-search results')
 
 
@@ -241,20 +248,29 @@ load('output_variables\percentage_overlap.mat');
 pcolor(X,Y,p_field); colormap(map); shading flat; c = colorbar; hold on
 c.Label.String = 'Percentage of observations which overlap';
 plot(t_best(:,1),p_best(:,1),'k.','MarkerSize',10);
+plot(mu_T,mu_P,"pentagram",'MarkerFaceColor','yellow','MarkerEdgeColor','k','MarkerSize',20)
+plot(mode(1,1),mode(1,2),"pentagram",'MarkerFaceColor','blue','MarkerEdgeColor','k','MarkerSize',20)
 axis square
 xlabel('Temperature (°C)')
 ylabel('Pressure (bars)'); hold off
 title('Best-fit solutions and overlapping contours')
+legend('Contour plot','best-fit solutions','Mean best-fit solution','Median best-fit solution')
 
 % Plot grid of results
 fig4 = figure(4);
-histogram2(t_best(:,1),p_best(:,1),'DisplayStyle','tile','ShowEmptyBins','on'); 
+set(fig4,'Units','centimeters')
+set(fig4,'Position',[0 0 0.9*21 0.9*21])
+histogram2(t_best(:,1),p_best(:,1),'DisplayStyle','tile','ShowEmptyBins','on','BinWidth',[resT resP]); 
 colormap(map)
 c = colorbar;
-c.Label.String = 'Number of solutions';
+c.Label.String = 'Number of solutions'; hold on
+plot(mu_T,mu_P,"pentagram",'MarkerFaceColor','yellow','MarkerEdgeColor','k','MarkerSize',20)
+plot(mode(1,1),mode(1,2),"pentagram",'MarkerFaceColor','blue','MarkerEdgeColor','k','MarkerSize',20)
+axis square
 xlabel('Temperature (°C)')
 ylabel('Pressure (bar)')
 title('Best-fit solution 2D histogram')
+legend('2D histogram','Mean best-fit solution','Median best-fit solution');
 
 
 % Save plots and PT solutions
