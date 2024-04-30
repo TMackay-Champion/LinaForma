@@ -2,7 +2,7 @@
 clear;clc
 
 %%%%%%%%% INPUTS %%%%%%%%%
-% parameters
+% ====== Run parameters ======
 directory = 'C:/Users/tober/OneDrive - Nexus365/Projects/Lina Forma/software_package/EXTRA_TD_tools/E3_loop_THERIAK/THERIAK_automation/'; % This needs to be the 
 % full-path to the folder containing your THERIAK-DOMINO programs
 database = 'td_pelite.txt';     % This should match the name of the database file in the automation folder

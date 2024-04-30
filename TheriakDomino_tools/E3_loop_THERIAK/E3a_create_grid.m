@@ -2,7 +2,7 @@
 clear;clc;
 
 %%%%%%%%% INPUTS %%%%%%%%%
-% parameters
+% ====== Run parameters ======
 lowT = 400;
 highT = 1000;
 steps_T = 5; % Number of steps

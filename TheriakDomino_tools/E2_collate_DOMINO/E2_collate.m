@@ -1,8 +1,7 @@
 %%% This script will collate all the text files into a single Excel table
 clear;clc;
 
-%%% INPUTS. PLEASE ALTER %%%
-
+%%%%%%%%% INPUTS %%%%%%%%%
 % Files
 domino_folder = 'dom_files';
 output_file = 'forward_models.csv';
@@ -17,9 +16,8 @@ ix = 100;
 iy = 100;
 
 
-
-%%%%%%%%% CODE %%%%%%%%%
-%%%%%%%% PLEASE DO NOT ALTER %%%%%%%%
+%%%%%%%%%%%%%%%%%%%%% CODE %%%%%%%%%%%%%%%%%%%%
+%%%% BEST NOT TO ALTER UNLESS YOU ARE SURE %%%
 assemblage_file = append(domino_folder,'/',assemblage_file);
 datadir = domino_folder;
 fn = dir(datadir + "\*_*");

@@ -2,9 +2,11 @@
 % are
 clear;clc;
 
-%%% INPUTS. PLEASE ALTER %%%
-input_file = 'forward_models.csv';
+%%%%%%%%% INPUTS %%%%%%%%%
+% ====== Data ======
+model = 'forward_models.csv';
 
+% ====== PLOTS ======
 % Plot stability field of particular phase?
 phase = 0; % 1 = YES; 0 = NO
 mineral = 'GRT'; % This corresponds to the name given to the mineral in the database
@@ -22,9 +24,9 @@ components = 10; % Give the number of components of the system
 
 %%%%%%%%%%%%%%%%%%% CODE %%%%%%%%%%%%%%%%%%%
 % Read in data and construct P-T grid
-input = readmatrix(input_file);
+input = readmatrix(model);
 input = sortrows(input,2);
-input1 = readtable(input_file,'VariableNamingRule','preserve');
+input1 = readtable(model,'VariableNamingRule','preserve');
 input1 = sortrows(input1,2);
 
 % Construct P-T grid

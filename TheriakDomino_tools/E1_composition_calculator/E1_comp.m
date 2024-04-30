@@ -4,10 +4,10 @@
 clear;
 
 %%%%%%%%% INPUTS %%%%%%%%%
-% data
+% ====== Compositional data ======
 composition = 'input_comp.csv'; % Composition in wt%
 
-% parameters
+% ====== Run parameters ======
 mole_H2O = 5 ; % The mole percent of water in final composition
 sample_name = 'TMC'; % Sample name
 TD_output = '0'; % The output code for Theriak-Domino. Can be -1, 0, 1

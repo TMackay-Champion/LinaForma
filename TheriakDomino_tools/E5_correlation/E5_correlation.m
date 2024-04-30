@@ -3,7 +3,7 @@ clear;clc;
 
 
 %%%%%%%%% INPUTS %%%%%%%%%
-% data
+% ====== Data ======
 models = 'forward_model.csv'; % The filename of the input data
 
 

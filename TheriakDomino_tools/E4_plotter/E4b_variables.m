@@ -1,11 +1,11 @@
 %% This script will plot two sets of contour lines, and 1 heatmap (i.e., 3 variables total)
 clear;clc;
 
-%%% INPUTS. PLEASE ALTER %%%
-% data
-input_file = 'forward_models.csv';
+%%%%%%%%% INPUTS %%%%%%%%%
+% ====== Data ======
+model = 'forward_models.csv';
 
-% parameters
+% ====== PLOTS ======
 % HEATMAP INPUT
 do_you_want_to_include4 = 1;
 column4 = 10;
@@ -47,11 +47,11 @@ end
 leg  = {'HEATMAP','Column1','Column2','Column3'}; % This creates a legend for your plot. The order must be 
 
 
-%%%%%%%%% CODE %%%%%%%%%
-%%%%%%%% PLEASE DO NOT ALTER %%%%%%%%
+%%%%%%%%%%%%%%%%%%%%% CODE %%%%%%%%%%%%%%%%%%%%
+%%%% BEST NOT TO ALTER UNLESS YOU ARE SURE %%%
 
 % Read in data and construct P-T grid
-input = readmatrix(input_file);
+input = readmatrix(model);
 input = sortrows(input,2);
 
 % Construct P-T grid
