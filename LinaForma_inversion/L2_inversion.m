@@ -17,8 +17,8 @@ it = 500;        % How many random iterations do you want to calculate?
 confidence_level = 0.68;  % Confidence level for 2D ellipse
 boxplots = 0;   % Do you want boxplots or histograms? 1 = boxplot, 0 = histogram
 plot_type = 0; % What type of plot do you want? 1 = contour plot, 0 = heatmap;
-T_bins = 10; % Number of temperature bins in 2D histogram (Figure 4)
-P_bins = 10; % Number of pressure bins in 2D histogram (Figure 4)
+T_bins = 10; % Number of temperature bins in 2D histogram (Figure 2, 4)
+P_bins = 10; % Number of pressure bins in 2D histogram (Figure 2, 4)
 
 
 %%%%%%%%%%%%%%%%%%%%% CODE %%%%%%%%%%%%%%%%%%%%
