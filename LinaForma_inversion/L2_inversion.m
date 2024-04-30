@@ -263,7 +263,8 @@ set(fig4,'Position',[0 0 0.9*21 0.9*21])
 histogram2(t_best(:,1),p_best(:,1),'DisplayStyle','tile','ShowEmptyBins','on','BinWidth',[resT resP]); 
 colormap(map)
 c = colorbar;
-c.Label.String = 'Number of solutions'; hold on
+c.Label.String = 'Log number of solutions'; hold on
+set(gca,'ColorScale','log')
 plot(mu_T,mu_P,"pentagram",'MarkerFaceColor','yellow','MarkerEdgeColor','k','MarkerSize',20)
 plot(mode(1,1),mode(1,2),"pentagram",'MarkerFaceColor','blue','MarkerEdgeColor','k','MarkerSize',20)
 axis square
