@@ -2,40 +2,52 @@
 clear;clc;
 
 %%%%%%%%% INPUTS %%%%%%%%%
-% data
-forward_model = 'inputs/forward_model.csv';
-observations =  'inputs/observations.csv';
-synthetic_data = 'inputs/synthetic.csv';
+% ====== Data ======
+model = 'inputs/forward_model.csv'; % Forward models.
+measurements = 'inputs/measurement_distributions.csv'; % Measurements
 
-% parameters
-synth = 0; % Do you want to use a synthetic distribution? 1 = YES, 0 = NO
-T_best = 570; % Select the T point to which results will be compared.
+% ====== Data type ======
+raw = 0; % What type of data do you have? 1 = all measurements. 0 = mean and std. of variables.
+
+% ====== Select P-T point for forward model data ======
+T_best = 590; % Select the T point to which results will be compared.
 P_best = 9300;      % Select the P point to which results will be compared. Units = bars.
 
 
 
 %%%%%%%%%%%%%%%%%%%%% CODE %%%%%%%%%%%%%%%%%%%%
 %%%% BEST NOT TO ALTER UNLESS YOU ARE SURE %%%%
-model = readmatrix(forward_model); model = sortrows(model,2);
-observations = readmatrix(observations);
-variables = readtable(forward_model); variables = sortrows(variables,2); variables = variables.Properties.VariableNames;
+model_tmp = readmatrix(model); model_tmp = sortrows(model_tmp,2);
+if raw == 1
+    measurements_tmp = readtable(measurements);
+    var_tmp = measurements_tmp.Properties.VariableNames;
+    if any(strcmp(var_tmp, 'Statistic'))
+        error('This data only contains MEAN or STD information.')
+    end
+    measurements = readmatrix(measurements);
+    tmp = size(measurements,2);
+elseif raw == 0
+    syn = readtable(measurements,'ReadRowNames',true);
+    var_tmp = syn.Properties.RowNames;
+    if ~any(strcmp(var_tmp, 'MEAN'))
+        error('This data does not contain MEAN or STD information.')
+    end
+    syn_mean = table2array(syn(1,:)); syn_sigma =table2array(syn(2,:));
+    tmp = size(syn_mean,2);
+end
+variables = readtable(model); variables = sortrows(variables,2); variables = variables.Properties.VariableNames;
 variables = variables(:,3:end);
 
 
 % Get data
-m_data = model(:,3:end); TP = model(:,1:2); % Get PT points of model
+m_data = model_tmp(:,3:end); TP = model_tmp(:,1:2); % Get PT points of model
 row = +Functions_NO_EDIT.find_points([T_best,P_best],TP,0);
 data = m_data(row,:);
 
 
-% Make observations
-syn = readtable(synthetic_data);
-syn_mean = table2array(syn(1,2:end)); syn_sigma =table2array(syn(2,2:end));
+for i = 1:tmp
 
-
-for i = 1:size(observations,2)
-
-        if synth == 1
+        if raw == 0
             mu = syn_mean(i); sig = syn_sigma(i);
             x = linspace(mu-3*sig, mu + 3*sig, 1000); 
             distribution = normpdf(x, mu, sig);
@@ -44,7 +56,7 @@ for i = 1:size(observations,2)
             x_axis(i,:) = x;
 
         else
-            tmp = observations(:,i);
+            tmp = measurements(:,i);
             sigma(i) = std(tmp);
             mn(i) = mean(tmp);
             [f,x] = ksdensity(tmp);
@@ -62,18 +74,18 @@ for i = 1:length(variables)
     subplot(row,3,i)
     plot(x_axis(i,:),observed_dist(i,:)); hold on
     plot([data(1,i),data(1,i)],[0 max(observed_dist(i,:))],'r--','LineWidth',2)
-    if synth ~= 1
-        plot([min(observations(:,i)) min(observations(:,i))],[0 max(observed_dist(i,:))])
-        plot([max(observations(:,i)) max(observations(:,i))],[0 max(observed_dist(i,:))])
+    if raw ~= 0
+        plot([min(measurements(:,i)) min(measurements(:,i))],[0 max(observed_dist(i,:))])
+        plot([max(measurements(:,i)) max(measurements(:,i))],[0 max(observed_dist(i,:))])
     end
     t = append(string(mn(i)),' ± ',string(sigma(i)));
     title(t);
     ylabel('P.D.E.')
     xlabel(string(variables(i)))
-    if i == 1 && synth == 1
+    if i == 1 && raw == 0
         lg = legend({'Observations','Model result'});
         lg.Position = [0.3, 0.15, 0.4, 0.05];
-    elseif i ==1 && synth ~= 1
+    elseif i ==1 && raw ~= 0
         lg = legend({'Observations','Model result','Minimum observation','Maximum observation'});
         lg.Position = [0.3, 0.15, 0.4, 0.05];
     end

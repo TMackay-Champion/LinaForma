@@ -4,23 +4,21 @@
 clear;clc;
 
 %%%%%%%%% INPUTS %%%%%%%%%
-% data
+% ====== Data ======
 model = 'inputs/forward_model.csv';
-observations = 'inputs/observations.csv';
-synthetics = 'inputs/synthetic.csv';
 
-% parameters
+% ====== Temperature uncertainty @ selected pressure ======
 threshold = 75; % This is the temperature uncertainty for each variable.
 pressure_of_interest = 9000; % This is the pressure of interest (bar).
 
 
+
+
 %%%%%%%%%%%%%%%%%%%%% CODE %%%%%%%%%%%%%%%%%%%%
 %%%% BEST NOT TO ALTER UNLESS YOU ARE SURE %%%
-
 % Read data
-obs = readtable(observations); variables = obs.Properties.VariableNames; obs = table2array(obs);
+mod = readtable(model); variables = mod.Properties.VariableNames; variables = variables(3:end);
 mod = readmatrix(model); mod = sortrows(mod,2); T = mod(:,1); P = mod(:,2); mod = mod(:,3:end);
-synthetic = readmatrix(synthetics); synthetic = synthetic(:,2:end); mu = synthetic(1,:); sigma = synthetic(2,:);
 
 % Closest pressure
 absolute_diff = abs(P - pressure_of_interest);

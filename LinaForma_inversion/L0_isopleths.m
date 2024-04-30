@@ -7,18 +7,18 @@ model = 'inputs/forward_model.csv'; % Forward models.
 measurements = 'inputs/measurement_distributions.csv'; % Measurements
 
 % ====== Data type ======
-raw = 1; % What type of data do you have? 1 = all measurements. 0 = mean and std. of variables.
+raw = 0; % What type of data do you have? 1 = all measurements. 0 = mean and std. of variables.
 
 % ====== Range of values (only applicable if raw = 0) ======
 sd = 0.5; % Range of values given as standard deviation from the mean
 
 % ====== PLOTS ======
 % PLOT 1 = percentage overlap plot
-all1 = 0; % Do you want to plot all of the variables? 1 = YES, 0 = NO.
+all1 = 1; % Do you want to plot all of the variables? 1 = YES, 0 = NO.
 columns1 = [1,2,3,4]; % List the columns you want to plot, beginning from first variable. Only relevant if all = 0.
 
 % PLOT 2 = individual isopleths
-all2 = 0; % Do you want to plot all of the variables? 1 = YES, 0 = NO.
+all2 = 1; % Do you want to plot all of the variables? 1 = YES, 0 = NO.
 columns2 = [1,2,3,4]; % List the columns you want to plot, beginning from first variable. Only relevant if all = 0.
 
 % PLOT 3 will use the contours from Plot2 and the max. percentage from 
@@ -163,6 +163,7 @@ for i = 1:size(fields,2)
     p1 = pcolor(X,Y,field); shading flat; hold on;colormap(map)
     p1.FaceAlpha = 0.4;
 end
+hold off
 legend(variables)
 axis square
 xlabel('Temperature (°C)')
@@ -211,7 +212,7 @@ title('Contour plot with overlap')
 % Save table and figures
 save("output_variables/percentage_overlap.mat",'X','Y','p_field');
 saveas(fig1,"FIGURES/percentage_overlap.pdf");
-saveas(fig2,'FIGURES/overlapping_fields.pdf');
+print('-image',fig2,'FIGURES/overlapping_fields','-dpdf');
 saveas(fig3,'FIGURES/contours_overlap.pdf');
 disp('FINISHED')
 

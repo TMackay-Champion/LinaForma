@@ -2,14 +2,18 @@
 clear;clc;
 
 %%%%%%%%% INPUTS %%%%%%%%%
-% data
-forward_model = 'inputs/forward_model.csv';
-observations =  'inputs/observations.csv';
-synthetic_data = 'inputs/synthetic.csv'; 
+% ====== Data ======
+model = 'inputs/forward_model.csv';
+measurements =  'inputs/all_measurements.csv';
 
-% parameters
-bootstrap_type = 1;      % What type of bootstrapping do you want to use? Parametric = 1, non-parametric = 0, synthetic Gaussian = -1
+% ====== Data type ======
+raw = 1; % What type of data do you have? 1 = all measurements. 0 = mean and std. of variables.
+
+% ====== Bootstrapping parameters ======
+bootstrap_type = 1;      % What type of bootstrapping do you want to use? Parametric = 1, non-parametric = 0
 it = 5;        % How many random iterations do you want to calculate? The more then better.
+
+% ====== Select P-T point for sensitivity analysis ======
 T_best = 570;      % Select the best-fit T point to which results will be compared.
 P_best = 9300;      % Select the best-fit P point to which results will be compared.
 
@@ -19,11 +23,10 @@ P_best = 9300;      % Select the best-fit P point to which results will be compa
 
 %%%% PART 1: Input the data and create the Pressure-temperature grid %%%%
 % Read in data
-model = readtable(forward_model); model = sortrows(model,2);
-observations = readtable(observations);
+model_tmp = readtable(model); model_tmp = sortrows(model_tmp,2);
 
 % Create Pressure-Temperature grid
-data = table2array(model);
+data = table2array(model_tmp);
 temperature = data(:,1);
 pressure = data(:,2);
 T = unique(temperature); T = T(~isnan(T)); ix = length(T);
@@ -32,9 +35,23 @@ P = unique(pressure); P = P(~isnan(P)); iy = length(P);
 model_data = data(:,3:end);
 
 %%%% PART 2: Boostrapping the observations, keeping all variables but 1 constant %%%%
-obs = table2array(observations);
-syn = readtable(synthetic_data);
-syn_mean = table2array(syn(1,2:end)); syn_sigma =table2array(syn(2,2:end));
+if raw == 1
+    obs = readtable(measurements);
+    var_tmp = obs.Properties.VariableNames;
+    if any(strcmp(var_tmp, 'Statistic'))
+        error('This data only contains MEAN or STD information.')
+    end
+    obs = table2array(obs);
+elseif raw == 0
+    obs = readtable(measurements,'ReadRowNames',true);
+    var_tmp = obs.Properties.RowNames;
+    if ~any(strcmp(var_tmp, 'MEAN'))
+        error('This data does not contain MEAN or STD information.')
+    end
+    syn_mean = table2array(obs(1,:)); syn_sigma =table2array(obs(2,:));
+    obs = table2array(obs);
+end
+
 
 % Loop through each variable
 for n_variable = 1:size(model_data,2)
@@ -47,18 +64,13 @@ if bootstrap_type == 1 % Parametric bootstrapping
     samples(:,n_variable) = samples1(:,n_variable);
 
 elseif bootstrap_type == 0 % Non-parametric
+    if raw == 0
+        error('You cannot perform non-parametric bootstrapping on this dataset.')
+    end
     samples1 = bootstrp(it,@mean,obs);
     mean_samples = mean(samples1,1);
     samples = repmat(mean_samples,it,1);
     samples(:,n_variable) = samples1(:,n_variable);
-
-
-elseif bootstrap_type == -1
-    sigma = syn_sigma; mu = syn_mean;
-    samples1 = +Functions_NO_EDIT.gaussian_boot(it,mu,sigma);
-    samples = repmat(mu,it,1);
-    samples(:,n_variable) = samples1(:,n_variable);
-
 end
 
 %%%% PART 3: Perform the grid-search inversion for each bootstrap resample %%%%
@@ -82,7 +94,7 @@ P_min(n_variable) = P_best - min(p_best);
 end
 
 %%%% PART 4: Plots %%%%
-variables = readtable(forward_model); variables = sortrows(variables,2); variables = variables.Properties.VariableNames;
+variables = readtable(model); variables = sortrows(variables,2); variables = variables.Properties.VariableNames;
 variables = variables(:,3:end);
 
 % Plot T variability

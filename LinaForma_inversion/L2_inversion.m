@@ -2,19 +2,21 @@
 clear;clc;
 
 %%%%%%%%% INPUTS %%%%%%%%%
-% data
-model = 'inputs/forward_model.csv';
-observations =  'inputs/observations.csv';
-synthetic_data = 'inputs/synthetic.csv';    % This will only be used if bootstrap_type = -1 below
+% ====== Data ======
+model = 'inputs/forward_model.csv'; % Forward models.
+measurements = 'inputs/measurement_distributions.csv'; % Measurements
 
-% parameters
-bootstrap_type = 1;      % What type of bootstrapping do you want to use? Parametric = 1, non-parametric = 0, synthetic Gaussian = -1
+% ====== Data type ======
+raw = 0; % What type of data do you have? 1 = all measurements. 0 = mean and std. of variables.
+
+% ====== Bootstrapping parameters ======
+bootstrap_type = 1;      % Parametric = 1, non-parametric = 0. Only parametric is available if raw = 0.
 it = 50;        % How many random iterations do you want to calculate?
+
+% ====== PLOTS ======
 confidence_level = 0.58;  % Confidence level for 2D ellipse
 boxplots = 0;   % Do you want boxplots or histograms? 1 = boxplot, 0 = histogram
 Nbins = 5;  % Number of histogram bins. Only used if boxplots = 0
-
-% Contours or heatmap
 plot_type = 0; % What type of plot do you want? 1 = contour plot, 0 = heatmap;
 
 
@@ -24,7 +26,6 @@ plot_type = 0; % What type of plot do you want? 1 = contour plot, 0 = heatmap;
 %%%% PART 1: Input the data and create the Pressure-temperature grid %%%%
 % Read in data
 model = readtable(model); model = sortrows(model,2);
-observations = readtable(observations);
 
 % Create Pressure-Temperature grid
 data = table2array(model);
@@ -37,20 +38,39 @@ variables = model.Properties.VariableNames;
 model_data = data(:,3:end);
 
 %%%% PART 2: Boostrapping the observations %%%%
-obs = table2array(observations);
-syn = readtable(synthetic_data);
-syn_mean = table2array(syn(1,2:end)); syn_sigma =table2array(syn(2,2:end));
+
+% Read in measurements
+if raw == 0
+    syn = readtable(measurements,'ReadRowNames',true);
+    var_tmp = syn.Properties.RowNames;
+    if ~any(strcmp(var_tmp, 'MEAN'))
+        error('This data does not contain MEAN or STD information.')
+    end
+    syn_mean = table2array(syn(1,:)); syn_sigma =table2array(syn(2,:));
+else
+    measurements = readtable(measurements);
+    var_tmp = measurements.Properties.VariableNames;
+    if any(strcmp(var_tmp, 'Statistic'))
+        error('This data only contains MEAN or STD information.')
+    end
+    obs = table2array(measurements);
+
+end
+
+% Bootstrapping
 if bootstrap_type == 1 % Parametric bootstrapping
-    sigma = std(obs,1); mu = mean(obs,1);
+    % Find mean and standard deviation of distribution
+    if raw == 0
+        sigma = syn_sigma; mu = syn_mean;
+    else
+        sigma = std(obs,1); mu = mean(obs,1);
+    end
     samples = +Functions_NO_EDIT.gaussian_boot(it,mu,sigma);
-
 elseif bootstrap_type == 0 % Non-parametric
+    if raw ~= 1
+        error('Non-parametric bootstrapping is not possible on this dataset.')
+    end
     samples = bootstrp(it,@mean,obs);
-
-elseif bootstrap_type == -1
-    sigma = syn_sigma; mu = syn_mean;
-    samples = +Functions_NO_EDIT.gaussian_boot(it,mu,sigma);
-
 end
 
 % Let the final row be a mean of bootstrapped samples to create error
@@ -96,6 +116,7 @@ minY = min(Y,[],'all'); maxY = max(Y,[],'all');
 minX = min(X,[],'all'); maxX = max(X,[],'all');
 ylim([(minY-0.05*maxY) (maxY+0.05*maxY)])
 xlim([(minX-0.05*maxX) (maxX+0.05*maxX)])
+axis square
 title('Model grid')
 
 
@@ -217,7 +238,7 @@ fig3 = figure(3);
 set(fig3,'Units','centimeters')
 set(fig3,'Position',[0 0 0.9*21 0.9*21])
 load('output_variables\percentage_overlap.mat');
-pcolor(X,Y,p_field); shading flat; c = colorbar; hold on
+pcolor(X,Y,p_field); colormap(map); shading flat; c = colorbar; hold on
 c.Label.String = 'Percentage of observations which overlap';
 plot(t_best(:,1),p_best(:,1),'k.','MarkerSize',10);
 axis square
