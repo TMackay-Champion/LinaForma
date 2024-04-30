@@ -16,7 +16,6 @@ it = 500;        % How many random iterations do you want to calculate?
 % ====== PLOTS ======
 confidence_level = 0.68;  % Confidence level for 2D ellipse
 boxplots = 0;   % Do you want boxplots or histograms? 1 = boxplot, 0 = histogram
-Nbins = 5;  % Number of histogram bins. Only used if boxplots = 0
 plot_type = 0; % What type of plot do you want? 1 = contour plot, 0 = heatmap;
 T_bins = 10; % Number of temperature bins in 2D histogram (Figure 4)
 P_bins = 10; % Number of pressure bins in 2D histogram (Figure 4)
@@ -153,6 +152,8 @@ std_T = std(t_best); std_P = std(p_best);
 % Mode calculation
 mode(1,1) = median(t_best);
 mode(1,2) = median(p_best);
+rP3 = quantile(p_best,0.75); rP1 = quantile(p_best,0.25); 
+rT3 = quantile(t_best,0.75); rT1 = quantile(t_best,0.25); 
 
 
 % Plot error ellipse
@@ -180,6 +181,10 @@ mu_T = ceil(mu_T/5)*5;
 mu_P = ceil(mu_P/5)*5;
 std_T = ceil(std_T/5)*5; 
 std_P = ceil(std_P/5)*5;
+med_T = ceil(mode(1,1)/5)*5;
+med_P = ceil(mode(1,2)/5)*5;
+rP3 = ceil(rP3/5)*5; rP1 = ceil(rP1/5)*5;
+rT3 = ceil(rT3/5)*5; rT1 = ceil(rT1/5)*5;
 
 
 % Plot boxplots
@@ -187,56 +192,35 @@ if boxplots == 1
     subplot(3,2,5)
     boxplot(t_best,'Orientation','horizontal')
     t = append(string(mu_T),' ± ',string(std_T),' °C (1 s.d.)');
-    title(t)
+    s = append('x̄ = ',string(med_T),' °C (IQR =  ',string(rT1),'-',string(rT3),')');
+    title({t,s})
     xlabel('Temperature (°C)')
     subplot(3,2,6)
     boxplot(p_best,'Orientation','horizontal')
     t = append(string(mu_P),' ± ',string(std_P),' bar (1 s.d.)');
-    title(t)
+    s = append('x̄ = ',string(med_P),' bar (IQR =  ',string(rP1),'-',string(rP3),')');
+    title({t,s})
     xlabel('Pressure (bars)')
 
 % Or plot histograms
 else
     % T
     subplot(3,2,5)
-    m1hmin = min(t_best);
-    m1hmax = max(t_best);
-    Dm1bins = (m1hmax - m1hmin)/(Nbins - 1);
-    m1bins = m1hmin + Dm1bins*[0:Nbins-1]';
-    m1hist = hist(t_best,m1bins);
-    pm1 = m1hist/(Dm1bins*sum(m1hist));
-    Pm1 = Dm1bins*cumsum(pm1);
-    m1low = m1bins(find(Pm1>0.025,1));
-    m1high = m1bins(find(Pm1>0.975,1));
-    top_Y = max(m1hist + 0.02*max(m1hist));
-    histfit(t_best,Nbins,'kernel'); hold on
-    ylim([0 top_Y])
-    line([m1low, m1low], [0,top_Y],'Color', 'r', 'LineStyle', '--','LineWidth',2)
+    histogram(t_best,T_bins);
     t = append(string(mu_T),' ± ',string(std_T),' °C (1 s.d.)');
-    title(t)
+    s = append('x̄ = ',string(med_T),' °C (IQR =  ',string(rT1),'-',string(rT3),')');
+    title({t;s})
     xlabel('Temperature (°C)')
-    legend('Histogram','Fitted kernel','95% confidence')
+    ylabel('Number of solutions')
     
     % P
     subplot(3,2,6)
-    m1hmin = min(p_best);
-    m1hmax = max(p_best);
-    Dm1bins = (m1hmax - m1hmin)/(Nbins - 1);
-    m1bins = m1hmin + Dm1bins*[0:Nbins-1]';
-    m1hist = hist(p_best,m1bins);
-    pm1 = m1hist/(Dm1bins*sum(m1hist));
-    Pm1 = Dm1bins*cumsum(pm1);
-    m1low = m1bins(find(Pm1>0.025,1));
-    m1high = m1bins(find(Pm1>0.975,1));
-    top_Y = max(m1hist + 0.02*max(m1hist));
-    histfit(p_best,Nbins,'kernel'); hold on
-    ylim([0 top_Y])
-    line([m1low, m1low], [0,top_Y],'Color', 'r', 'LineStyle', '--','LineWidth',2)
-    line([m1high, m1high], [0,top_Y],'Color', 'r', 'LineStyle', '--','LineWidth',2)
+    histogram(p_best,P_bins);
     t = append(string(mu_P),' ± ',string(std_P),' bar (1 s.d.)');
-    title(t)
+    s = append('x̄ = ',string(med_P),' bar (IQR =  ',string(rP1),'-',string(rP3),')');
+    title({t;s})
     xlabel('Pressure (bars)')
-    legend('Histogram','Fitted kernel','95% confidence')
+    ylabel('Number of solutions')
 
 end
 
