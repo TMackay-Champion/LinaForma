@@ -4,14 +4,14 @@ clear;clc;
 %%%%%%%%% INPUTS %%%%%%%%%
 % ====== Data ======
 model = 'inputs/forward_model.csv';
-measurements =  'inputs/all_measurements.csv';
+measurements =  'inputs/measurement_distributions.csv';
 
 % ====== Data type ======
-raw = 1; % What type of data do you have? 1 = all measurements. 0 = mean and std. of variables.
+raw = 0; % What type of data do you have? 1 = all measurements. 0 = mean and std. of variables.
 
 % ====== Bootstrapping parameters ======
 bootstrap_type = 1;      % What type of bootstrapping do you want to use? Parametric = 1, non-parametric = 0
-it = 5;        % How many random iterations do you want to calculate? The more then better.
+it = 500;        % How many random iterations do you want to calculate? The more then better.
 
 % ====== Select P-T point for sensitivity analysis ======
 T_best = 570;      % Select the best-fit T point to which results will be compared.
@@ -58,7 +58,11 @@ for n_variable = 1:size(model_data,2)
 
 % Perform bootstrap re-sampling
 if bootstrap_type == 1 % Parametric bootstrapping
-    sigma = std(obs,1); mu = mean(obs,1);
+    if raw == 0
+        sigma = syn_sigma; mu = syn_mean;
+    else
+        sigma = std(obs,1); mu = mean(obs,1);
+    end
     samples1 = +Functions_NO_EDIT.gaussian_boot(it,mu,sigma);
     samples = repmat(mu,it,1);
     samples(:,n_variable) = samples1(:,n_variable);
