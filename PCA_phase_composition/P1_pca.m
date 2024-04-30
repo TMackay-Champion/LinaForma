@@ -1,23 +1,23 @@
 % This computes the PCA of probe data
 clear;clc;
 
-%%%%%%% INPUTS. Please edit. %%%%%%%
-% data
-observations = 'observations.csv';
+%%%%%%%%% INPUTS %%%%%%%%%
+% ====== Data ======
+measurements = 'observations.csv';
 
-% editable parameters
+% ====== K-means parameters ======
 k_plot = 0; % Do you want to run K-means clustering? 1 = YES, 0 = NO
 number_of_groups = 3; % This is a guess for the number of clusters, which can be changed. MAX = 5
 output = 'Kmeans_output.csv'; % This will only be created if k_plot = 1
 
 
-%%%%%%% CODE %%%%%%%
-%%% BEST NOT TO EDIT %%%
-observations = readtable(observations);
-plabel = table2cell(observations(:,1));
-observations = observations(:,2:end);
-variables = observations.Properties.VariableNames;
-data = table2array(observations);
+%%%%%%%%%%%%%%%%%%%%% CODE %%%%%%%%%%%%%%%%%%%%
+%%%% BEST NOT TO ALTER UNLESS YOU ARE SURE %%%
+measurements = readtable(measurements);
+plabel = table2cell(measurements(:,1));
+measurements = measurements(:,2:end);
+variables = measurements.Properties.VariableNames;
+data = table2array(measurements);
 data_std = zscore(data);
 
 % Perform PCA
@@ -59,8 +59,8 @@ plot(k_values, ssd_values, 'bo-');
 title('{\bf K-means clustering elbow}')
 
 final = table(idx, 'VariableNames',{'K_mean_group'});
-observations.K_mean_group = final.K_mean_group;
-writetable(observations,output);
+measurements.K_mean_group = final.K_mean_group;
+writetable(measurements,output);
 else
     fig2 = figure(1);
     biplot(coeff(:,1:2),"Scores",score(:,1:2),"VarLabels",variables,'ObsLabels',plabel,'MarkerSize',25); hold on
@@ -68,9 +68,9 @@ else
 end
 
 if k_plot == 1
-kde = observations(:,1:(end-1));
+kde = measurements(:,1:(end-1));
 else
-    kde = observations;
+    kde = measurements;
 end
 fig3 = figure(2);
 set(fig3,'Units','centimeters')
