@@ -18,8 +18,8 @@ confidence_level = 0.68;  % Confidence level for 2D ellipse
 boxplots = 0;   % Do you want boxplots or histograms? 1 = boxplot, 0 = histogram
 Nbins = 5;  % Number of histogram bins. Only used if boxplots = 0
 plot_type = 0; % What type of plot do you want? 1 = contour plot, 0 = heatmap;
-resT = 10; % Width of temperature (°C) bins in 2D histogram (Figure 4)
-resP = 100; % Width of pressure (bar) bins in 2D histogram (Figure 4)
+T_bins = 10; % Number of temperature bins in 2D histogram (Figure 4)
+P_bins = 10; % Number of pressure bins in 2D histogram (Figure 4)
 
 
 %%%%%%%%%%%%%%%%%%%%% CODE %%%%%%%%%%%%%%%%%%%%
@@ -260,7 +260,7 @@ legend('Contour plot','best-fit solutions','Mean best-fit solution','Median best
 fig4 = figure(4);
 set(fig4,'Units','centimeters')
 set(fig4,'Position',[0 0 0.9*21 0.9*21])
-histogram2(t_best(:,1),p_best(:,1),'DisplayStyle','tile','ShowEmptyBins','on','BinWidth',[resT resP]); 
+histogram2(t_best(:,1),p_best(:,1),[T_bins,P_bins],'DisplayStyle','tile','ShowEmptyBins','on'); 
 colormap(map)
 c = colorbar;
 c.Label.String = 'Log number of solutions'; hold on
