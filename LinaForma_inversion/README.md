@@ -88,10 +88,11 @@ We have generally found that a standard deviation equivalent to 20% of the mean 
 8) Nbins = ?. This is the number of histogram bins used for the plot. Only applicable if boxplots = 0.
 
 ### Outputs
-The code outputs three plots:
+The code outputs four plots:
 1) a grid showing the extent and resolution of the forward models.
 2) the grid-search solution with uncertainty analysis.
 3) a plot showing all of the best-fit solutions overlain on the overlapping contour plot of L0_isopleths.m script.
+4) a 2D histogram of the best-fit solutions.
 
 
 ## L3_residuals.m
