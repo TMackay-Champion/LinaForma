@@ -77,13 +77,16 @@ for i = 1:length(variables)
     if raw ~= 0
         plot([min(measurements(:,i)) min(measurements(:,i))],[0 max(observed_dist(i,:))])
         plot([max(measurements(:,i)) max(measurements(:,i))],[0 max(observed_dist(i,:))])
+    else
+        plot([(syn_mean(:,i)-2*syn_sigma(:,i)) (syn_mean(:,i)-2*syn_sigma(:,i))],[0 max(observed_dist(i,:))])
+        plot([(syn_mean(:,i)+2*syn_sigma(:,i)) (syn_mean(:,i)+2*syn_sigma(:,i))],[0 max(observed_dist(i,:))])
     end
     t = append(string(mn(i)),' ± ',string(sigma(i)));
     title(t);
     ylabel('P.D.E.')
     xlabel(string(variables(i)))
     if i == 1 && raw == 0
-        lg = legend({'Observations','Model result'});
+        lg = legend({'Observations','Model result','μ - 2σ','μ + 2σ'});
         lg.Position = [0.3, 0.15, 0.4, 0.05];
     elseif i ==1 && raw ~= 0
         lg = legend({'Observations','Model result','Minimum observation','Maximum observation'});
