@@ -14,7 +14,7 @@ bootstrap_type = 1;      % Parametric = 1, non-parametric = 0. Only parametric i
 it = 50;        % How many random iterations do you want to calculate?
 
 % ====== PLOTS ======
-confidence_level = 0.58;  % Confidence level for 2D ellipse
+confidence_level = 0.68;  % Confidence level for 2D ellipse
 boxplots = 0;   % Do you want boxplots or histograms? 1 = boxplot, 0 = histogram
 Nbins = 5;  % Number of histogram bins. Only used if boxplots = 0
 plot_type = 0; % What type of plot do you want? 1 = contour plot, 0 = heatmap;
