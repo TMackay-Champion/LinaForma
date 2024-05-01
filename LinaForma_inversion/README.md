@@ -3,12 +3,12 @@
 </p>
 
 ## Overview
-These five codes perform a grid-search inversion, accompanied by bootstrap re-sampling, to determine which Pressure-Temperature (P-T) conditions best fit the rock of interest. The bootstrap re-sampling allows the user to determine the uncertainty in this result, as well as the sensitivity of the result to the uncertainty of the input parameters. An example of the ouputs can be found in [EXAMPLES](https://github.com/TMackay-Champion/LinaForma/tree/8486dc1820e7d5363f01476148a69ec186ac12be/EXAMPLES).
+These five codes perform a grid-search inversion, accompanied by bootstrap re-sampling, to determine which Pressure-Temperature (P-T) conditions best fit the rock of interest. The bootstrap re-sampling allows the user to determine the uncertainty in this result, as well as the sensitivity of the result to the uncertainty of the input variables. An example of the ouputs can be found in [EXAMPLES](https://github.com/TMackay-Champion/LinaForma/tree/8486dc1820e7d5363f01476148a69ec186ac12be/EXAMPLES).
 
 ## Data Inputs
 All of the codes require the same two inputs:
-1) **forward_model.csv** = this CSV file contains the forward models for selected parameters (e.g., XMg in biotite, vol% garnet) created in software like THERIAK-DOMINO. These files can be created using scripts E2 or E3 (see [TheriakDomino_tools](https://github.com/TMackay-Champion/LinaForma/tree/8486dc1820e7d5363f01476148a69ec186ac12be/TheriakDomino_tools)). The codes use the same input format as script E4.
-2) **measurements.csv** = this CSV file contains the measured values matching each of the parameters in the forward model file. It is important that the measurements are in the order given the the forward model file. There are two accepted formats for this file: A) list all the measurements for each parameter. These may be individual point measurements for example (e.g., [InputA](https://github.com/TMackay-Champion/LinaForma/blob/fc10a0389be120343103fd7d5d064678d722b435/EXAMPLES/InputA.csv)). B) provide the mean and standard deviation of each parameter (e.g., [InputB](https://github.com/TMackay-Champion/LinaForma/blob/fc10a0389be120343103fd7d5d064678d722b435/EXAMPLES/InputB.csv)). 
+1) **forward_model.csv** = this CSV file contains the forward models for selected variables (e.g., XMg in biotite, vol% garnet) created in software like THERIAK-DOMINO. These files can be created using scripts E2 or E3 (see [TheriakDomino_tools](https://github.com/TMackay-Champion/LinaForma/tree/8486dc1820e7d5363f01476148a69ec186ac12be/TheriakDomino_tools)). The codes use the same input format as script E4.
+2) **measurements.csv** = this CSV file contains the measured values matching each of the variables in the forward model file. It is important that the measurements are in the order given the the forward model file. There are two accepted formats for this file: A) list all the measurements for each parameter. These may be individual point measurements for example (e.g., [InputA](https://github.com/TMackay-Champion/LinaForma/blob/fc10a0389be120343103fd7d5d064678d722b435/EXAMPLES/InputA.csv)). B) provide the mean and standard deviation of each parameter (e.g., [InputB](https://github.com/TMackay-Champion/LinaForma/blob/fc10a0389be120343103fd7d5d064678d722b435/EXAMPLES/InputB.csv)). 
 
 
 ## L0_isopleths.m
@@ -37,21 +37,21 @@ This parameter is only applicable if you have used InputA, and controls the rang
 **all1 = ?**\
 % Do you want to plot all of the variables? 1 = YES, 0 = NO.\
 **columns1 = [?]**\
-If you have selected all1 = 0, which column of the input measurements (i.e., parameters) do you want to plot?\
+If you have selected all1 = 0, which column of the input measurements (i.e., variables) do you want to plot?\
 
 % PLOT 2 = individual isopleths\
 **all2 = ?**\
 Do you want to plot all of the variables? 1 = YES, 0 = NO.\
 **columns2 = [?]**\
-If you have selected all2 = 0, which column of the input measurements (i.e., parameters) do you want to plot?\
+If you have selected all2 = 0, which column of the input measurements (i.e., variables) do you want to plot?\
 </details>
 
 <details>
 <summary> L0 script output </summary>
  
 The code outputs three figures: 
-1) **Percentage overlap**. This plot shows the regions in P-T space which have the greatest percentage of overlapping parameters. 
-2) **Isopleths**. This plot shows which regions in P-T space coincide with the observed values for each parameter of interest. Different parameters are ascribed different colours.
+1) **Percentage overlap**. This plot shows the regions in P-T space which have the greatest percentage of overlapping variables. 
+2) **Isopleths**. This plot shows which regions in P-T space coincide with the observed values for each parameter of interest. Different variables are ascribed different colours.
 3) **Overlapping contours**. This plot shows the contours for each parameter and the overlapping areas in P-T space for the measured values.
 </details>
 
@@ -69,7 +69,7 @@ No two measurements will be exactly the same. This script allows the user to ass
 % ====== Data type ======\
 **raw = ?**. As above.
 
-% ====== Sampling parameters (only applicable if raw = 0) ======\
+% ====== Sampling variables (only applicable if raw = 0) ======\
 **n = ?**\
 This is only applicable if raw = 0. It controls the number of random samples taken from the distribution of each variable (it assumes a normal distrubtion, created using the input mean and standard deviation).
 </details>
@@ -113,7 +113,7 @@ The grid-search inversion works by calculating the misfit between the observed d
 % ====== Data type ======\
 **raw = ?**. As above.
 
-% ====== Bootstrapping parameters ======\
+% ====== Bootstrapping variables ======\
 **bootstrap_type = ?**\
 The type of bootstrapping. Parametric = 1, non-parametric = 0. Only parametric is available if raw = 0.\
 **it = ?**\
@@ -190,7 +190,7 @@ This script examines how sensitive the best-fit solutions are to uncertainty in 
 % ====== Data type ======\
 **raw = ?**. As above.
 
-% ====== Bootstrapping parameters ======\
+% ====== Bootstrapping variables ======\
 **bootstrap_type = ?**. As above.\
 **it = ?**. As above.\
 
@@ -211,7 +211,7 @@ These plots display how the variation in a particular variable influences the be
 ## FAQs
 <details>
 <summary> How many input variables should I use? </summary>
-A grid-search is a non-linear inversion. The problem is overdetermined because the number of observations is in excess of of the number of model parameters. 
+A grid-search is a non-linear inversion. The problem is overdetermined because the number of observations is in excess of of the number of model variables. 
 Each data point provides a constraint on the possible solution. By incorporating multiple constraints, overdetermined problems can identify and compensate for errors in the different variables.
 This often results in a higher precision estimate than could be achieved by the individual variables alone. 
 
