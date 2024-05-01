@@ -28,7 +28,8 @@ This is the type of format you have used for your input measurements file. If yo
 
 % ====== Range of values (only applicable if raw = 0 ======\
 **sd = ?**\
-This parameter is only applicable if you have used InputA, and controls the range of isopleth values plotted (i.e., range = MEAN +/- sd * STANDARDDEVIATION).
+This parameter is only applicable if you have used InputA, and controls the range of isopleth values plotted\
+(i.e., range = MEAN +/- sd * STANDARDDEVIATION).
 
 % ====== PLOTS ======\
 % PLOT 1 = percentage overlap plot\
