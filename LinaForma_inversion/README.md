@@ -48,7 +48,7 @@ If you have selected all2 = 0, which column of the input measurements (i.e., par
 <details>
 <summary> L0 script outputs </summary>
  
-The code outputs three plots: 
+The code outputs three figures: 
 1) **Percentage overlap**. This plot shows the regions in P-T space which have the greatest percentage of overlapping parameters. 
 2) **Isopleths**. This plot shows which regions in P-T space coincide with the observed values for each parameter of interest. Different parameters are ascribed different colours.
 3) **Overlapping contours**. This plot shows the contours for each parameter and the overlapping areas in P-T space for the measured values.
@@ -77,13 +77,11 @@ This is only applicable if raw = 0. It controls the number of random samples tak
 </details>
 
 <details>
-<summary> L0 script outputs </summary>
+<summary> L1 script outputs </summary>
  
-The code outputs three plots: 
-1) a boxplot for each variable showing how the temperature estimates vary between observations.
-2) a boxplot for each variable showing how the pressure estimates vary between observations.
-3) a boxplot for each variable showing how temperature uncertainty in the forward model may propagate to uncertainty in the predicted value.
-
+The code outputs two figures: 
+1) a boxplot for each variable showing how temperature estimates vary based on the range of measured values.
+2) a boxplot for each variable showing how pressure estimates vary based on the range of measured values.
 </details>
 
 
