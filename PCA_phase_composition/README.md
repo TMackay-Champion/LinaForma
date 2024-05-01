@@ -1,7 +1,5 @@
 ## Overview
-This code allows the user to perform Principal Component Analysis (PCA) and K-means clustering on any data of interest, such as phase compositional data. This workflow allows the user to assess whether there are mulitple populations or just a single population of particular phases.
-
-The data should be put in the observations.csv file. The data could be end-member activities, compositions or site allocations. 
+This code allows the user to perform Principal Component Analysis (PCA) and K-means clustering on any data of interest, such as phase compositional data. This workflow allows the user to assess whether there are mulitple populations or just a single population of particular phases. The data should be put in the observations.csv file.
 
 
 <details>
