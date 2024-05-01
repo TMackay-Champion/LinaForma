@@ -14,7 +14,7 @@ All of the codes require the same two inputs:
 This code allows the user to ascertain which regions in P-T space coincide with the observed values for each parameter of interest. Zones of intersecting isopleths will be plotted.
 
 <details>
-<summary> L0 script inputs </summary>
+<summary> L0 script input </summary>
 
  % ====== Data ======\
 **model = '?'**\
@@ -46,7 +46,7 @@ If you have selected all2 = 0, which column of the input measurements (i.e., par
 </details>
 
 <details>
-<summary> L0 script outputs </summary>
+<summary> L0 script output </summary>
  
 The code outputs three figures: 
 1) **Percentage overlap**. This plot shows the regions in P-T space which have the greatest percentage of overlapping parameters. 
@@ -59,7 +59,7 @@ The code outputs three figures:
 No two measurements will be exactly the same. This script allows the user to assess the uncertainty in P-T estimate for each variable, based on the variation in observations. This variation may be caused by analytical or geological processes. 
 
 <details>
-<summary> L1 script inputs </summary>
+<summary> L1 script input </summary>
 
 % ====== Data ======\
 **model = '?'**\
@@ -77,7 +77,7 @@ This is only applicable if raw = 0. It controls the number of random samples tak
 </details>
 
 <details>
-<summary> L1 script outputs </summary>
+<summary> L1 script output </summary>
  
 The code outputs two figures: 
 1) a boxplot for each variable showing how temperature estimates vary based on the range of measured values.
@@ -96,9 +96,6 @@ This code performs a bootstrap re-sampling of the observation data, and a grid-s
 </p>
 </details>
 
-
-
-
 <details>
 <summary> Diagrammatic representation of the bootstrap re-sampling workflow </summary>
  <p align="center">
@@ -106,8 +103,9 @@ This code performs a bootstrap re-sampling of the observation data, and a grid-s
 </p>
 </details>
 
+<details>
+<summary> L2 script input </summary>
 
-### Code
 1) model = '???'. This is the path to the forward model CSV file.
 2) observations =  '???'. This is the path to the observations CSV file.
 3) synthetic_data = '???'. This is the path to the synthetic data. It will only be used if bootstrap_type = -1.
@@ -116,22 +114,32 @@ This code performs a bootstrap re-sampling of the observation data, and a grid-s
 6) confidence_level = ?. This is the confidence level represented by the ellipse on the final plot.
 7) boxplots = ?. This controls whether you plot boxplots or histograms of temperature and pressure variability. 1 = boxplot, 0 = histogram
 8) Nbins = ?. This is the number of histogram bins used for the plot. Only applicable if boxplots = 0.
+</details>
 
-### Outputs
+<details>
+<summary> L2 script output </summary>
 The code outputs four plots:
 1) a grid showing the extent and resolution of the forward models.
 2) the grid-search solution with uncertainty analysis.
 3) a plot showing all of the best-fit solutions overlain on the overlapping contour plot of L0_isopleths.m script.
 4) a 2D histogram of the best-fit solutions.
-
+</details>
 
 ## L3_residuals.m
 This code allows the user to examine the difference between the forward model predicitions and the observed or synthetic data at chosen P-T points.
 This can be used to check how well different variables match the best-fit solution. When accompanied by textural evidence or large enough datasets, this process 
 could be used to examine disequilibrium and/or model error.
 
-### Outputs
+<details>
+<summary> L3 script input </summary>
+4) a 2D histogram of the best-fit solutions.
+</details>
+
+<details>
+<summary> L3 script ouput </summary>
 This code outputs boxplots for each variable showing the distribution of observations and the forward model predicted value.
+</details>
+
 
 ## L4_sensitivity.m
 This code examines how sensitive the best-fit solutions are to uncertainty in the observations. To do this, the code bootstrap re-samples one variable at a time while keeping
@@ -144,10 +152,17 @@ all the other variables constant. The resulting variation in the best-fit soluti
 </p>
 </details>
 
+<details>
+<summary> L4 script input </summary>
+4) a 2D histogram of the best-fit solutions.
+</details>
 
-### Outputs
+<details>
+<summary> L4 script output </summary>
 This code outputs two "tornado" plots, one for temperature and one for pressure.
 These plots display how the variation in a particular variable influences the best-fit solutions relative to a given best-fit solution (ideally the output of the L2_inversion.m script).
+</details>
+
 
 ## FAQs
 <details>
