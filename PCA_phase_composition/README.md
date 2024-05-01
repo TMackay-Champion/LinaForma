@@ -4,6 +4,17 @@ This code allows the user to perform Principal Component Analysis (PCA) and K-me
 ## Inputs
 The data should be put in the observations.csv file. The data could be end-member activities, compositions or site allocations. 
 
+
+<details>
+<summary> P1 script input </summary>
+ 
+The code outputs two figures: 
+1) a boxplot for each variable showing how temperature estimates vary based on the range of measured values.
+2) a boxplot for each variable showing how pressure estimates vary based on the range of measured values.
+</details>
+
+
+
 ## Code (P1_pca.m)
 This code allows you to run the PCA and K-means clustering. There are four inputs for the code:
 
