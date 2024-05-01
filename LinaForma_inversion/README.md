@@ -139,7 +139,7 @@ The code outputs four figures:
 
 1) a grid showing the extent and resolution of the forward models.
 2) the grid-search solution with uncertainty analysis.
-3) a plot showing all of the best-fit solutions overlain on the overlapping contour plot of L0_isopleths.m script.
+3) a plot showing all of the best-fit solutions overlain on the overlapping contour plot of *L0_isopleths.m* script.
 4) a 2D histogram of the best-fit solutions.
 </details>
 
@@ -204,46 +204,35 @@ Select the best-fit P point at which the sensitivity will be computed.
 <details>
 <summary> L4 script output </summary>
 This code outputs two "tornado" plots, one for temperature and one for pressure.
-These plots display how the variation in a particular variable influences the best-fit solutions relative to a given best-fit solution (ideally the output of the L2_inversion.m script).
+These plots display how the variation in a particular variable influences the best-fit solutions relative to a given best-fit solution (ideally the output of the *L2_inversion.m* script).
 </details>
 
 
 ## FAQs
 <details>
 <summary> How many input variables should I use? </summary>
-A grid-search is a non-linear inversion. The problem is overdetermined because the number of observations is in excess of of the number of model variables. 
-Each data point provides a constraint on the possible solution. By incorporating multiple constraints, overdetermined problems can identify and compensate for errors in the different variables.
-This often results in a higher precision estimate than could be achieved by the individual variables alone. 
+A grid-search is a non-linear inversion. The problem is overdetermined because the number of observations is in excess of of the number of model parameters (T, P). Each data point provides a constraint on the possible solution. By incorporating multiple constraints, overdetermined problems can identify and compensate for errors in the different variables.This often results in a higher precision estimate than could be achieved by the individual variables alone. 
 
-This is important when considering correlated variables. In an error-free system, it would be reasonable to remove all correlated variables. However, each variable in a petrological system is associated with a different level of error and the primary cause of this error will vary between different variables. 
-One can readily imagine a situation in which two highly correlated variables result in different P-T estimates due to petrological or model error. Considering the two variables together allows the user to determine the most appropriate solution.
-As such, we deem it acceptable to use variables which are predicted to be highly correlated in the forward model. 
-However, phases which are common to one mineral should only be used together if a degree of freedom remains. For example, e.g., the composition of plagioclase can be described by Xan and Xab. You should only use 1 of these variables, to maintain a degree of freedom. 
+This is important when considering correlated variables. In an error-free system, it would be reasonable to remove all correlated variables. However, each variable in a petrological system is associated with a different level of error and the primary cause of this error will vary between different variables. One can readily imagine a situation in which two highly correlated variables result in different P-T estimates due to petrological or model error. Considering the two variables together allows the user to determine the most appropriate solution.
+As such, we deem it acceptable to use variables which are predicted to be highly correlated in the forward model. However, phases which are common to one mineral should only be used together if a degree of freedom remains. For example, e.g., the composition of plagioclase can be described by XAn and XAb, or garnet by XAlm, XGrs, XPrp, and XSpss. To maintain a degree of freedom you should use one fewer than the total number of parameters defining the mineral system.  
 </details>
 
 <details>
- <summary> What are the different types of bootstrap re-sampling method? </summary>
-Bootstrap resampling refers to random re-sampling of the original dataset, with replacement. This re-sampling is used to examine the uncertainty of the best-fit solution. Uncertainty may be introduced through model error, mesasurement error, disequilibrium and other such processes. 
-Using bootstrapping, we can examine the effects of these errors on our P-T solution. The codes allow three different styles of re-sampling for each variable in turn:
-1) Parametric bootstrapping (option 1): this assumes that the data follow a specific parametric distribution, such as the normal distribution. 
-Bootstrap samples are chosen by randomly drawing observations from the assumed distribution with replacement. The LinaForma code assumes a normal distribtuion, and calculates an appropriate mean and standard deviation from the data given in observations.csv.
-2) Non-parametric bootstrapping (option 0): this option re-samples the original data mulitple times and calculates the mean from each re-sampling. These mean values are used in the grid-search.
-3) "Synthetic bootstrapping" (option -1): in this option, the code lets the user decide on an appropriate mean and standard deviation for a Gaussian parametric bootstrap using the "synthetic.csv" file.
+ <summary> What are the different types of bootstrap re-sampling? </summary>
+Bootstrap resampling refers to random re-sampling of the original dataset, with replacement. This re-sampling is used to examine the uncertainty of the best-fit solution. Uncertainty may be introduced through model error, mesasurement error, disequilibrium and other such processes. Using bootstrapping, we can examine the effects of these errors on our P-T solution. The codes allow two different styles of re-sampling for each variable.
+ 
+ **(1) Parametric bootstrapping (option 1)**: this assumes that the data follow a specific parametric distribution, such as the normal distribution. 
+Bootstrap samples are chosen by randomly drawing observations from the 
+distribution with replacement. LinaForma assumes a normal distribtuion. If the measurement data is in input style A, the distrubution is calculated from all the variable measurements. If input style B is used, the distrubution is calculated using the given mean and standard deviation.
+ 
+ **(2) Non-parametric bootstrapping (option 0)**: this option re-samples the original data multiple times with replacement and calculates the mean from each set of samples. These mean values are used in the grid-search. This approach is only possible if the input style A is used.
 </details>
-
-
+ 
 <details>
 <summary> What bootstrapping method should I use? </summary>
- 
-The method of bootstrapping depends on your assumptions surrounding the sources of error in the system.
-Non-parametric bootstrapping assumes that the underlying model generating the data is unknown or too complex to be accurately represented by a parametric distribution. 
-Instead of making explicit assumptions about the model, non-parametric bootstrapping focuses solely on the observed data and its properties. This error can be examinied for each variable using the L1_error.m script (Part 1).
-As such, we deem this bootstrap method to be most appropriate if we assume that the primary source of error is analytical and/or related to disequilbrium, geological uncertainty etc. 
-In this case, the error associated with the observations is greater than associated model error. 
+ The method of bootstrapping depends on your assumptions surrounding the sources of error in the system. Instead of making explicit assumptions about the model, non-parametric bootstrapping focuses solely on the observed data and its properties. This error can be examinied for each variable using the *L1_error.m* script. As such, we deem this bootstrap method to be most appropriate if we assume that the primary source of error is analytical and/or related to disequilbrium, geological uncertainty etc. In this case, the error associated with the observations is greater than associated model error. 
 
-However, in some cases the primary source of error may be model error. In this case, the synthetic bootstrap option may be most suitable as it allows the user to select an appropriate mean and standard deviation. 
-A standard deviation should be chosen which allows for a suitable degree of temperature and pressure uncertainty for the particular variable of interest. This can be chosen with the help of the L1_error.m script (Part 2).
-We have generally found that a standard deviation equivalent to 20% of the mean value is more than enough.
+However, in some cases the primary source of error may be model error. In this case, the parametric bootstrap option may be most suitable as it allows the user to select an appropriate mean and standard deviation. A standard deviation should be chosen which allows for a suitable degree of temperature and pressure uncertainty for the particular variable of interest. This can be chosen with the help of the *EXTRA_synthetic_variation.m* script.
 </details>
 
 
