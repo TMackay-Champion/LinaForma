@@ -86,11 +86,7 @@ The code outputs two figures:
 
 
 ## L2_inversion.m
-This code performs a bootstrap re-sampling of the observation data, and a grid-search inversion to find the best-fit solution for each bootstrap resample. These are combined to give the user a 
-best-fit pressure-temperature estimate for the system of interest and an uncertainty on that estimate.
-
-The grid-search inversion works by calculating the difference/misfit between the observed data and the forward model data at each P-T point in the forward model CSV file dataset. The best-fit solution is the P-T point with the lowest misfit value. 
-It is important that the grid spacing is dense enough to ensure the minimum misfit is not missed between the grid spaces. 
+This code performs a bootstrap re-sampling of the observation data, and a grid-search inversion to find the best-fit solution for each bootstrap resample. These are combined to give the user a best-fit pressure-temperature estimate for the system of interest and an uncertainty on that estimate. The grid-search inversion works by calculating the difference/misfit between the observed data and the forward model data at each P-T point in the forward model CSV file dataset. The best-fit solution is the P-T point with the lowest misfit value. It is important that the grid spacing is dense enough to ensure the minimum misfit is not missed between the grid spaces. 
 
 <details>
 <summary> Diagrammatic representation of the grid-search inversion workflow </summary>
@@ -100,12 +96,8 @@ It is important that the grid spacing is dense enough to ensure the minimum misf
 </p>
 </details>
 
-Bootstrap resampling refers to random re-sampling of the original dataset, with replacement. This re-sampling is used to examine the uncertainty of the best-fit solution. Uncertainty may be introduced through model error, mesasurement error, disequilibrium and other such processes. 
-Using bootstrapping, we can examine the effects of these errors on our P-T solution. The codes allow three different styles of re-sampling for each variable in turn:
-1) Parametric bootstrapping (option 1): this assumes that the data follow a specific parametric distribution, such as the normal distribution. 
-Bootstrap samples are chosen by randomly drawing observations from the assumed distribution with replacement. The LinaForma code assumes a normal distribtuion, and calculates an appropriate mean and standard deviation from the data given in observations.csv.
-2) Non-parametric bootstrapping (option 0): this option re-samples the original data mulitple times and calculates the mean from each re-sampling. These mean values are used in the grid-search.
-3) "Synthetic bootstrapping" (option -1): in this option, the code lets the user decide on an appropriate mean and standard deviation for a Gaussian parametric bootstrap using the "synthetic.csv" file.
+
+
 
 <details>
 <summary> Diagrammatic representation of the bootstrap re-sampling workflow </summary>
@@ -169,6 +161,17 @@ One can readily imagine a situation in which two highly correlated variables res
 As such, we deem it acceptable to use variables which are predicted to be highly correlated in the forward model. 
 However, phases which are common to one mineral should only be used together if a degree of freedom remains. For example, e.g., the composition of plagioclase can be described by Xan and Xab. You should only use 1 of these variables, to maintain a degree of freedom. 
 </details>
+
+<details>
+ <summary> What are the different types of bootstrap re-sampling method? </summary>
+Bootstrap resampling refers to random re-sampling of the original dataset, with replacement. This re-sampling is used to examine the uncertainty of the best-fit solution. Uncertainty may be introduced through model error, mesasurement error, disequilibrium and other such processes. 
+Using bootstrapping, we can examine the effects of these errors on our P-T solution. The codes allow three different styles of re-sampling for each variable in turn:
+1) Parametric bootstrapping (option 1): this assumes that the data follow a specific parametric distribution, such as the normal distribution. 
+Bootstrap samples are chosen by randomly drawing observations from the assumed distribution with replacement. The LinaForma code assumes a normal distribtuion, and calculates an appropriate mean and standard deviation from the data given in observations.csv.
+2) Non-parametric bootstrapping (option 0): this option re-samples the original data mulitple times and calculates the mean from each re-sampling. These mean values are used in the grid-search.
+3) "Synthetic bootstrapping" (option -1): in this option, the code lets the user decide on an appropriate mean and standard deviation for a Gaussian parametric bootstrap using the "synthetic.csv" file.
+</details>
+
 
 <details>
 <summary> What bootstrapping method should I use? </summary>
