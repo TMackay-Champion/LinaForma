@@ -10,7 +10,7 @@ measurements = 'inputs/measurement_distributions.csv'; % Measurements
 raw = 0; % What type of data do you have? 1 = all measurements. 0 = mean and std. of variables.
 
 % ====== Range of values (only applicable if raw = 0) ======
-sd = 0.5; % Range of values given as multiple (sd) of standard deviation (STDEV) from the mean 
+sd = 0.5; % Range of isopleth values given as multiple (sd) of standard deviation (STDEV) from the mean 
 % (i.e., range = MEAN +/- sd * STDEV)
 
 % ====== PLOTS ======
