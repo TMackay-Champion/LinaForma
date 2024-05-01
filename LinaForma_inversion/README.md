@@ -105,15 +105,34 @@ This code performs a bootstrap re-sampling of the observation data, and a grid-s
 
 <details>
 <summary> L2 script input </summary>
+ 
+% ====== Data ======\
+**model = '?'**\
+As above.
+**measurements = '?'**\
+As above.
 
-1) model = '???'. This is the path to the forward model CSV file.
-2) observations =  '???'. This is the path to the observations CSV file.
-3) synthetic_data = '???'. This is the path to the synthetic data. It will only be used if bootstrap_type = -1.
-4) bootstrap_type = ?. This controls the type of bootstrapping you perform. Parametric = 1, non-parametric = 0, synthetic Gaussian = -1
-5) it = ?. This is the number of bootstrap re-samples used. The more the merrier!
-6) confidence_level = ?. This is the confidence level represented by the ellipse on the final plot.
-7) boxplots = ?. This controls whether you plot boxplots or histograms of temperature and pressure variability. 1 = boxplot, 0 = histogram
-8) Nbins = ?. This is the number of histogram bins used for the plot. Only applicable if boxplots = 0.
+% ====== Data type ======\
+**raw = ?**
+As above.\
+
+% ====== Bootstrapping parameters ======\
+**bootstrap_type = ?**\
+The type of bootstrapping. Parametric = 1, non-parametric = 0. Only parametric is available if raw = 0.\
+**it = ?**\
+The number of re-samples you want to take.
+
+% ====== PLOTS ======\
+**confidence_level = ?**\
+The 2D confidence level for the ellipse plotted in Figure 2.\
+**boxplots = ?**\
+Do you want boxplots or histograms? 1 = boxplot, 0 = histogram.\
+**plot_type = ?**\
+% What type of plot do you want in Figure 2? 1 = contour plot, 0 = heatmap.\
+**T_bins = ?**\
+Number of temperature bins in 2D histogram (Figure 2, 4).\
+**P_bins = ?**\
+Number of pressure bins in 2D histogram (Figure 2, 4).\
 </details>
 
 <details>
