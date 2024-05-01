@@ -56,12 +56,7 @@ The code outputs three plots:
 
 
 ## L1_error.m
-This code allows the user to perform two tasks. Firstly (Part 1), the user can examine the pressure and temperature best-fit solution for each variable, and the associated uncertainty. 
-This is performed for each value in the observations.csv file. Alternatively, the user can select to perform the analysis on the synthetic data in synthetic.csv.
-This allows the user to examine the error associated with the observations, perhaps due to analytical or geological uncertainty.
-
-Secondly (Part 2), the code allows to user to quantify the variation in the forward modelled value of each variable for a given temperature uncertainty at a selected pressure.
-This allows the user to examine the amount of variation expected for a variable if there is model error of a known quantity.
+No two measurements will be exactly the same. This script allows the user to assess the uncertainty in P-T estimate for each variable, based on the variation in observations. This variation may be caused by analytical or geological processes. 
 
 <details>
 <summary> L1 script inputs </summary>
