@@ -1,16 +1,25 @@
-# PCA phase composition
-This code allows the user to perform Principal Component Analysis (PCA) and K-means clustering on phase compositional data. This workflow allows the user to assess whether there are mulitple populations or just a single population of particular phases.
+## Overview
+This code allows the user to perform Principal Component Analysis (PCA) and K-means clustering on any data of interest, such as phase compositional data. This workflow allows the user to assess whether there are mulitple populations or just a single population of particular phases. The data should be put in the observations.csv file.
 
-## Inputs
-The data should be put in the observations.csv file. The data could be end-member activities, compositions or site allocations. 
 
-## Code (P1_pca.m)
-This code allows you to run the PCA and K-means clustering. There are four inputs for the code:
+<details>
+<summary> P1 script input </summary>
 
-1) observations = ???. This should be the csv file name of the data (e.g., "observations.csv").
-2) k_plot = ???. This controls whether or not the K-means clustering runs. 1 = YES, 0 = NO
-3) number_of_groups = ???. This is an initial guess for the number of populations, which can be changed once the K-means clustering has run. MAX = 5
-4) output = ???. This should be a .csv file name for outputting the K-means clustering results (e.g., "outputs.csv").
+% ====== Data ======\
+**measurements = '?'**\
+This is the CSV file containing the observations.
 
-## Outputs
+% ====== K-means parameters ======\
+**k_plot = ?**\
+Do you want to run K-means clustering? 1 = YES, 0 = NO.\
+**number_of_groups = ?**\
+This is an initial guess for the number of clusters, which can be changed. MAX = 5.\
+**output = '?'**\
+This should be a CSV file name for outputting the K-means clustering results (e.g., "outputs.csv").
+</details>
+
+
+<details>
+<summary> P1 script output </summary>
 The code will output a number of plots, including a 2D PCA plot with accompanying variable vectors and a probability density estimate for each variable. If k_plot = 1, then a CSV file will be output grouping the data into clusters.
+</details>
