@@ -11,14 +11,14 @@ All of the codes require the same two inputs:
 
 
 ## Script L0_isopleths.m
-This code allows the user to plot zones in P-T space defined by measured ranges of isopleth values for selected parameters. Zones of intersecting isopleths will be plotted.
+This code allows the user to ascertain which regions in P-T space coincide with the observed values for each parameter of interest. Zones of intersecting isopleths will be plotted.
 
 <details>
 <summary> L0 script inputs </summary>
 
  % ====== Data ======\
 **model = '?'**\
- This is the CSV file for the forward models (e.g., inputs/forward_model.csv).
+ This is the CSV file for the forward models (e.g., inputs/forward_model.csv).\
 **measurements = '?'**\
 This is the CSV file for the measurements (e.g., 'inputs/measurement_distributions.csv').
 
@@ -31,29 +31,27 @@ This is the type of format you have used for your input measurements file. If yo
 This parameter is only applicable if you have used InputA, and controls the range of isopleth values plotted (i.e., range = MEAN +/- sd * STANDARDDEVIATION).
 
 % ====== PLOTS ======\
-% PLOT 1 = percentage overlap plot
-all1 = 1; % Do you want to plot all of the variables? 1 = YES, 0 = NO.
-columns1 = [1,2,3,4]; % List the columns you want to plot, beginning from first variable. Only relevant if all = 0.
+% PLOT 1 = percentage overlap plot\
+**all1 = ?**\
+% Do you want to plot all of the variables? 1 = YES, 0 = NO.\
+**columns1 = [?]**\
+If you have selected all1 = 0, which column of the input measurements (i.e., parameters) do you want to plot?\
 
 % PLOT 2 = individual isopleths
-all2 = 1; % Do you want to plot all of the variables? 1 = YES, 0 = NO.
-columns2 = [1,2,3,4]; % List the columns you want to plot, beginning from first variable. Only relevant if all = 0.
-
-% PLOT 3 will use the contours from Plot2 and the max. percentage from 
-% Plot1
-
+**all2 = ?**\
+Do you want to plot all of the variables? 1 = YES, 0 = NO.\
+**columns2 = [?]**\
+If you have selected all2 = 0, which column of the input measurements (i.e., parameters) do you want to plot?\
 </details>
 
-
-
-
-
-
-### Outputs
+<details>
+<summary> L0 script outputs </summary>
+ 
 The code outputs three plots: 
-1) the percentage overlap plot. This plot shows the regions in P-T space which have the greatest number of overlapping variables. 
-2) the overlapping contours plot. This plot shows which regions in P-T space coincide with the observed values for each variable of interest.
-3) the contour plot. This 
+1) **Percentage overlap**. This plot shows the regions in P-T space which have the greatest percentage of overlapping parameters. 
+2) **Isopleths**. This plot shows which regions in P-T space coincide with the observed values for each parameter of interest. Different parameters are ascribed different colours.
+3) **Overlapping contours**. This plot shows the contours for each parameter and the overlapping areas in P-T space for the measured values.
+</details>
 
 
 ## L1_error.m
