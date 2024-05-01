@@ -5,6 +5,7 @@
 ## Overview
 These five codes perform a grid-search inversion, accompanied by bootstrap re-sampling, to determine which Pressure-Temperature (P-T) conditions best fit the rock of interest. The bootstrap re-sampling allows the user to determine the uncertainty in this result, as well as the sensitivity of the result to the uncertainty of the input parameters. An example of the ouputs can be found in [EXAMPLES](https://github.com/TMackay-Champion/LinaForma/tree/8486dc1820e7d5363f01476148a69ec186ac12be/EXAMPLES).
 
+## Data Inputs
 All of the codes require the same two inputs:
 1) **forward_model.csv** = this CSV file contains the forward models for selected parameters (e.g., XMg in biotite, vol% garnet) created in software like THERIAK-DOMINO. These files can be created using scripts E2 or E3 (see [TheriakDomino_tools](https://github.com/TMackay-Champion/LinaForma/tree/8486dc1820e7d5363f01476148a69ec186ac12be/TheriakDomino_tools)). The codes use the same input format as script E4.
 2) **measurements.csv** = this CSV file contains the measured values matching each of the parameters in the forward model file. It is important that the measurements are in the order given the the forward model file. There are two accepted formats for this file: A) list all the measurements for each parameter. These may be individual point measurements for example (e.g., [InputA]). B) provide the mean and standard deviation of each parameter (e.g., [InputB]). 
