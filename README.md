@@ -16,7 +16,7 @@ LinaForma requires no prior computer programming knowledge and a step-by-step wa
 
 
 Key Features
---------
+-------
 To use these codes, please either download them as a ZIP file or 
 
 There are three key packages:
@@ -27,12 +27,11 @@ There are three key packages:
 
 Citation
 --------
-If you use this package in your work, please cite the following conference presentation:
+If you use this package in your work, please cite the following:
 
 ```console
-Mackay-Champion, T., and Cawood, I.P., 2024. Using a grid-search nonlinear inversion, bootstrapping, and the Sobol’ method to quantify uncertainty in pseudosection P-T estimates. In Metamorphic Studies Group RiP Meeting 2024.
+Mackay-Champion, T., and Cawood, I.P., 2024. [ZENODO REPOSITORY COMING].
 ```
-as well as the relevant version of the source code on [Zenodo](https://doi.org/10.5281/zenodo.4....).
 
 
 Contributing to LinaForma
