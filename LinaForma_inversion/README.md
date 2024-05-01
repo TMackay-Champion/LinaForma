@@ -2,13 +2,47 @@
 <img src="https://github.com/TMackay-Champion/LinaForma/blob/d2577b0a12c168a8a8fe5a055eeb452f473757e5/images/logo_black.jpg", width="30%">
 </p>
 
-These four codes perform a grid-search inversion, accompanied by bootstrap re-sampling, to determine which pressure-temperature conditions best fit the rock of interest. The bootstrap re-sampling allows the user to determine the uncertainty in this result, as well as the sensitivity of the result to uncertainty in the input variables.
-All of the codes require the same two inputs (or three if you want to use synthetics):
-1) forward_model.csv = this CSV file contains the forward models created in software like THERIAK-DOMINO. If you have used scripts E2 or E3, the CSV file will already be in the correct format. The codes use the same input format as Code E4.
-2) observations.csv = this CSV file contains all of the real measured values for each of the variables contained in the forward_model.csv file.
+## Overview
+These five codes perform a grid-search inversion, accompanied by bootstrap re-sampling, to determine which Pressure-Temperature (P-T) conditions best fit the rock of interest. The bootstrap re-sampling allows the user to determine the uncertainty in this result, as well as the sensitivity of the result to the uncertainty of the input parameters. An example of the ouputs can be found in [EXAMPLES](https://github.com/TMackay-Champion/LinaForma/tree/8486dc1820e7d5363f01476148a69ec186ac12be/EXAMPLES).
 
-## L0_isopleths.m
-This code allows the user to plot intersecting isopleths between multiple different variables over the entire area of P-T space defined by the forward models.
+All of the codes require the same two inputs:
+1) **forward_model.csv** = this CSV file contains the forward models for selected parameters (e.g., XMg in biotite, vol% garnet) created in software like THERIAK-DOMINO. These files can be created using scripts E2 or E3 (see [TheriakDomino_tools](https://github.com/TMackay-Champion/LinaForma/tree/8486dc1820e7d5363f01476148a69ec186ac12be/TheriakDomino_tools)). The codes use the same input format as script E4.
+2) **measurements.csv** = this CSV file contains the measured values matching each of the parameters in the forward model file. It is important that the measurements are in the order given the the forward model file. There are two accepted formats for this file: A) list all the measurements for each parameter. These may be individual point measurements for example (e.g., [InputA]). B) provide the mean and standard deviation of each parameter (e.g., [InputB]). 
+
+
+## Script L0_isopleths.m
+This code allows the user to plot zones in P-T space defined by measured ranges of isopleth values for selected parameters. Zones of intersecting isopleths will be plotted.
+
+<summary> L0 script inputs </summary>
+% ====== Data ======
+*model = '?'*. This is the CSV file for the forward models (e.g., inputs/forward_model.csv).
+*measurements = '?'*. This is the CSV file for the measurements (e.g., 'inputs/measurement_distributions.csv').
+
+% ====== Data type ======
+*raw = ?*. What type of input format have you used for the measurements? If you have used InputA (see above), then raw = 1. If you have used InputB, then raw = 0.
+
+
+*sd = ?*. This parameter is only applicable if you have used InputA. *sd* is the number of standard deviations away from the mean value of each parameter used to plot the range of isopleth values (i.e., range = MEAN +/- sd * STDEV).
+
+
+% ====== PLOTS ======
+% PLOT 1 = percentage overlap plot
+all1 = 1; % Do you want to plot all of the variables? 1 = YES, 0 = NO.
+columns1 = [1,2,3,4]; % List the columns you want to plot, beginning from first variable. Only relevant if all = 0.
+
+% PLOT 2 = individual isopleths
+all2 = 1; % Do you want to plot all of the variables? 1 = YES, 0 = NO.
+columns2 = [1,2,3,4]; % List the columns you want to plot, beginning from first variable. Only relevant if all = 0.
+
+% PLOT 3 will use the contours from Plot2 and the max. percentage from 
+% Plot1
+
+<details></details>
+
+
+
+
+
 
 ### Outputs
 The code outputs three plots: 
