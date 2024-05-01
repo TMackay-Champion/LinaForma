@@ -62,14 +62,11 @@ No two measurements will be exactly the same. This script allows the user to ass
 <summary> L1 script input </summary>
 
 % ====== Data ======\
-**model = '?'**\
-As above.\
-**measurements = '?'**\
-As above.\
+**model = '?'**. As above.\
+**measurements = '?'**. As above.
 
 % ====== Data type ======\
-**raw = ?**
-As above.\
+**raw = ?**. As above.
 
 % ====== Sampling parameters (only applicable if raw = 0) ======\
 **n = ?**\
@@ -86,7 +83,9 @@ The code outputs two figures:
 
 
 ## L2_inversion.m
-This code performs a bootstrap re-sampling of the observation data, and a grid-search inversion to find the best-fit solution for each bootstrap resample. These are combined to give the user a best-fit pressure-temperature estimate for the system of interest and an uncertainty on that estimate. The grid-search inversion works by calculating the difference/misfit between the observed data and the forward model data at each P-T point in the forward model CSV file dataset. The best-fit solution is the P-T point with the lowest misfit value. It is important that the grid spacing is dense enough to ensure the minimum misfit is not missed between the grid spaces. 
+This code performs a bootstrap re-sampling of the observation data, and a grid-search inversion to find the best-fit solution for each bootstrap resample. These are combined to give the user a best-fit pressure-temperature estimate and associated uncertainty for the system of interest. 
+
+The grid-search inversion works by calculating the misfit between the observed data and the forward model at each P-T point in the forward model CSV file dataset. The best-fit solution is the P-T point with the lowest misfit value. It is important that the grid spacing is dense enough to ensure the minimum misfit is not missed between the grid spaces. 
 
 <details>
 <summary> Diagrammatic representation of the grid-search inversion workflow </summary>
@@ -107,14 +106,11 @@ This code performs a bootstrap re-sampling of the observation data, and a grid-s
 <summary> L2 script input </summary>
  
 % ====== Data ======\
-**model = '?'**\
-As above.
-**measurements = '?'**\
-As above.
+**model = '?'**. As above.\
+**measurements = '?'**. As above.
 
 % ====== Data type ======\
-**raw = ?**
-As above.\
+**raw = ?**. As above.
 
 % ====== Bootstrapping parameters ======\
 **bootstrap_type = ?**\
@@ -137,7 +133,9 @@ Number of pressure bins in 2D histogram (Figure 2, 4).\
 
 <details>
 <summary> L2 script output </summary>
-The code outputs four plots:
+ 
+The code outputs four figures:
+
 1) a grid showing the extent and resolution of the forward models.
 2) the grid-search solution with uncertainty analysis.
 3) a plot showing all of the best-fit solutions overlain on the overlapping contour plot of L0_isopleths.m script.
@@ -145,13 +143,24 @@ The code outputs four plots:
 </details>
 
 ## L3_residuals.m
-This code allows the user to examine the difference between the forward model predicitions and the observed or synthetic data at chosen P-T points.
-This can be used to check how well different variables match the best-fit solution. When accompanied by textural evidence or large enough datasets, this process 
-could be used to examine disequilibrium and/or model error.
+This script allows the user to examine the difference between the forward model predicitions and the observed data at chosen P-T points.
+This can be used to check how well different variables match the best-fit solution. When accompanied by textural evidence or large enough datasets, this process could be used to examine disequilibrium and/or model error.
 
 <details>
 <summary> L3 script input </summary>
-4) a 2D histogram of the best-fit solutions.
+ 
+% ====== Data ======\
+**model = '?'**. As above.\
+**measurements = '?'**. As above.
+
+% ====== Data type ======\
+**raw = ?**. As above.
+
+% ====== Select P-T point for forward model data ======\
+**T_best = ?**.\
+Select the T point of the forward model to which the variables will be compared.\
+**P_best = ?**.\
+Select the P point of the forward model to which the variables will be compared. Units = bars.
 </details>
 
 <details>
@@ -161,8 +170,7 @@ This code outputs boxplots for each variable showing the distribution of observa
 
 
 ## L4_sensitivity.m
-This code examines how sensitive the best-fit solutions are to uncertainty in the observations. To do this, the code bootstrap re-samples one variable at a time while keeping
-all the other variables constant. The resulting variation in the best-fit solutions can then be directly attritubted to the uncertainty on that particular variable. 
+This script examines how sensitive the best-fit solutions are to uncertainty in the observations. To do this, the code bootstrap re-samples one variable at a time while keeping all the other variables constant. The resulting variation in the best-fit solutions can then be directly attritubted to the uncertainty on that particular variable. 
 
 <details>
 <summary> Diagrammatic representation of the sensitivity workflow </summary>
@@ -173,7 +181,23 @@ all the other variables constant. The resulting variation in the best-fit soluti
 
 <details>
 <summary> L4 script input </summary>
-4) a 2D histogram of the best-fit solutions.
+ 
+% ====== Data ======\
+**model = '?'**. As above.\
+**measurements = '?'**. As above.
+
+% ====== Data type ======\
+**raw = ?**. As above.
+
+% ====== Bootstrapping parameters ======\
+**bootstrap_type = ?**. As above.\
+**it = ?**. As above.\
+
+% ====== Select P-T point for sensitivity analysis ======\
+**T_best = ?**\
+Select the best-fit T point at which the sensitivity will be computed.
+**P_best = ?**\
+Select the best-fit P point at which the sensitivity will be computed.
 </details>
 
 <details>
