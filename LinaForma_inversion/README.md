@@ -61,7 +61,19 @@ No two measurements will be exactly the same. This script allows the user to ass
 <details>
 <summary> L1 script inputs </summary>
 
-HEY
+% ====== Data ======\
+**model = '?'**\
+As above.\
+**measurements = '?'**\
+As above.\
+
+% ====== Data type ======\
+**raw = ?**
+As above.\
+
+% ====== Sampling parameters (only applicable if raw = 0) ======\
+**n = ?**\
+This is only applicable if raw = 0. It controls the number of random samples taken from the distribution of each variable (it assume a normal distrubtion, created using the input mean and standard deviation).
 </details>
 
 <details>
