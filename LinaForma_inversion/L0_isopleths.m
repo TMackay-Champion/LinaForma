@@ -7,7 +7,7 @@ model = 'inputs/forward_model.csv'; % Forward models.
 measurements = 'inputs/measurement_distributions.csv'; % Measurements
 
 % ====== Data type ======
-raw = 0; % What type of data do you have? 1 = all measurements. 0 = mean and std. of variables.
+raw = 0; % What type of data do you have? 1 = all measurements (InputA). 0 = mean and std. of variables (InputB).
 
 % ====== Range of values (only applicable if raw = 0) ======
 sd = 0.5; % Range of isopleth values given as multiple (sd) of standard deviation (STDEV) from the mean 
