@@ -34,8 +34,6 @@ Mackay-Champion, T., and Cawood, I.P., 2024. Using a grid-search nonlinear inver
 ```
 as well as the relevant version of the source code on [Zenodo](https://doi.org/10.5281/zenodo.4....).
 
-We hope to have a publication coming out soon in the Journal of Metamorphic Petrology.
-
 
 Contributing to LinaForma
 ----------------------------
