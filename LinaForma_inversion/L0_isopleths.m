@@ -213,7 +213,7 @@ title('Contour plot with overlap')
 % Save table and figures
 save("output_variables/percentage_overlap.mat",'X','Y','p_field');
 saveas(fig1,"FIGURES/percentage_overlap.pdf");
-print('-image',fig2,'FIGURES/overlapping_fields','-dpdf');
+print('-image',fig2,'FIGURES/isopleths','-dpdf');
 saveas(fig3,'FIGURES/contours_overlap.pdf');
 disp('FINISHED')
 
