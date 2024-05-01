@@ -18,10 +18,32 @@ This code allows the user to plot phase stability fields, assemblage stability f
 ## E4b_variables.m
 This code allows the user to plot heatmaps and contour plots for any CSV file with a structure like the image above. The code allows the user to overlay up to 3 contour plots and 1 heatmap onto one figure.
 
-### Inputs
-The code needs a CSV file containing the data. The file must have the structure outlined above.
+### E4b data input
+The code needs a CSV file containing the forward model data. The file must have the structure outlined above.
 
-### Code
+### E4b script input
+
+
+% ====== Data ======
+model = 'forward_models.csv';
+
+% ====== PLOTS ======
+% Plot stability field of particular phase?
+phase = 0; % 1 = YES; 0 = NO
+mineral = 'GRT'; % This corresponds to the name given to the mineral in the database
+
+% Plot stability field of particular assemblage?
+field = 0; % 1 = YES; 0 = NO
+f_no = 25; % This corresponds to the field number provided by DOMINO in pixa.txt.
+
+% Plot pseudosection and variance?
+%%% If you click on the pseudosection, MATLAB will print the equilibrium
+%%% phase assemblage
+assemblage = 1; % 1 = YES; 0 = NO
+components = 10; % Give the number of components of the system
+
+
+
 1) input_file = 'forward_models.csv'. This is the file name of the input data.
 
 The code input is then split into four sections:Heatmap input, Contour 1 input, Contour 2 input, and Contour 3 input. For each section, you need to 
@@ -34,7 +56,7 @@ e.g.,
 </p>
 
 
-### Output
+### E4b script output
 The output plots will be saved as pdf files to the FIGURES folder. 
 
  
