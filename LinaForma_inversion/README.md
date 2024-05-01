@@ -13,8 +13,8 @@ All of the codes require the same two inputs:
 ## Script L0_isopleths.m
 This code allows the user to plot zones in P-T space defined by measured ranges of isopleth values for selected parameters. Zones of intersecting isopleths will be plotted.
 
+<details>
 <summary> L0 script inputs </summary>
-```
 % ====== Data ======
 *model = '?'*. This is the CSV file for the forward models (e.g., inputs/forward_model.csv).
 *measurements = '?'*. This is the CSV file for the measurements (e.g., 'inputs/measurement_distributions.csv').
@@ -38,7 +38,6 @@ columns2 = [1,2,3,4]; % List the columns you want to plot, beginning from first 
 % PLOT 3 will use the contours from Plot2 and the max. percentage from 
 % Plot1
 
-```
 </details>
 
 
