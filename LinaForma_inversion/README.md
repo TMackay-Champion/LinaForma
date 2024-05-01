@@ -10,7 +10,7 @@ All of the codes require the same two inputs:
 2) **measurements.csv** = this CSV file contains the measured values matching each of the parameters in the forward model file. It is important that the measurements are in the order given the the forward model file. There are two accepted formats for this file: A) list all the measurements for each parameter. These may be individual point measurements for example (e.g., [InputA]). B) provide the mean and standard deviation of each parameter (e.g., [InputB]). 
 
 
-## Script L0_isopleths.m
+## L0_isopleths.m
 This code allows the user to ascertain which regions in P-T space coincide with the observed values for each parameter of interest. Zones of intersecting isopleths will be plotted.
 
 <details>
@@ -38,7 +38,7 @@ This parameter is only applicable if you have used InputA, and controls the rang
 **columns1 = [?]**\
 If you have selected all1 = 0, which column of the input measurements (i.e., parameters) do you want to plot?\
 
-% PLOT 2 = individual isopleths
+% PLOT 2 = individual isopleths\
 **all2 = ?**\
 Do you want to plot all of the variables? 1 = YES, 0 = NO.\
 **columns2 = [?]**\
@@ -63,11 +63,21 @@ This allows the user to examine the error associated with the observations, perh
 Secondly (Part 2), the code allows to user to quantify the variation in the forward modelled value of each variable for a given temperature uncertainty at a selected pressure.
 This allows the user to examine the amount of variation expected for a variable if there is model error of a known quantity.
 
-### Outputs
+<details>
+<summary> L1 script inputs </summary>
+
+HEY
+</details>
+
+<details>
+<summary> L0 script outputs </summary>
+ 
 The code outputs three plots: 
 1) a boxplot for each variable showing how the temperature estimates vary between observations.
 2) a boxplot for each variable showing how the pressure estimates vary between observations.
 3) a boxplot for each variable showing how temperature uncertainty in the forward model may propagate to uncertainty in the predicted value.
+
+</details>
 
 
 ## L2_inversion.m
@@ -87,32 +97,12 @@ Bootstrap samples are chosen by randomly drawing observations from the assumed d
 2) Non-parametric bootstrapping (option 0): this option re-samples the original data mulitple times and calculates the mean from each re-sampling. These mean values are used in the grid-search.
 3) "Synthetic bootstrapping" (option -1): in this option, the code lets the user decide on an appropriate mean and standard deviation for a Gaussian parametric bootstrap using the "synthetic.csv" file.
 
+<details>
+<summary> Diagrammatic representation of the bootstrap re-sampling workflow </summary>
  <p align="center">
 <img src="https://github.com/TMackay-Champion/LinaForma/blob/3aaf53b7526049c99e900da48fb3ca8a4db37272/images/L_bootstrap.png", width="90%">
 </p>
-
-
-### How many input variables should I use?
-A grid-search is a non-linear inversion. The problem is overdetermined because the number of observations is in excess of of the number of model parameters. 
-Each data point provides a constraint on the possible solution. By incorporating multiple constraints, overdetermined problems can identify and compensate for errors in the different variables.
-This often results in a higher precision estimate than could be achieved by the individual variables alone. 
-
-This is important when considering correlated variables. In an error-free system, it would be reasonable to remove all correlated variables. However, each variable in a petrological system is associated with a different level of error and the primary cause of this error will vary between different variables. 
-One can readily imagine a situation in which two highly correlated variables result in different P-T estimates due to petrological or model error. Considering the two variables together allows the user to determine the most appropriate solution.
-As such, we deem it acceptable to use variables which are predicted to be highly correlated in the forward model. 
-However, phases which are common to one mineral should only be used together if a degree of freedom remains. For example, e.g., the composition of plagioclase can be described by Xan and Xab. You should only use 1 of these variables, to maintain a degree of freedom. 
-
-
-### What bootstrapping method should I use?
-The method of bootstrapping depends on your assumptions surrounding the sources of error in the system.
-Non-parametric bootstrapping assumes that the underlying model generating the data is unknown or too complex to be accurately represented by a parametric distribution. 
-Instead of making explicit assumptions about the model, non-parametric bootstrapping focuses solely on the observed data and its properties. This error can be examinied for each variable using the L1_error.m script (Part 1).
-As such, we deem this bootstrap method to be most appropriate if we assume that the primary source of error is analytical and/or related to disequilbrium, geological uncertainty etc. 
-In this case, the error associated with the observations is greater than associated model error. 
-
-However, in some cases the primary source of error may be model error. In this case, the synthetic bootstrap option may be most suitable as it allows the user to select an appropriate mean and standard deviation. 
-A standard deviation should be chosen which allows for a suitable degree of temperature and pressure uncertainty for the particular variable of interest. This can be chosen with the help of the L1_error.m script (Part 2).
-We have generally found that a standard deviation equivalent to 20% of the mean value is more than enough.
+</details>
 
 
 ### Code
@@ -145,10 +135,51 @@ This code outputs boxplots for each variable showing the distribution of observa
 This code examines how sensitive the best-fit solutions are to uncertainty in the observations. To do this, the code bootstrap re-samples one variable at a time while keeping
 all the other variables constant. The resulting variation in the best-fit solutions can then be directly attritubted to the uncertainty on that particular variable. 
 
+<details>
+<summary> Diagrammatic representation of the sensitivity workflow </summary>
  <p align="center">
 <img src="https://github.com/TMackay-Champion/LinaForma/blob/3aaf53b7526049c99e900da48fb3ca8a4db37272/images/L_sensitivity.png", width="90%">
 </p>
+</details>
+
 
 ### Outputs
 This code outputs two "tornado" plots, one for temperature and one for pressure.
 These plots display how the variation in a particular variable influences the best-fit solutions relative to a given best-fit solution (ideally the output of the L2_inversion.m script).
+
+## FAQ
+<details>
+<summary> How many input variables should I use? </summary>
+A grid-search is a non-linear inversion. The problem is overdetermined because the number of observations is in excess of of the number of model parameters. 
+Each data point provides a constraint on the possible solution. By incorporating multiple constraints, overdetermined problems can identify and compensate for errors in the different variables.
+This often results in a higher precision estimate than could be achieved by the individual variables alone. 
+
+This is important when considering correlated variables. In an error-free system, it would be reasonable to remove all correlated variables. However, each variable in a petrological system is associated with a different level of error and the primary cause of this error will vary between different variables. 
+One can readily imagine a situation in which two highly correlated variables result in different P-T estimates due to petrological or model error. Considering the two variables together allows the user to determine the most appropriate solution.
+As such, we deem it acceptable to use variables which are predicted to be highly correlated in the forward model. 
+However, phases which are common to one mineral should only be used together if a degree of freedom remains. For example, e.g., the composition of plagioclase can be described by Xan and Xab. You should only use 1 of these variables, to maintain a degree of freedom. 
+</details>
+
+<details>
+<summary> What bootstrapping method should I use? </summary>
+ 
+The method of bootstrapping depends on your assumptions surrounding the sources of error in the system.
+Non-parametric bootstrapping assumes that the underlying model generating the data is unknown or too complex to be accurately represented by a parametric distribution. 
+Instead of making explicit assumptions about the model, non-parametric bootstrapping focuses solely on the observed data and its properties. This error can be examinied for each variable using the L1_error.m script (Part 1).
+As such, we deem this bootstrap method to be most appropriate if we assume that the primary source of error is analytical and/or related to disequilbrium, geological uncertainty etc. 
+In this case, the error associated with the observations is greater than associated model error. 
+
+However, in some cases the primary source of error may be model error. In this case, the synthetic bootstrap option may be most suitable as it allows the user to select an appropriate mean and standard deviation. 
+A standard deviation should be chosen which allows for a suitable degree of temperature and pressure uncertainty for the particular variable of interest. This can be chosen with the help of the L1_error.m script (Part 2).
+We have generally found that a standard deviation equivalent to 20% of the mean value is more than enough.
+</details>
+
+
+
+
+
+
+
+
+
+
