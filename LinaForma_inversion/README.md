@@ -86,9 +86,14 @@ best-fit pressure-temperature estimate for the system of interest and an uncerta
 
 The grid-search inversion works by calculating the difference/misfit between the observed data and the forward model data at each P-T point in the forward model CSV file dataset. The best-fit solution is the P-T point with the lowest misfit value. 
 It is important that the grid spacing is dense enough to ensure the minimum misfit is not missed between the grid spaces. 
+
+<details>
+<summary> Diagrammatic representation of the grid-search inversion workflow </summary>
  <p align="center">
 <img src="https://github.com/TMackay-Champion/LinaForma/blob/3aaf53b7526049c99e900da48fb3ca8a4db37272/images/L_gridsearch.png", width="90%">
 </p>
+</p>
+</details>
 
 Bootstrap resampling refers to random re-sampling of the original dataset, with replacement. This re-sampling is used to examine the uncertainty of the best-fit solution. Uncertainty may be introduced through model error, mesasurement error, disequilibrium and other such processes. 
 Using bootstrapping, we can examine the effects of these errors on our P-T solution. The codes allow three different styles of re-sampling for each variable in turn:
@@ -147,7 +152,7 @@ all the other variables constant. The resulting variation in the best-fit soluti
 This code outputs two "tornado" plots, one for temperature and one for pressure.
 These plots display how the variation in a particular variable influences the best-fit solutions relative to a given best-fit solution (ideally the output of the L2_inversion.m script).
 
-## FAQ
+## FAQs
 <details>
 <summary> How many input variables should I use? </summary>
 A grid-search is a non-linear inversion. The problem is overdetermined because the number of observations is in excess of of the number of model parameters. 
