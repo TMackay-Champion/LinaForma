@@ -73,7 +73,7 @@ As above.\
 
 % ====== Sampling parameters (only applicable if raw = 0) ======\
 **n = ?**\
-This is only applicable if raw = 0. It controls the number of random samples taken from the distribution of each variable (it assume a normal distrubtion, created using the input mean and standard deviation).
+This is only applicable if raw = 0. It controls the number of random samples taken from the distribution of each variable (it assumes a normal distrubtion, created using the input mean and standard deviation).
 </details>
 
 <details>
