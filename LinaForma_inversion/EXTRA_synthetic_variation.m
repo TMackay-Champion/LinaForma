@@ -70,4 +70,4 @@ for i = 1:size(mod,2)
     xlabel('% difference')
 
 end
-saveas(fig3,"FIGURES/predicted_error.pdf");
+print(fig3,"FIGURES/predicted_error",'-dpng');
