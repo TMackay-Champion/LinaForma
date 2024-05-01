@@ -15,18 +15,18 @@ This code allows the user to plot zones in P-T space defined by measured ranges 
 
 <details>
 <summary> L0 script inputs </summary>
-% ====== Data ======
+% ====== Data ======\
 *model = '?'*. This is the CSV file for the forward models (e.g., inputs/forward_model.csv).
 *measurements = '?'*. This is the CSV file for the measurements (e.g., 'inputs/measurement_distributions.csv').
 
-% ====== Data type ======
+% ====== Data type ======\
 *raw = ?*. What type of input format have you used for the measurements? If you have used InputA (see above), then raw = 1. If you have used InputB, then raw = 0.
 
 
 *sd = ?*. This parameter is only applicable if you have used InputA. *sd* is the number of standard deviations away from the mean value of each parameter used to plot the range of isopleth values (i.e., range = MEAN +/- sd * STDEV).
 
 
-% ====== PLOTS ======
+% ====== PLOTS ======\
 % PLOT 1 = percentage overlap plot
 all1 = 1; % Do you want to plot all of the variables? 1 = YES, 0 = NO.
 columns1 = [1,2,3,4]; % List the columns you want to plot, beginning from first variable. Only relevant if all = 0.
