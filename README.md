@@ -18,8 +18,6 @@ LinaForma requires no prior computer programming knowledge and a step-by-step wa
 
 Key Features
 -------
-To use these codes, please either download them as a ZIP file or 
-
 There are three key packages:
 1) **LinaForma_inversion**: this package performs a grid-search inversion to quantify which P-T conditions best fit the rock of interest. Bootstrap re-sampling provides an assessment of the uncertainty associated with this P-T estimate, and the sensitivity of the estimate to uncertainty in the input variables.
 2) **TheriakDomino_tools**: this package provides useful tools for creating bulk-composition THERIN files (E1 script), collating DOMINO output into a single csv. file (E2), automating THERIAK (E3), plotting data in heatmaps, contour plots etc. (E4), and calculating the correlation coefficients between the different variables, temperature and pressure (E5).
