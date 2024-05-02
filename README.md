@@ -6,7 +6,7 @@
   </a>
 </p>
 
-![Logo](https://github.com/TMackay-Champion/LinaForma/blob/a890f653433494310c38612e5355d9b61138cdc8/images/logo_heatmap.jpg)
+![Logo](https://github.com/TMackay-Champion/LinaForma/blob/a890f653433494310c38612e5355d9b61138cdc8/images/logo_heatmap.jpg)[width = 60%]
 
 LinaForma is a series of MATLAB® scripts for calculating the optimal pressure-temperature (P-T) conditions experienced by a rock using a grid-search inversion, accompanied by bootstrap re-sampling to quantify the solution uncertainty and sensitivity to the input variables. LinaForma calculates the difference ("misfit") between measurements (e.g., Xalm) and forward models computed for a range of P-T points in third-party software such as [THERIAK-DOMINO](https://titan.minpet.unibas.ch/minpet/theriak/prog11032020/), [Perple_X](https://www.perplex.ethz.ch/), and [MAGEMin](https://github.com/ComputationalThermodynamics/MAGEMin). The P-T point with the lowest misfit value defines the “best-fit” solution. A suite of tools is also provided for plotting forward model data, performing tasks such as Principal Component Analysis, and automating relevant processes in THERIAK-DOMINO. 
 
