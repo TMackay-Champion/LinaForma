@@ -6,7 +6,7 @@
   </a>
 </p>
 
-LinaForma is a series of MATLAB® scripts for calculating the optimal pressure-temperature (P-T) conditions experienced by a rock using a grid-search inversion, accompanied by bootstrap re-sampling to quantify the solution uncertainty and sensitivity to the input variables. LinaForma calculates the difference ("misfit") between measurements (e.g., Xalm) and forward models computed for a range of P-T points in third-party software such as Theriak-Domino. The P-T point with the lowest misfit value defines the “best-fit” solution. Other scripts in this package perform tasks such as Principal Component Analysis. A suite of tools are also provided for plotting forward model data and automating processes in Theriak-Domino.
+LinaForma is a series of MATLAB® scripts for calculating the optimal pressure-temperature (P-T) conditions experienced by a rock using a grid-search inversion, accompanied by bootstrap re-sampling to quantify the solution uncertainty and sensitivity to the input variables. LinaForma calculates the difference ("misfit") between measurements (e.g., Xalm) and forward models computed for a range of P-T points in third-party software such as [THERIAK-DOMINO](https://titan.minpet.unibas.ch/minpet/theriak/prog11032020/) or [Perple_X](https://www.perplex.ethz.ch/). The P-T point with the lowest misfit value defines the “best-fit” solution. A suite of tools is also provided for plotting forward model data, for automating processes in THERIAK-DOMINO, and for performing tasks such as Principal Component Analysis. 
 
 LinaForma requires no prior computer programming knowledge and a step-by-step walkthrough is provided.
 
@@ -16,7 +16,7 @@ LinaForma requires no prior computer programming knowledge and a step-by-step wa
 
 
 Key Features
---------
+-------
 To use these codes, please either download them as a ZIP file or 
 
 There are three key packages:
@@ -27,12 +27,11 @@ There are three key packages:
 
 Citation
 --------
-If you use this package in your work, please cite the following conference presentation:
+If you use this package in your work, please cite the following:
 
 ```console
-Mackay-Champion, T., and Cawood, I.P., 2024. Using a grid-search nonlinear inversion, bootstrapping, and the Sobol’ method to quantify uncertainty in pseudosection P-T estimates. In Metamorphic Studies Group RiP Meeting 2024.
+Mackay-Champion, T., and Cawood, I.P., 2024. [ZENODO REPOSITORY COMING].
 ```
-as well as the relevant version of the source code on [Zenodo](https://doi.org/10.5281/zenodo.4....).
 
 
 Contributing to LinaForma
