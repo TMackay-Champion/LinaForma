@@ -27,7 +27,9 @@ This needs to be the full-path to the folder containing your THERIAK-DOMINO prog
 **database = '?'**\
 This should match the name of the database file in the automation folder.\
 **path = '?'**\
-This should be a CSV file with the P-T path information. Grids can be created using script E3a.
+This should be a CSV file with the P-T path information. Grids can be created using script E3a.\
+**mac = ?**\
+Are you using a MAC or WINDOWS machine? Mac = 1, Windows = 0.
 
 
 ### E3b script output

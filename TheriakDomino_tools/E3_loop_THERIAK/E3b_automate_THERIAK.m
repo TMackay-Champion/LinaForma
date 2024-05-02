@@ -7,7 +7,7 @@ directory = 'C:/Users/tober/OneDrive - Nexus365/Projects/Lina Forma/software_pac
 % full-path to the folder containing your THERIAK-DOMINO programs
 database = 'td_pelite.txt';     % This should match the name of the database file in the automation folder
 path = 'PT_path.csv';   % This should be a csv file with the path info. Grids can be created using script E3a.
-
+mac = 1; % Are you using a MAC or WINDOWS machine? Mac = 1, Windows = 0;
 
 %%%%%%%%%%%%%%%%%%%%% CODE %%%%%%%%%%%%%%%%%%%%
 %%%% BEST NOT TO ALTER UNLESS YOU ARE SURE %%%%
@@ -16,7 +16,11 @@ path = 'PT_path.csv';   % This should be a csv file with the path info. Grids ca
 path = readmatrix(path);
 T = path(:,1); P = path(:,2);
 name1 = append(directory,'automate_theriak.sh');
-string1 = append('cd "',directory,'"\n"',directory,'"theriak.exe <automate.txt');
+if mac == 0
+    string1 = append('cd "',directory,'"\n"',directory,'"theriak.exe <automate.txt');
+elseif mac == 1
+    string1 = append('cd "',directory,'"\n"',directory,'"theriak <automate.txt');
+end
 autoID1 = fopen(name1,'w');
 fprintf(autoID1,string1);
 fclose(autoID1);
