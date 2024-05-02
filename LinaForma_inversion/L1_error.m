@@ -5,7 +5,7 @@ clear;clc;
 %%%%%%%%% INPUTS %%%%%%%%%
 % ====== Data ======
 model = 'inputs/forward_model.csv'; % Forward models.
-measurements = 'inputs/measurement_distributions.csv'; % Measurements
+measurements = 'inputs/InputB.csv'; % Measurements
 
 % ====== Data type ======
 raw = 0; % What type of data do you have? 1 = all measurements. 0 = mean and std. of variables.
@@ -83,8 +83,8 @@ t = append(string(mu),' ± ',string(sigma),' kbar');
 title(t)
 end
 
-saveas(fig1,"FIGURES/observation_T_error.pdf");
-saveas(fig2,"FIGURES/observation_P_error.pdf");
+saveas(fig1,"FIGURES/L1_fig1.pdf");
+saveas(fig2,"FIGURES/L1_fig2.pdf");
 disp('FINISHED')
 
 

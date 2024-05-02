@@ -4,7 +4,7 @@ clear;clc;
 %%%%%%%%% INPUTS %%%%%%%%%
 % ====== Data ======
 model = 'inputs/forward_model.csv';
-measurements =  'inputs/measurement_distributions.csv';
+measurements =  'inputs/InputB.csv';
 
 % ====== Data type ======
 raw = 0; % What type of data do you have? 1 = all measurements. 0 = mean and std. of variables.
@@ -153,7 +153,7 @@ lg = legend('-','+','Location','southeast');
 xlim([min(min(sorted_impact))-100 max(max(sorted_impact))+100])
 
 % Save figure
-saveas(fig1,"FIGURES/sensitivity_plots.pdf");
+saveas(fig1,"FIGURES/L4_fig1.pdf");
 disp('FINISHED')
 
 

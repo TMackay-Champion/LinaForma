@@ -4,7 +4,7 @@ clear;clc;
 %%%%%%%%% INPUTS %%%%%%%%%
 % ====== Data ======
 model = 'inputs/forward_model.csv'; % Forward models.
-measurements = 'inputs/measurement_distributions.csv'; % Measurements
+measurements = 'inputs/InputB.csv'; % Measurements
 
 % ====== Data type ======
 raw = 0; % What type of data do you have? 1 = all measurements. 0 = mean and std. of variables.
@@ -259,10 +259,10 @@ legend('2D histogram','Mean best-fit solution','Median best-fit solution');
 
 
 % Save plots and PT solutions
-saveas(fig1,"FIGURES/model_grid.pdf");
-saveas(fig2,"FIGURES/grid_solution.pdf");
-saveas(fig3,"FIGURES/contour_solution.pdf");
-saveas(fig4,"FIGURES/solution_2Dhistogram.pdf");
+saveas(fig1,"FIGURES/L2_fig1.pdf");
+saveas(fig2,"FIGURES/L2_fig2.pdf");
+saveas(fig3,"FIGURES/L2_fig3.pdf");
+saveas(fig4,"FIGURES/L2_fig4.pdf");
 T = table(t_best, p_best, 'VariableNames', {'Temperature (°C)', 'Pressure (bar)'});
 writetable(T,'output_variables/PT_solutions.csv');
 disp('FINISHED')

@@ -4,7 +4,7 @@ clear;clc;
 %%%%%%%%% INPUTS %%%%%%%%%
 % ====== Data ======
 model = 'inputs/forward_model.csv'; % Forward models.
-measurements = 'inputs/measurement_distributions.csv'; % Measurements
+measurements = 'inputs/InputB.csv'; % Measurements
 
 % ====== Data type ======
 raw = 0; % What type of data do you have? 1 = all measurements (InputA). 0 = mean and std. of variables (InputB).
@@ -212,8 +212,8 @@ title('Contour plot with overlap')
 
 % Save table and figures
 save("output_variables/percentage_overlap.mat",'X','Y','p_field');
-saveas(fig1,"FIGURES/percentage_overlap.pdf");
-print('-image',fig2,'FIGURES/isopleths','-dpdf');
-saveas(fig3,'FIGURES/contours_overlap.pdf');
+saveas(fig1,"FIGURES/L0_fig1.pdf");
+print('-image',fig2,'FIGURES/L0_fig2','-dpdf');
+saveas(fig3,'FIGURES/L0_fig3.pdf');
 disp('FINISHED')
 

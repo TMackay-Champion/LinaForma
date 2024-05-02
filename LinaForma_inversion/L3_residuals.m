@@ -4,7 +4,7 @@ clear;clc;
 %%%%%%%%% INPUTS %%%%%%%%%
 % ====== Data ======
 model = 'inputs/forward_model.csv'; % Forward models.
-measurements = 'inputs/measurement_distributions.csv'; % Measurements
+measurements = 'inputs/InputB.csv'; % Measurements
 
 % ====== Data type ======
 raw = 0; % What type of data do you have? 1 = all measurements. 0 = mean and std. of variables.
@@ -93,5 +93,5 @@ for i = 1:length(variables)
         lg.Position = [0.3, 0.15, 0.4, 0.05];
     end
 end
-print(fig1,"FIGURES/residuals.pdf",'-dpdf','-bestfit')
+print(fig1,"FIGURES/L3_fig1.pdf",'-dpdf','-bestfit')
 disp('FINISHED')
