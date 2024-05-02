@@ -7,7 +7,7 @@ model = 'inputs/forward_model.csv'; % Forward models.
 measurements = 'inputs/InputB.csv'; % Measurements
 
 % ====== Data type ======
-raw = 0; % What type of data do you have? 1 = all measurements. 0 = mean and std. of variables.
+raw = 1; % What type of data do you have? 1 = all measurements. 0 = mean and std. of variables.
 
 % ====== Bootstrapping parameters ======
 bootstrap_type = 1;      % Parametric = 1, non-parametric = 0. Only parametric is available if raw = 0.
@@ -124,7 +124,7 @@ title('Model grid')
 fig2 = figure(2);
 map = +Functions_NO_EDIT.viridis;
 set(fig2,'Units','centimeters')
-set(fig2,'Position',[0 0 0.9*21 0.9*21])
+set(fig2,'Position',[0 0 0.9*21 0.9*25])
 subplot(3,2,[1 2 3 4])
 res = reshape(log(model_misfit),[ix iy])';
 if plot_type == 1
@@ -191,14 +191,14 @@ rT3 = ceil(rT3/5)*5; rT1 = ceil(rT1/5)*5;
 if boxplots == 1
     subplot(3,2,5)
     boxplot(t_best,'Orientation','horizontal')
-    t = append(string(mu_T),' ± ',string(std_T),' °C (1 s.d.)');
-    s = append('x̄ = ',string(med_T),' °C (IQR =  ',string(rT1),'-',string(rT3),')');
+    t = append('Mn = ',string(mu_T),' ± ',string(std_T),' °C (1σ)');
+    s = append('Md = ',string(med_T),' °C (IQR =  ',string(rT1),'-',string(rT3),')');
     title({t,s})
     xlabel('Temperature (°C)')
     subplot(3,2,6)
     boxplot(p_best,'Orientation','horizontal')
-    t = append(string(mu_P),' ± ',string(std_P),' bar (1 s.d.)');
-    s = append('x̄ = ',string(med_P),' bar (IQR =  ',string(rP1),'-',string(rP3),')');
+    t = append('Mn = ',string(mu_P),' ± ',string(std_P),' bar (1σ)');
+    s = append('Md = ',string(med_P),' bar (IQR =  ',string(rP1),'-',string(rP3),')');
     title({t,s})
     xlabel('Pressure (bars)')
 
@@ -207,8 +207,8 @@ else
     % T
     subplot(3,2,5)
     histogram(t_best,T_bins);
-    t = append(string(mu_T),' ± ',string(std_T),' °C (1 s.d.)');
-    s = append('x̄ = ',string(med_T),' °C (IQR =  ',string(rT1),'-',string(rT3),')');
+    t = append('Mn = ',string(mu_T),' ± ',string(std_T),' °C (1σ)');
+    s = append('Md = ',string(med_T),' °C (IQR =  ',string(rT1),'-',string(rT3),')');
     title({t;s})
     xlabel('Temperature (°C)')
     ylabel('Number of solutions')
@@ -216,8 +216,8 @@ else
     % P
     subplot(3,2,6)
     histogram(p_best,P_bins);
-    t = append(string(mu_P),' ± ',string(std_P),' bar (1 s.d.)');
-    s = append('x̄ = ',string(med_P),' bar (IQR =  ',string(rP1),'-',string(rP3),')');
+    t = append('Mn = ',string(mu_P),' ± ',string(std_P),' bar (1σ)');
+    s = append('Md = ',string(med_P),' bar (IQR =  ',string(rP1),'-',string(rP3),')');
     title({t;s})
     xlabel('Pressure (bars)')
     ylabel('Number of solutions')

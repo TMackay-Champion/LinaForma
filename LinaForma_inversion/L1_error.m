@@ -5,7 +5,7 @@ clear;clc;
 %%%%%%%%% INPUTS %%%%%%%%%
 % ====== Data ======
 model = 'inputs/forward_model.csv'; % Forward models.
-measurements = 'inputs/InputB.csv'; % Measurements
+measurements = 'inputs/InputA.csv'; % Measurements
 
 % ====== Data type ======
 raw = 0; % What type of data do you have? 1 = all measurements. 0 = mean and std. of variables.
@@ -58,33 +58,43 @@ end
 
 % Plots
 fig1 = figure(1);
+set(fig1,'Units','centimeters')
+set(fig1,'Position',[0 0 0.9*21 0.9*21])
 for i = 1:size(mod,2)
 row = ceil(length(variables)/3);
 subplot(row,3,i)
 data = T_variation(:,i);
+medT = median(data); rT3 = quantile(data,0.75); rT1 = quantile(data,0.25); 
+med_T = ceil(medT/5)*5; rT3 = ceil(rT3/5)*5; rT1 = ceil(rT1/5)*5;
 mu = mean(data); sigma = std(data);
 mu = ceil(mu/5)*5; sigma = ceil(sigma/5)*5;
 boxplot(data,'Orientation','horizontal')
 xlabel(variables(i));
-t = append(string(mu),' ± ',string(sigma),' °C');
-title(t)
+t = append('Mn = ',string(mu),' ± ',string(sigma),' °C (1σ)');
+s = append('Md = ',string(med_T),' °C (IQR =  ',string(rT1),'-',string(rT3),')');
+title({t,s})
 end
 
 fig2 = figure(2);
-for i = 1:size(mod,2)
+set(fig2,'Units','centimeters')
+set(fig2,'Position',[0 0 0.9*21 0.9*21])
 row = ceil(length(variables)/3);
+for i = 1:size(mod,2)
 subplot(row,3,i)
 data = P_variation(:,i);
 mu = mean(data); sigma = std(data);
-mu = ceil(mu/5)*5/1000; sigma = ceil(sigma/5)*5/1000;
+medT = median(data); rT3 = quantile(data,0.75); rT1 = quantile(data,0.25); 
+med_T = ceil(medT/100)*100/1000; rT3 = ceil(rT3/100)*100/1000; rT1 = ceil(rT1/100)*100/1000;
+mu = ceil(mu/100)*100/1000; sigma = ceil(sigma/100)*100/1000;
 boxplot(data/1000,'Orientation','horizontal')
 xlabel(variables(i));
-t = append(string(mu),' ± ',string(sigma),' kbar');
-title(t)
+t = append('Mn = ',string(mu),' ± ',string(sigma),' kbar (1σ)');
+s = append('Md = ',string(med_T),' kbar (IQR =  ',string(rT1),'-',string(rT3),')');
+title({t,s})
 end
 
-saveas(fig1,"FIGURES/L1_fig1.pdf");
-saveas(fig2,"FIGURES/L1_fig2.pdf");
+print(fig1,"FIGURES/L1_fig1.pdf");
+print(fig2,"FIGURES/L1_fig2.pdf");
 disp('FINISHED')
 
 
