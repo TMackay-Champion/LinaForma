@@ -1,4 +1,5 @@
 # LinaForma
+![Logo](https://github.com/TMackay-Champion/LinaForma/blob/a890f653433494310c38612e5355d9b61138cdc8/images/logo_heatmap.jpg)
 
   <!-- License -->
   <a href="https://www.gnu.org/licenses/gpl-3.0">
