@@ -33,7 +33,7 @@ Citation
 If you find this package useful, please do consider citing it using the following::
 
 ```console
-Mackay-Champion, T., and Cawood, I.P., 2024. [ZENODO REPOSITORY COMING].
+Mackay-Champion, T., & Cawood, I. (2024). LinaForma (Version 1.0.) [Computer software]. https://doi.org/10.5281/zenodo.11110441
 ```
 
 
