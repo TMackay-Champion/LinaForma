@@ -84,12 +84,12 @@ subplot(row,3,i)
 data = P_variation(:,i);
 mu = mean(data); sigma = std(data);
 medT = median(data); rT3 = quantile(data,0.75); rT1 = quantile(data,0.25); 
-med_T = ceil(medT/100)*100/1000; rT3 = ceil(rT3/100)*100/1000; rT1 = ceil(rT1/100)*100/1000;
-mu = ceil(mu/100)*100/1000; sigma = ceil(sigma/100)*100/1000;
+med_T = ceil(medT/100)*100; rT3 = ceil(rT3/100)*100; rT1 = ceil(rT1/100)*100;
+mu = ceil(mu/100)*100; sigma = ceil(sigma/100)*100;
 boxplot(data/1000,'Orientation','horizontal')
 xlabel(variables(i));
-t = append('Mn = ',string(mu),' ± ',string(sigma),' kbar (1σ)');
-s = append('Md = ',string(med_T),' kbar (IQR =  ',string(rT1),'-',string(rT3),')');
+t = append('Mn = ',string(mu),' ± ',string(sigma),' bar (1σ)');
+s = append('Md = ',string(med_T),' bar (IQR =  ',string(rT1),'-',string(rT3),')');
 title({t,s})
 end
 
