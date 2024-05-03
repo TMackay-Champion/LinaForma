@@ -4,10 +4,10 @@ clear;clc;
 %%%%%%%%% INPUTS %%%%%%%%%
 % ====== Data ======
 model = 'inputs/forward_model.csv'; % Forward models.
-measurements = 'inputs/InputB.csv'; % Measurements
+measurements = 'inputs/InputA.csv'; % Measurements
 
 % ====== Data type ======
-raw = 1; % What type of data do you have? 1 = all measurements. 0 = mean and std. of variables.
+raw = 0; % What type of data do you have? 1 = all measurements. 0 = mean and std. of variables.
 
 % ====== Select P-T point for forward model data ======
 T_best = 590; % Select the T point to which results will be compared.
@@ -67,11 +67,12 @@ for i = 1:tmp
 end
 
 fig1 = figure(1);
-row = ceil(length(variables)/3)+1;
+row = ceil(length(variables)/3);
+t = tiledlayout('flow');
 set(fig1,'Units','centimeters')
-set(fig1,'Position',[0 0 0.9*21 row*1/4*29])
+set(fig1,'Position',[0 0 0.9*21 row*1/5*29])
 for i = 1:length(variables)
-    subplot(row,3,i)
+    nexttile
     plot(x_axis(i,:),observed_dist(i,:)); hold on
     plot([data(1,i),data(1,i)],[0 max(observed_dist(i,:))],'r--','LineWidth',2)
     if raw ~= 0
@@ -87,13 +88,12 @@ for i = 1:length(variables)
     title(t);
     ylabel('P.D.E.')
     xlabel(string(variables(i)))
-    if i == 1 && raw == 0
-        lg = legend({'Observations','Model result','μ - 2σ','μ + 2σ'});
-        lg.Position = [0.3, 0.15, 0.4, 0.05];
-    elseif i ==1 && raw ~= 0
-        lg = legend({'Observations','Model result','Minimum observation','Maximum observation'});
-        lg.Position = [0.3, 0.15, 0.4, 0.05];
-    end
 end
+if raw == 0
+    lg = legend({'Observations','Model result','μ - 2σ','μ + 2σ'});
+elseif raw ~= 0
+    lg = legend({'Observations','Model result','Minimum observation','Maximum observation'});
+end
+lg.Layout.Tile = 'South';
 print(fig1,"FIGURES/L3_fig1.pdf",'-dpdf','-bestfit')
 disp('FINISHED')

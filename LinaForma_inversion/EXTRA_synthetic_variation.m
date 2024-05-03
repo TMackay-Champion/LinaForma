@@ -25,6 +25,10 @@ absolute_diff = abs(P - pressure_of_interest);
 [~, index_closest] = min(absolute_diff);
 p = P(index_closest);
 
+fig3 = figure(3);
+row = ceil(length(variables)/3);
+t = tiledlayout('flow');
+
 for i = 1:size(mod,2)
     forward = mod(:,i);
     data = forward(p == P);
@@ -61,13 +65,15 @@ for i = 1:size(mod,2)
     med = ceil(med);
     
     % Create plot
-    fig3 = figure(3);
-    row = ceil(length(variables)/3);
-    subplot(row,3,i)
+    set(fig3,'Units','centimeters')
+    set(fig3,'Position',[0 0 0.9*21 row*1/5*29])
+    nexttile
     boxplot(av,'Orientation','horizontal')
-    t = append(variables(i),', x̄ = ',string(med));
+    t = append(variables(i),', median = ',string(med));
     title(t);
-    xlabel('% difference')
+    xlabel('% difference'); hold on
+    clc;
 
 end
 print('-image',fig3,"FIGURES/predicted_error",'-dpdf');
+disp('FINISHED')

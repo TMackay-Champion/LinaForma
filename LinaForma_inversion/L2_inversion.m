@@ -4,10 +4,10 @@ clear;clc;
 %%%%%%%%% INPUTS %%%%%%%%%
 % ====== Data ======
 model = 'inputs/forward_model.csv'; % Forward models.
-measurements = 'inputs/InputB.csv'; % Measurements
+measurements = 'inputs/InputA.csv'; % Measurements
 
 % ====== Data type ======
-raw = 1; % What type of data do you have? 1 = all measurements. 0 = mean and std. of variables.
+raw = 0; % What type of data do you have? 1 = all measurements. 0 = mean and std. of variables.
 
 % ====== Bootstrapping parameters ======
 bootstrap_type = 1;      % Parametric = 1, non-parametric = 0. Only parametric is available if raw = 0.
@@ -15,7 +15,7 @@ it = 500;        % How many random iterations do you want to calculate?
 
 % ====== PLOTS ======
 confidence_level = 0.68;  % Confidence level for 2D ellipse
-boxplots = 0;   % Do you want boxplots or histograms? 1 = boxplot, 0 = histogram
+boxplots = 1;   % Do you want boxplots or histograms? 1 = boxplot, 0 = histogram
 plot_type = 0; % What type of plot do you want? 1 = contour plot, 0 = heatmap;
 T_bins = 10; % Number of temperature bins in 2D histogram (Figure 2, 4)
 P_bins = 10; % Number of pressure bins in 2D histogram (Figure 2, 4)
@@ -122,10 +122,11 @@ title('Model grid')
 
 % Plot the misfit surface
 fig2 = figure(2);
+t = tiledlayout(3,2);
 map = +Functions_NO_EDIT.viridis;
 set(fig2,'Units','centimeters')
 set(fig2,'Position',[0 0 0.9*21 0.9*25])
-subplot(3,2,[1 2 3 4])
+nexttile([2 2])
 res = reshape(log(model_misfit),[ix iy])';
 if plot_type == 1
     contourf(X,Y,res);
@@ -189,23 +190,23 @@ rT3 = ceil(rT3/5)*5; rT1 = ceil(rT1/5)*5;
 
 % Plot boxplots
 if boxplots == 1
-    subplot(3,2,5)
+    nexttile
     boxplot(t_best,'Orientation','horizontal')
     t = append('Mn = ',string(mu_T),' ± ',string(std_T),' °C (1σ)');
     s = append('Md = ',string(med_T),' °C (IQR =  ',string(rT1),'-',string(rT3),')');
-    title({t,s})
+    title({t,s});clc;
     xlabel('Temperature (°C)')
-    subplot(3,2,6)
+    nexttile
     boxplot(p_best,'Orientation','horizontal')
     t = append('Mn = ',string(mu_P),' ± ',string(std_P),' bar (1σ)');
     s = append('Md = ',string(med_P),' bar (IQR =  ',string(rP1),'-',string(rP3),')');
-    title({t,s})
+    title({t,s});clc;
     xlabel('Pressure (bars)')
 
 % Or plot histograms
 else
     % T
-    subplot(3,2,5)
+    nexttile
     histogram(t_best,T_bins);
     t = append('Mn = ',string(mu_T),' ± ',string(std_T),' °C (1σ)');
     s = append('Md = ',string(med_T),' °C (IQR =  ',string(rT1),'-',string(rT3),')');
@@ -214,7 +215,7 @@ else
     ylabel('Number of solutions')
     
     % P
-    subplot(3,2,6)
+    nexttile
     histogram(p_best,P_bins);
     t = append('Mn = ',string(mu_P),' ± ',string(std_P),' bar (1σ)');
     s = append('Md = ',string(med_P),' bar (IQR =  ',string(rP1),'-',string(rP3),')');

@@ -4,7 +4,7 @@ clear;clc;
 %%%%%%%%% INPUTS %%%%%%%%%
 % ====== Data ======
 model = 'inputs/forward_model.csv'; % Forward models.
-measurements = 'inputs/InputB.csv'; % Measurements
+measurements = 'inputs/InputA.csv'; % Measurements
 
 % ====== Data type ======
 raw = 0; % What type of data do you have? 1 = all measurements (InputA). 0 = mean and std. of variables (InputB).

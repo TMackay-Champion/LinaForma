@@ -59,11 +59,11 @@ end
 % Plots
 fig1 = figure(1);
 row = ceil(length(variables)/3);
+t = tiledlayout('flow');
 set(fig1,'Units','centimeters')
-set(fig1,'Position',[0 0 0.9*21 row*1/4*29])
+set(fig1,'Position',[0 0 0.9*21 row*1/5*29])
 for i = 1:size(mod,2)
-row = ceil(length(variables)/3);
-subplot(row,3,i)
+nexttile
 data = T_variation(:,i);
 medT = median(data); rT3 = quantile(data,0.75); rT1 = quantile(data,0.25); 
 med_T = ceil(medT/5)*5; rT3 = ceil(rT3/5)*5; rT1 = ceil(rT1/5)*5;
@@ -73,15 +73,16 @@ boxplot(data,'Orientation','horizontal')
 xlabel(variables(i));
 t = append('Mn = ',string(mu),' ± ',string(sigma),' °C (1σ)');
 s = append('Md = ',string(med_T),' °C (IQR =  ',string(rT1),'-',string(rT3),')');
-title({t,s})
+title({t,s});clc;
 end
 
 fig2 = figure(2);
 row = ceil(length(variables)/3);
+t = tiledlayout('flow');
 set(fig2,'Units','centimeters')
-set(fig2,'Position',[0 0 0.9*21 row*1/4*29])
+set(fig2,'Position',[0 0 0.9*21 row*1/5*29])
 for i = 1:size(mod,2)
-subplot(row,3,i)
+nexttile
 data = P_variation(:,i);
 mu = mean(data); sigma = std(data);
 medT = median(data); rT3 = quantile(data,0.75); rT1 = quantile(data,0.25); 
@@ -92,7 +93,7 @@ xlabel(variables(i));
 t = append('Mn = ',string(mu),' ± ',string(sigma),' bar (1σ)');
 s = append('Md = ',string(med_T),' bar');
 p = append('(IQR =  ',string(rT1),'-',string(rT3),')');
-title({t,s,p})
+title({t,s,p});clc;
 end
 
 print(fig1,"FIGURES/L1_fig1.pdf");
