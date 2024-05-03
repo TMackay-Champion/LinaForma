@@ -77,20 +77,21 @@ end
 
 fig2 = figure(2);
 set(fig2,'Units','centimeters')
-set(fig2,'Position',[0 0 0.9*21 0.9*21])
+set(fig2,'Position',[0 0 0.9*21 1*21])
 row = ceil(length(variables)/3);
 for i = 1:size(mod,2)
 subplot(row,3,i)
 data = P_variation(:,i);
 mu = mean(data); sigma = std(data);
 medT = median(data); rT3 = quantile(data,0.75); rT1 = quantile(data,0.25); 
-med_T = ceil(medT/100)*100; rT3 = ceil(rT3/100)*100; rT1 = ceil(rT1/100)*100;
-mu = ceil(mu/100)*100; sigma = ceil(sigma/100)*100;
+med_T = ceil(medT/50)*50; rT3 = ceil(rT3/50)*50; rT1 = ceil(rT1/50)*50;
+mu = ceil(mu/50)*50; sigma = ceil(sigma/50)*50;
 boxplot(data/1000,'Orientation','horizontal')
 xlabel(variables(i));
 t = append('Mn = ',string(mu),' ± ',string(sigma),' bar (1σ)');
-s = append('Md = ',string(med_T),' bar (IQR =  ',string(rT1),'-',string(rT3),')');
-title({t,s})
+s = append('Md = ',string(med_T),' bar');
+p = append('(IQR =  ',string(rT1),'-',string(rT3),')');
+title({t,s,p})
 end
 
 print(fig1,"FIGURES/L1_fig1.pdf");
