@@ -26,7 +26,7 @@ There are three key packages:
 
 Citation
 --------
-If you use this package in your work, please cite the following:
+If you find this package useful, please do consider citing it using the following::
 
 ```console
 Mackay-Champion, T., and Cawood, I.P., 2024. [ZENODO REPOSITORY COMING].
