@@ -6,6 +6,8 @@
   </a>
 </p>
 
+[![DOI](https://zenodo.org/badge/790819288.svg)](https://zenodo.org/doi/10.5281/zenodo.11110440)
+
  <p align="center">
 <img src="https://github.com/TMackay-Champion/LinaForma/blob/05e58a21e651066dc0452beaa799e8eab52530d0/images/logo_heatmap.jpg", width="50%">
 </p>
