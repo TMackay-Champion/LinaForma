@@ -4,7 +4,6 @@
 <a href="https://zenodo.org/doi/10.5281/zenodo.11110440">
   <img src="https://zenodo.org/badge/790819288.svg" alt="DOI">
 </a>
-</p>
   <!-- License -->
   <a href="https://www.gnu.org/licenses/gpl-3.0">
     <img src="https://img.shields.io/badge/License-GPLv3-blue.svg" />
