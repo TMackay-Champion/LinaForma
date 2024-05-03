@@ -7,7 +7,7 @@ model = 'inputs/forward_model.csv'; % Forward models.
 measurements = 'inputs/InputB.csv'; % Measurements
 
 % ====== Data type ======
-raw = 0; % What type of data do you have? 1 = all measurements. 0 = mean and std. of variables.
+raw = 1; % What type of data do you have? 1 = all measurements. 0 = mean and std. of variables.
 
 % ====== Select P-T point for forward model data ======
 T_best = 590; % Select the T point to which results will be compared.
@@ -67,10 +67,10 @@ for i = 1:tmp
 end
 
 fig1 = figure(1);
+row = ceil(length(variables)/3)+1;
 set(fig1,'Units','centimeters')
-set(fig1,'Position',[0 0 0.9*21 0.9*21])
+set(fig1,'Position',[0 0 0.9*21 row*1/4*29])
 for i = 1:length(variables)
-    row = ceil(length(variables)/3)+1;
     subplot(row,3,i)
     plot(x_axis(i,:),observed_dist(i,:)); hold on
     plot([data(1,i),data(1,i)],[0 max(observed_dist(i,:))],'r--','LineWidth',2)
@@ -81,7 +81,9 @@ for i = 1:length(variables)
         plot([(syn_mean(:,i)-2*syn_sigma(:,i)) (syn_mean(:,i)-2*syn_sigma(:,i))],[0 max(observed_dist(i,:))])
         plot([(syn_mean(:,i)+2*syn_sigma(:,i)) (syn_mean(:,i)+2*syn_sigma(:,i))],[0 max(observed_dist(i,:))])
     end
-    t = append(string(mn(i)),' ± ',string(sigma(i)));
+    mnT = round(mn(i),2,'significant');
+    sigT = round(sigma(i),2,'significant');
+    t = append('Mean = ',string(mnT),' ± ',string(sigT),' (1σ)');
     title(t);
     ylabel('P.D.E.')
     xlabel(string(variables(i)))

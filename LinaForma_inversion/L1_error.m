@@ -58,8 +58,9 @@ end
 
 % Plots
 fig1 = figure(1);
+row = ceil(length(variables)/3);
 set(fig1,'Units','centimeters')
-set(fig1,'Position',[0 0 0.9*21 0.9*21])
+set(fig1,'Position',[0 0 0.9*21 row*1/4*29])
 for i = 1:size(mod,2)
 row = ceil(length(variables)/3);
 subplot(row,3,i)
@@ -76,9 +77,9 @@ title({t,s})
 end
 
 fig2 = figure(2);
-set(fig2,'Units','centimeters')
-set(fig2,'Position',[0 0 0.9*21 1*21])
 row = ceil(length(variables)/3);
+set(fig2,'Units','centimeters')
+set(fig2,'Position',[0 0 0.9*21 row*1/4*29])
 for i = 1:size(mod,2)
 subplot(row,3,i)
 data = P_variation(:,i);
