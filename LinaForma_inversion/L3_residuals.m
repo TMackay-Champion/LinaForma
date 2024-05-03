@@ -89,11 +89,11 @@ for i = 1:length(variables)
     ylabel('P.D.E.')
     xlabel(string(variables(i)))
 end
-if raw == 0
-    lg = legend({'Observations','Model result','μ - 2σ','μ + 2σ'});
-elseif raw ~= 0
-    lg = legend({'Observations','Model result','Minimum observation','Maximum observation'});
-end
-lg.Layout.Tile = 'South';
-print(fig1,"FIGURES/L3_fig1.pdf",'-dpdf','-bestfit')
+% if raw == 0
+%     lg = legend({'Observations','Model result','μ - 2σ','μ + 2σ'});
+% elseif raw ~= 0
+%     lg = legend({'Observations','Model result','Minimum observation','Maximum observation'});
+% end
+% lg.Layout.Tile = 'South';
+print('-vector',fig1,"FIGURES/L3_fig1.pdf",'-dpdf','-bestfit')
 disp('FINISHED')

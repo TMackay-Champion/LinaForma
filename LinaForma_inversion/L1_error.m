@@ -88,7 +88,7 @@ mu = mean(data); sigma = std(data);
 medT = median(data); rT3 = quantile(data,0.75); rT1 = quantile(data,0.25); 
 med_T = ceil(medT/50)*50; rT3 = ceil(rT3/50)*50; rT1 = ceil(rT1/50)*50;
 mu = ceil(mu/50)*50; sigma = ceil(sigma/50)*50;
-boxplot(data/1000,'Orientation','horizontal')
+boxplot(data,'Orientation','horizontal')
 xlabel(variables(i));
 t = append('Mn = ',string(mu),' ± ',string(sigma),' bar (1σ)');
 s = append('Md = ',string(med_T),' bar');
@@ -96,8 +96,8 @@ p = append('(IQR =  ',string(rT1),'-',string(rT3),')');
 title({t,s,p});clc;
 end
 
-print(fig1,"FIGURES/L1_fig1.pdf");
-print(fig2,"FIGURES/L1_fig2.pdf");
+print('-image',fig1,"FIGURES/L1_fig1",'-dpdf');
+print('-image',fig2,"FIGURES/L1_fig2",'-dpdf');
 disp('FINISHED')
 
 

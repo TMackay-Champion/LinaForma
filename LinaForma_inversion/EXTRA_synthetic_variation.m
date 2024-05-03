@@ -75,5 +75,5 @@ for i = 1:size(mod,2)
     clc;
 
 end
-print('-image',fig3,"FIGURES/Lextra_fig1",'-dpdf');
+print(fig3,"FIGURES/Lextra_fig1",'-dpdf');
 disp('FINISHED')
