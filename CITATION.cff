@@ -3,10 +3,10 @@ message: "If you find this package useful, please do consider citing it using th
 authors:
 - family-names: "Mackay-Champion"
   given-names: "Tobermory"
-  orcid: "https://orcid.org/0000-0000-0000-0000"
+  orcid: "https://orcid.org/0000-0002-6132-3327"
 - family-names: "Cawood"
   given-names: "Ian"
-  orcid: "https://orcid.org/0000-0000-0000-0000"
+  orcid: "https://orcid.org/0000-0002-3903-8714"
 title: "LinaForma"
 version: 1.0.
 doi: 10.5281/zenodo.11110441
