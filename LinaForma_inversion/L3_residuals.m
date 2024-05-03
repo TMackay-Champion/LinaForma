@@ -81,7 +81,7 @@ for i = 1:length(variables)
         plot([(syn_mean(:,i)-2*syn_sigma(:,i)) (syn_mean(:,i)-2*syn_sigma(:,i))],[0 max(observed_dist(i,:))])
         plot([(syn_mean(:,i)+2*syn_sigma(:,i)) (syn_mean(:,i)+2*syn_sigma(:,i))],[0 max(observed_dist(i,:))])
     end
-    mnT = round(mn(i),2,'significant');
+    mnT = round(mn(i),3,'significant');
     sigT = round(sigma(i),2,'significant');
     t = append('Mean = ',string(mnT),' ± ',string(sigT),' (1σ)');
     title(t);
